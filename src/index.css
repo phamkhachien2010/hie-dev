@@ -1,7 +1,6 @@
-body a {
-    color: white;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body a {
+    color: white;
+}

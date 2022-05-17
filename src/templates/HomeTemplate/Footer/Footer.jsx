@@ -29,7 +29,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase dark:text-gray-50">Company</h3>
+                        <h3 className="tracking-wide uppercase dark:text-gray-50">Front-end</h3>
                         <ul className="space-y-1">
                             <li>
                             <NavLink rel="noopener noreferrer" style={{textDecoration:'none'}} className='text-white' to="/">Link</NavLink>
@@ -40,7 +40,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="uppercase dark:text-gray-50">Developers</h3>
+                        <h3 className="uppercase dark:text-gray-50">Back-end</h3>
                         <ul className="space-y-1">
                             <li>
                             <NavLink rel="noopener noreferrer" style={{textDecoration:'none'}} className='text-white' to="/">Link</NavLink>

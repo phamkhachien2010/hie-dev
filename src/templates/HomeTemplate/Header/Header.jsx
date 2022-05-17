@@ -19,7 +19,7 @@ export default function Header(props) {
     }
 
     return (
-        <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-100">
+        <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-100 fixed">
 
             <div className="container flex lg:justify-around justify-between h-16 mx-auto">
                 <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" className="flex items-center p-2">
@@ -30,7 +30,7 @@ export default function Header(props) {
                         <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>Home</NavLink>
                     </li>
                     <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/frontend')}`}>About me</NavLink>
+                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>About me</NavLink>
                     </li>
                     <li className="flex">
                         <NavLink rel="noopener noreferrer" to="/frontend" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/frontend')}`}>Front-end</NavLink>
@@ -43,9 +43,9 @@ export default function Header(props) {
                     </li>
                 </ul>
                 <div className="items-center flex-shrink-0 hidden lg:flex">
-                    <Space direction="vertical">
+                    {/* <Space direction="vertical">
                         <Search placeholder="input search text" onSearch={onSearch} allowClear style={{ width: 250 }} />
-                    </Space>
+                    </Space> */}
                 </div>
                 <button className="p-4 lg:hidden" onClick={() => {
                     if (blockHidden === 'block') {
