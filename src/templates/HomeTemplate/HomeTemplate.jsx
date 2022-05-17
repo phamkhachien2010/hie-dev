@@ -10,7 +10,7 @@ export default function HomeTemplate(props) {
     return (
         <Route {...restProps} render={(propsRoute) => {
             return <div className='dark'>
-                <Header />
+                <Header {...propsRoute} />
 
                 <Component {...propsRoute} />
 
