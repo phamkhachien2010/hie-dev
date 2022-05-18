@@ -1,6 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+    scroll-behavior: smooth;
+}
+
 body a {
     color: white;
+}
+
+body a:hover {
+    text-decoration: underline;
+}
+
+li .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+li .ant-select-single.ant-select-open .ant-select-selection-item {
+    color: white;
+}
+
+li .dropdown-item.active,
+.dropdown-item:active {
+    color: black;
+    background-color: rgb(99, 99, 99);
 }

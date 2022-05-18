@@ -17,8 +17,8 @@ function App() {
         <HomeTemplate path='/home' exact Component={HomePage} />
         <HomeTemplate path='/about' exact Component={AboutMe} />
         
-        <HomeTemplate path='/backend' exact Component={BackEnd} />
-        <HomeTemplate path='/frontend' exact Component={FrontEnd} />
+        <HomeTemplate path='/dev/backend' exact Component={BackEnd} />
+        <HomeTemplate path='/dev/frontend' exact Component={FrontEnd} />
 
         <HomeTemplate path='/library' exact Component={Librery} />
 
