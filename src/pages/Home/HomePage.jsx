@@ -49,9 +49,9 @@ export default function HomePage(props) {
         <section className="px-5 bg-indigo-200 text-center py-5">
           <div className='container'>
             <h1 className='text-4xl font-bold'>Hello, Welcome you</h1>
-            <p className='text-xl text-left'>Xin chào các bạn! Đây là blog nói về những hiểu biết của mình về lập trình từ front-end đến back-end và một số những chia sẻ đời thường mà mình tích cóp được trong thời gian đi làm.</p>
-            <p className='text-left text-xl'>Không những vậy blog này còn chia sẻ những câu chuyện đời sống bình thường mà hầu như ai cũng gặp ít nhiều trong quãng thời gian sống của mình.</p>
-            <p className='text-left' style={{ fontStyle: 'italic' }}>Hiện tại thì mình mới phát triển phiên bản tiếng Anh và tiếng Việt trên blog này, mong các bạn thông cảm!</p>
+            <p className='text-xl text-left'>Xin chào các bạn! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc. Những anh/chị HR preview giúp mình với ạ.</p>
+            {/* <p className='text-left text-xl'>Không những vậy blog này còn chia sẻ những câu chuyện đời sống bình thường mà hầu như ai cũng gặp ít nhiều trong quãng thời gian sống của mình.</p> */}
+            {/* <p className='text-left' style={{ fontStyle: 'italic' }}>Hiện tại thì mình mới phát triển phiên bản tiếng Anh và tiếng Việt trên blog này, mong các bạn thông cảm!</p> */}
             <p className='text-lg'>Và đây là câu châm ngôn ưa thích của mình: <span className='text-gray-500'>Đỉnh cao của hoàn hảo là sự đơn giản!</span></p>
           </div>
         </section>

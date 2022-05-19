@@ -2,7 +2,6 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react';
 import { Menu, Dropdown, Space } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
 
 
 export default function Header(props) {
@@ -19,7 +18,7 @@ export default function Header(props) {
         return ''
     }
 
-    const menu = (
+    const menuDev = (
         <Menu
             items={[
                 {
@@ -34,6 +33,21 @@ export default function Header(props) {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/dev/fulllstack">Fullstack</NavLink>,
                     key: '2',
                 },
+                {
+                    type: 'divider',
+                },
+            ]}
+        />
+    );
+
+    const menuApp = (
+        <Menu
+            items={[
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/app/todolist">Todo list</NavLink>,
+                    key: '0',
+                },
+                
                 {
                     type: 'divider',
                 },
@@ -56,7 +70,7 @@ export default function Header(props) {
                         <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>About me</NavLink>
                     </li>
                     <li className="flex">
-                        <Dropdown overlay={menu} trigger={['click']}>
+                        <Dropdown overlay={menuDev} trigger={['click']}>
                             <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/dev')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     DEV
@@ -66,7 +80,14 @@ export default function Header(props) {
                         </Dropdown>
                     </li>
                     <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/library" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/library')}`}>Library</NavLink>
+                    <Dropdown overlay={menuApp} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Ứng dụng
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>                        
                     </li>
                 </ul>
                 <div className="items-center flex-shrink-0 hidden lg:flex">

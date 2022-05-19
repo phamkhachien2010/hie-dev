@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function Footer() {
     return (
         <footer className="px-4 dark:bg-gray-800 dark:text-gray-100">
-            <h3 className='text-white text-xl text-center py-3'>Cảm ơn bạn đã dành chút thời gian quý báu của mình để xem hết website !</h3>
+            <h3 className='text-white text-xl text-center py-3'>Cảm ơn bạn đã dành chút thời gian quý báu của mình để xem hết trang web !</h3>
             <div className="container flex flex-col justify-around py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 border-b-2 border-white">
                 <div className="lg:w-1/3 m-auto">
                     <NavLink rel="noopener noreferrer" to="/" className='pl-5'>
@@ -27,10 +27,10 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Chia sẻ tào lao</h3>
+                        <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Ứng dụng</h3>
                         <ul className="space-y-1">
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/">Link</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/">Todo list</NavLink>
                             </li>
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/">Link</NavLink>

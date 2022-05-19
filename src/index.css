@@ -28,3 +28,8 @@ li .dropdown-item.active,
     color: black;
     background-color: rgb(99, 99, 99);
 }
+
+section .ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap,
+.ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-wrap {
+    justify-content: center;
+}

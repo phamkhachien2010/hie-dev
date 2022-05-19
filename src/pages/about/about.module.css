@@ -1,0 +1,144 @@
+.aboutme__content {
+    background-color: #bbdefb;
+}
+
+.about__id {
+    position: relative;
+    height: 600px;
+}
+
+.about {
+    height: 300px;
+    background-color: #009688;
+}
+
+.about__id .about__content {
+    position: absolute;
+    top: 150px;
+    left: 15%;
+    padding: 50px 0 25px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #efebe9;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 45px -7px rgba(0, 0, 0, 0.68);
+}
+
+.about__content img {
+    width: 200px;
+    height: 250px;
+    -webkit-box-shadow: 0px 0px 56px -17px rgba(33, 1, 33, 1);
+    -moz-box-shadow: 0px 0px 56px -17px rgba(33, 1, 33, 1);
+    box-shadow: 0px 0px 56px -17px rgba(33, 1, 33, 1);
+}
+
+.about__content .infomation__info {
+    background-color: #212121;
+    color: #fff;
+    padding: 5px 15px;
+    text-align: center;
+    width: 100px;
+}
+
+.information .info__text {
+    margin: 15px 0;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.information .info__icon {
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information .info__icon i {
+    font-size: 16px;
+    line-height: 32px;
+}
+
+.info__icon a {
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+}
+
+.info__icon.icon__facebook a {
+    background-color: #1976d2;
+}
+
+.info__icon.icon__github a {
+    background-color: #000;
+}
+
+.info__icon.icon__facebook i {
+    color: #fff;
+}
+
+.info__icon.icon__github i {
+    color: #fff;
+}
+
+
+/* RESUME */
+
+
+/* #resume {
+    background-image: url(require(../../assets/img/backgroud-resume.jpg));
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 0;
+} */
+
+.resume__content {
+    width: 60%;
+    margin: auto;
+}
+
+
+/* SKILLS */
+
+
+/* #skills {
+    background-image: url('../img/background-skill.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30px 0;
+} */
+
+.skills .skill__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+}
+
+.skills__id .skills {
+    height: 50px;
+    border: 2px solid #212121;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.skills__id .skills h6 {
+    font-weight: bold;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.skills .skill_item {
+    padding: 5px 20px;
+    border: 1px solid;
+    border-radius: 20px;
+    margin-right: 20px;
+}
