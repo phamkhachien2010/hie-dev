@@ -142,3 +142,19 @@
     border-radius: 20px;
     margin-right: 20px;
 }
+
+.project__overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 80px 50px;
+    transition: all .5s;
+    transform: translateY(-100%);
+}
+
+.project__item:hover .project__overlay {
+    transform: translateY(0);
+}

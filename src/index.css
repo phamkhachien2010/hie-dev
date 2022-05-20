@@ -33,3 +33,25 @@ section .ant-tabs>.ant-tabs-nav .ant-tabs-nav-wrap,
 .ant-tabs>div>.ant-tabs-nav .ant-tabs-nav-wrap {
     justify-content: center;
 }
+
+section .ant-carousel .slick-dots li button {
+    background-color: #1976d2;
+    opacity: 0.3;
+}
+
+section .ant-carousel .slick-dots {
+    z-index: 1;
+}
+
+section .ant-carousel .slick-dots li.slick-active button {
+    background-color: #1976d2;
+    opacity: 1;
+}
+
+section .ant-carousel .slick-dots-bottom {
+    bottom: -30px;
+}
+
+.contact__form .ant-form-item-label>label {
+    color: wheat;
+}

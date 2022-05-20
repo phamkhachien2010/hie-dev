@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Form, Input } from 'antd';
+import { useFormik } from 'formik';
 
 
 export default function HomePage(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+    return () => {
+      
+    }
+  }, [])
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      name: '',
+      comment: '',
+    },
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+  
 
   const formItemLayout = {
     labelCol: {
@@ -88,6 +109,7 @@ export default function HomePage(props) {
           <h2 className='text-3xl font-bold text-center'>Contact</h2>
           <Form
             {...formItemLayout}
+            onSubmitCapture={formik.handleSubmit}
             scrollToFirstError
           >
             <Form.Item
@@ -104,7 +126,7 @@ export default function HomePage(props) {
                 },
               ]}
             >
-              <Input />
+              <Input name='email' onChange={formik.handleChange} />
             </Form.Item>
 
             <Form.Item
@@ -118,7 +140,7 @@ export default function HomePage(props) {
                 },
               ]}
             >
-              <Input />
+              <Input name='name' onChange={formik.handleChange} />
             </Form.Item>
 
             <Form.Item
@@ -131,7 +153,7 @@ export default function HomePage(props) {
                 },
               ]}
             >
-              <Input.TextArea showCount maxLength={200} />
+              <Input.TextArea name='comment' onChange={formik.handleChange} showCount maxLength={200} />
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">

@@ -7,7 +7,7 @@ export default function Footer() {
             <h3 className='text-white text-xl text-center py-3'>Cảm ơn bạn đã dành chút thời gian quý báu của mình để xem hết trang web !</h3>
             <div className="container flex flex-col justify-around py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0 border-b-2 border-white">
                 <div className="lg:w-1/3 m-auto">
-                    <NavLink rel="noopener noreferrer" to="/" className='pl-5'>
+                    <NavLink rel="noopener noreferrer" to="/" className='ml-5 inline-block'>
                     <img style={{ width: '100px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
                     </NavLink>
                 </div>

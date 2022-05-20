@@ -1,16 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './about.module.css'
-import { Tabs } from 'antd';
+import { Button, Form, Input, Tabs } from 'antd';
 import { Carousel } from 'antd';
-
-const contentStyle = {
-  height: '160px',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-};
+import { useFormik } from 'formik';
 
 const { TabPane } = Tabs;
 
@@ -82,27 +75,27 @@ const myProject = [
     listProject: [
       {
         projectName: 'Housing homepage',
-        Description: 'Homepage about homestay and travel',
-        Technology: 'HTML5, CSS3, Jquery, Owlcarousel',
+        description: 'Homepage about homestay and travel',
+        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-housing-deploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/housing-deploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/281572731_756054525535758_4415094465549776548_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=m5KXrF-a9poAX_fkg9I&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT8PF-t1YYkFgjmg6hR9GQyOwZqTYWmbBYtobo-IAgwqUw&oe=628B9467'
       },
       {
         projectName: 'Bake homepage',
-        Description: 'Homepage about cakes',
-        Technology: 'HTML5, CSS3, Jquery, Owlcarousel',
+        description: 'Homepage about cakes',
+        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-bake-deploy.netlify.app/',
         linkGithub: 'https://github.com/phamkhachien2010/bake-deploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-14.fna.fbcdn.net/v/t39.30808-6/280500673_756054585535752_721281389742887875_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=L1tIYAbBJOEAX-O0c6H&tn=gSge2FSkOv9qrkI9&_nc_ht=scontent.fsgn5-14.fna&oh=00_AT8ypeHOCOKGVBhXjymT5TU6zQuODo_IktNQ4eHhD7F6lw&oe=628B393A'
       },
       {
         projectName: 'Merged homepage',
-        Description: 'Homepage about a busines company',
-        Technology: 'HTML5, CSS3, Jquery, Owlcarousel',
+        description: 'Homepage about a busines company',
+        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-merged.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/mergedDeploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-6/283096233_756054648869079_2346049001088418398_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=9IzfbyoDlGIAX9u1hAQ&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT_Hw2NhCvXYvVzL2GZ0Yo82Nc8k-Efj7TR9SxWCQYrXfw&oe=628BA485'
       },
     ]
   },
@@ -111,27 +104,27 @@ const myProject = [
     listProject: [
       {
         projectName: 'Honda homepage',
-        Description: 'Homepage about Honda',
-        Technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
+        description: 'Homepage about Honda',
+        technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-hondadeploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/hondaDeploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/280450918_756054548869089_8938495260015686792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=EFrv1vjF5M0AX9rnmiH&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT9bs9chM3cjebx4gv0Vwgmp3Vcx-X3s8PgXc1MFhA4eEA&oe=628BDC5E'
       },
       {
         projectName: 'Instruction homepage',
-        Description: 'Homepage about job in Design',
-        Technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
+        description: 'Homepage about job in Design',
+        technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-instruction-deploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/instruction-deploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-13.fna.fbcdn.net/v/t39.30808-6/281271978_756054662202411_3964373805953894479_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=PwJ1M3un_okAX_Hnxcz&tn=gSge2FSkOv9qrkI9&_nc_ht=scontent.fsgn5-13.fna&oh=00_AT8RpuqmJqlUaYpCUDEFHmhtMWQJzreMvWE4wmkuxdO0TQ&oe=628C2751'
       },
       {
         projectName: 'Elearning homepage',
-        Description: 'Homepage about course of Programing',
-        Technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
+        description: 'Homepage about course of Programing',
+        technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-elearningdeploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/elearning-depoly',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-6/281739162_756054595535751_7767835138963970455_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=DrAUyFxTBCgAX8J5K69&_nc_ht=scontent.fsgn5-15.fna&oh=00_AT9HTIm2jcKEzPuPgLngTtXHJd2-hA02NAfp5X8xJxzvZA&oe=628B0F16'
       },
     ]
   },
@@ -140,25 +133,44 @@ const myProject = [
     listProject: [
       {
         projectName: 'Booking ticket movie website',
-        Description: 'Website about Booking ticket movie and manage user',
-        Technology: 'ReactJs, React functional component, redux, redux thunk ...',
+        description: 'Website about Booking ticket movie and manage user',
+        technology: 'ReactJs, React functional component, redux, redux thunk ...',
         linkDemo: 'http://phamkhachien_booking_ticket_movie.surge.s',
         linkGithub: 'https://github.com/phamkhachien2010/booking-ticket-deploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/282870019_756054705535740_7387877389122198732_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=zmkQDp_Z-jEAX95vZGt&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT8G7V2z9amt6DWaGc9_BQkMhHxoE0PGPtwaUor29Jj0aQ&oe=628B488D'
       },
       {
         projectName: 'Jira clone website',
-        Description: 'Website about about manage task and user',
-        Technology: 'ReactJs, React functional component, redux, redux saga ...',
+        description: 'Website about about manage task and user',
+        technology: 'ReactJs, React functional component, redux, redux saga ...',
         linkDemo: 'http://phamkhachien-jira-clone.surge.sh',
         linkGithub: 'https://github.com/phamkhachien2010/jira-clone-deploy',
-        bgImage: ''
+        bgImage: 'https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-6/281722640_756054475535763_6880298382982924284_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=xesBg-LFzBYAX9V0i80&_nc_oc=AQlg3Boky1VRYB6RIAzVh46EAU6MwUHXepkN_HuvopCUzQgDZv_XEubp1-Mk9Tocxrk&_nc_ht=scontent.fsgn5-2.fna&oh=00_AT_yb77vwdWI-OvKLVeog-2-jwz-arTiOml86lLTV95VCA&oe=628B6C16'
       },
     ]
   }
 ]
 
 export default function AboutMe(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+    return () => {
+      
+    }
+  }, [])
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      name: '',
+      comment: '',
+    },
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
 
   const renderLiSkills = (skills) => {
     return skills.map((skill, index) => {
@@ -179,19 +191,73 @@ export default function AboutMe(props) {
     })
   }
 
-  const renderTabContentProject = (listProject) => {
+  const renderCarouselItemProject = (listProject) => {
     return listProject.map((project, index) => {
-      return true
+      return <div key={index}>
+        <div className={`flex flex-col justify-center pl-5 ${style.project__item}`} style={{ backgroundImage: `url(${project.bgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '300px' }}>
+          <div className={style.project__overlay}>
+            <div className="text-white text-lg">
+              <div><span>Project's name: </span><span className="text-blue-400">{project.projectName}</span></div>
+              <div><span>Description: </span><span>{project.description}</span></div>
+              <div><span>Technology: </span><span>{project.technology}</span></div>
+            </div>
+            <a className='px-2 py-2 mt-3 mr-3 bg-transparent border-2 hover:no-underline inline-block rounded-lg' target="_blank" href={project.linkDemo}>Link demo</a>
+            <a className='px-2 py-2 mt-3 bg-transparent border-2 hover:no-underline inline-block rounded-lg' target="_blank" href={project.linkGithub}>Link github</a>
+          </div>
+        </div>
+      </div>
     })
   }
 
   const renderTabProject = () => {
     return myProject.map((projects, index) => {
       return <TabPane tab={projects.name} key={index}>
-        Content of Tab Pane 1
+        <div className='w-2/3 m-auto'>
+          <Carousel autoplay effect="fade">
+            {renderCarouselItemProject(projects.listProject)}
+          </Carousel>
+        </div>
       </TabPane>
     })
   }
+
+  const formItemLayout = {
+    labelCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 8,
+      },
+      lg: {
+        span: 4
+      }
+    },
+    wrapperCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 16,
+      },
+      lg: {
+        span: 18
+      }
+    },
+  };
+
+  const tailFormItemLayout = {
+    wrapperCol: {
+      xs: {
+        span: 12,
+        offset: 12,
+      },
+      sm: {
+        span: 12,
+        offset: 12,
+      },
+    },
+  };
 
   return (
     <div>
@@ -287,42 +353,68 @@ export default function AboutMe(props) {
         <h2 className='text-center text-3xl font-bold'>Những dự án đã thực hiện</h2>
         <h6 className='text-center text-lg'>Dưới đây là những dự án mình đã làm trong thời gian học tập tại <a href="#" className='text-blue-500'>Cyberlearn</a></h6>
         <Tabs defaultActiveKey="1">
-          <TabPane tab="Tab 1" key="1">
-            <div className='w-2/3 m-auto'>
-              <Carousel  effect="fade"> 
-              {/* autoplay */}
-                <div>
-                  <div className="" style={{backgroundImage:'url(https://scontent.fsgn5-13.fna.fbcdn.net/v/t1.6435-9/88107580_223192912155258_277082354743246848_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=f7qDkaFXtbAAX8Qbw6K&_nc_ht=scontent.fsgn5-13.fna&oh=00_AT_O0j2kAoSXpkprk6tXP2wl_6h6py7wu-CO7Ya35h3mLQ&oe=62ACF651)'}}>
-                    
-                    <div className="">
-                      <div><span>Project's name: </span><span className="">Housing homepage</span></div>
-                      <div><span>Description: </span><span>Homepage about homestay and travel</span></div>
-                      <div><span>Technology: </span><span>HTML5, CSS3, Jquery, Owlcarousel</span></div>
-                    </div>
-                    <button className=""><a target="_blank" href="https://phamkhachien-housing-deploy.netlify.app">Link demo</a></button>
-                    <button className=""><a target="_blank" href="https://github.com/phamkhachien2010/housing-deploy">Link github</a></button>
-                  </div>
-
-                </div>
-                <div>
-                  <h3 style={contentStyle}>2</h3>
-                </div>
-                <div>
-                  <h3 style={contentStyle}>3</h3>
-                </div>
-                <div>
-                  <h3 style={contentStyle}>4</h3>
-                </div>
-              </Carousel>
-            </div>
-          </TabPane>
-          <TabPane tab="Tab 2" key="2">
-            Content of Tab Pane 2
-          </TabPane>
-          <TabPane tab="Tab 3" key="3">
-            Content of Tab Pane 3
-          </TabPane>
+          {renderTabProject()}
         </Tabs>
+      </section>
+
+      <section className='contact__form py-5' style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg?size=626&ext=jpg&uid=R71559152&ga=GA1.2.232571487.1602147622)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+        <div className='container'>
+        <h2 className='text-center text-3xl font-bold text-white'>Contact with me</h2>
+        <Form
+          {...formItemLayout}
+          scrollToFirstError
+          onSubmitCapture={formik.handleSubmit}
+        >
+          <Form.Item
+            name="email"
+            label="Email"
+            rules={[
+              {
+                type: 'email',
+                message: 'email không hợp lệ!',
+              },
+              {
+                required: true,
+                message: 'Email không nên bỏ trống!',
+              },
+            ]}
+          >
+            <Input name='email' onChange={formik.handleChange} />
+          </Form.Item>
+
+          <Form.Item
+            name="name"
+            label="Tên của bạn"
+            rules={[
+              {
+                required: true,
+                message: 'Mình muốn biết tên của bạn!',
+                whitespace: true,
+              },
+            ]}
+          >
+            <Input name='name' onChange={formik.handleChange} />
+          </Form.Item>
+
+          <Form.Item
+            name="comment"
+            label="Comment"
+            rules={[
+              {
+                required: true,
+                message: 'Comment ở đây nhé!',
+              },
+            ]}
+          >
+            <Input.TextArea name='comment' onChange={formik.handleChange} showCount maxLength={200} />
+          </Form.Item>
+          <Form.Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit">
+              Gửi
+            </Button>
+          </Form.Item>
+        </Form>
+        </div>
       </section>
 
     </div>
