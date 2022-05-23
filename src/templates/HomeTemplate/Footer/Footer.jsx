@@ -46,6 +46,9 @@ export default function Footer() {
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/">NodeJs</NavLink>
                             </li>
+                            <li>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/">Git</NavLink>
+                            </li>
                         </ul>
                     </div>
                     <div className="space-y-3">

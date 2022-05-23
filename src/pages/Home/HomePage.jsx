@@ -90,8 +90,9 @@ export default function HomePage(props) {
         <section className='container p-5' id='frontend'>
           <h2 className='text-3xl font-bold text-center'>Front-end</h2>
           <p className='text-xl'>Front-end là gì? Front-end theo mình hiểu đơn giản là thiết kế giao diện của 1 trang web, 1 ứng dụng nào đó.</p>
+
           <div className='text-right w-2/3'>
-            <NavLink to='/frontend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Tìm hiểu chi tiết <i className="fa fa-arrow-right"></i></NavLink>
+            <NavLink to='/frontend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
           </div>
         </section>
 
@@ -100,7 +101,7 @@ export default function HomePage(props) {
             <h2 className='text-3xl font-bold text-center'>Back-end</h2>
             <p className='text-xl'>Back-end là gì? Back-end theo mình hiểu là thiết kế dữ liệu, luồng đi của dữ liệu đó khi người dùng thao tác trên giao diện của trang web.</p>
             <div className='text-right w-2/3'>
-              <NavLink to='/backend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Tìm hiểu chi tiết <i className="fa fa-arrow-right"></i></NavLink>
+              <NavLink to='/backend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
             </div>
           </div>
         </section>
