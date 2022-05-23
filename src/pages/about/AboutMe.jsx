@@ -263,8 +263,9 @@ export default function AboutMe(props) {
     <div>
       <div style={{ paddingTop: '112px' }} className={`${style.aboutme__content} grid grid-cols-12`}>
         <div className='col-span-8 container py-5 text-center flex flex-col justify-center'>
-          <h1 className='text-4xl '>PHẠM KHẮC HIỀN</h1>
+          <h1 className='text-4xl '>PHAM KHAC HIEN</h1>
           <h2 className='text-3xl text-white' >Lập trình viên Full stack</h2>
+          {/* <p className='text-left text-lg'>I am interested in new technology, always want to change my mindset </p> */}
           <p className='text-left text-lg'>Mình rất thích tìm hiểu về những công nghệ mới, học thêm những kiến thức về công nghệ, yêu thích sáng tạo, khao khát phát triển bản thân và đặt mục tiêu hoàn thành nhiệm vụ lên hàng đầu.</p>
           <div className='mt-5'>
             <NavLink to='/' target='_blank' className='bg-rose-500 border-2 rounded-full px-3 py-2 hover:bg-white hover:text-black hover:no-underline inline-block'>My CV PDF</NavLink>
@@ -350,8 +351,8 @@ export default function AboutMe(props) {
       </section>
 
       <section className='container py-5'>
-        <h2 className='text-center text-3xl font-bold'>Những dự án đã thực hiện</h2>
-        <h6 className='text-center text-lg'>Dưới đây là những dự án mình đã làm trong thời gian học tập tại <a href="#" className='text-blue-500'>Cyberlearn</a></h6>
+        <h2 className='text-center text-3xl font-bold'>My projects</h2>
+        <h6 className='text-center text-lg'>There are my projects, that i did when i learn at <a href="#" className='text-blue-500'>Cyberlearn</a></h6>
         <Tabs defaultActiveKey="1">
           {renderTabProject()}
         </Tabs>

@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 
 export default function FrontEnd(props) {
+
+  useEffect(() => {
+    window.scroll(0, 0)
+
+    return () => {
+
+    }
+  }, [])
+
   return (
     <div style={{ paddingTop: '112px' }}>
       <div style={{ backgroundImage: 'url(https://nentang.vn/wp-content/uploads/2018/07/html-css-js-course-intro.jpeg)', backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center' }}>
