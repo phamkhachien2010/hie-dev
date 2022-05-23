@@ -117,7 +117,7 @@ export default function FrontEnd(props) {
             Các thư viện được nhiều người dùng là <a className='text-blue-500' href="https://hocwebchuan.com/tutorial/jquery/">Jquery</a> và <a className='text-blue-500' href="https://topdev.vn/blog/bi-kip-toan-thu-ve-react-ma-ban-can-phai-biet-phan-1/">React</a> 
           </p>
           <p>Các framework thường được sử dụng là: <a className='text-blue-500' href="https://freetuts.net/vuejs-la-gi-871.html">Vuejs</a> và <a className='text-blue-500' href="https://itviec.com/blog/angular-la-gi/">Angular</a></p>
-          <p>Ở đây mình sẽ chia sẻ về kiến thức của React đặc biệt là <NavLink className='text-blue-500' to='/'>ReactJs</NavLink></p>
+          
         </div>
 
       </section>
@@ -128,7 +128,8 @@ export default function FrontEnd(props) {
           <p>Theo như nguyên tắc thì Front-end developer cần tạo những file <span className='font-bold'>html</span> để tạo nội dung cho trang web, tiếp đó tạo những file <span className='font-bold'>css</span> để trang trí cho trang web, và tạo những file <span className='font-bold'>js</span> để tạo các phương thức hoạt động cho trang web.</p>
           <p>Tuy nhiên, đó là nếu thiết kế tạo web tĩnh, trong thực tế thì không phải lúc nào cũng tạo ra những trang web tĩnh như vậy.</p>
           <p>FE-dev thường ứng dụng những thư viện hoặc các framework để tạo động ra những tag html và chèn luôn css theo các tag html đó. Và dùng những thư viện/framework đó để tạo ra các phương thức hoạt động của trang web.</p>          
-         <NavLink className='text-teal-700' to="/">Xem chi tiết về ReactJs</NavLink>
+          <p>Ở đây mình sẽ chia sẻ về kiến thức của React đặc biệt là <NavLink className='text-blue-500' to='/'>ReactJs</NavLink></p>
+         <NavLink className='text-teal-700' to="/dev/frontend/react">Xem chi tiết về ReactJs</NavLink>
         </div>
       </section>
     </div>

@@ -11,7 +11,7 @@ export default function Footer() {
                     <img style={{ width: '100px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
                     </NavLink>
                 </div>
-                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-3">
+                <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
                         <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Dev</h3>
                         <ul className="space-y-1">
@@ -34,6 +34,17 @@ export default function Footer() {
                             </li>
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/">Link</NavLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="space-y-3">
+                        <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Công nghệ</h3>
+                        <ul className="space-y-1">
+                            <li>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/dev/frontend/react">ReactJS</NavLink>
+                            </li>
+                            <li>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/">NodeJs</NavLink>
                             </li>
                         </ul>
                     </div>
