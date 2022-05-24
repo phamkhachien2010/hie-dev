@@ -5,6 +5,7 @@ import InfoTakeBack from './pages/admin/InfoTakeBack';
 import LibraryManager from './pages/admin/LibraryManager';
 import UserManagerTodoList from './pages/admin/UserManagerTodoList';
 import BackEnd from './pages/backEnd/BackEnd';
+import NodeJs from './pages/backEnd/NodeJs';
 import FrontEnd from './pages/frontEnd/FrontEnd';
 import ReactFolder from './pages/frontEnd/ReactFolder';
 import ReactFrontend from './pages/frontEnd/ReactFrontend';
@@ -26,6 +27,7 @@ function App() {
         <HomeTemplate path='/dev/backend' exact Component={BackEnd} />
         <HomeTemplate path='/dev/frontend' exact Component={FrontEnd} />
         <HomeTemplate path='/tech/reactjs' exact Component={ReactFrontend} />
+        <HomeTemplate path='/tech/nodejs' exact Component={NodeJs} />
         <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
 
         <HomeTemplate path='/tech/github' exact Component={GitBasic} />

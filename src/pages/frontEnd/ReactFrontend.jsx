@@ -6,13 +6,13 @@ export default function ReactFrontend() {
   const reactImgPath = require('../../assets/img/react-img.jpeg')
   const bgSection = require('../../assets/img/bg-section-react.jpg');
 
-  useEffect(() => {
-    window.scroll(0, 0)
+  // useEffect(() => {
+  //   window.scroll(0, 0)
 
-    return () => {
+  //   return () => {
 
-    }
-  }, [])
+  //   }
+  // }, [])
 
   return (
     <div style={{ paddingTop: '112px' }}>
@@ -120,7 +120,58 @@ export default function ReactFrontend() {
             <h2 className='text-2xl text-pink-300'>Các lỗi thường gặp của react.</h2>
             <div className="pl-4">
               <p>Trong quá trình sử dụng react chắc chẳn sẽ gặp một số lỗi không thể tránh khỏi.</p>
-              <p className='mb-0 pb-5'>Lỗi đầu tiên có thể gặp là không khởi tạo được react-app. Nguyên nhân là do phiên bản nodeJs trong máy đã cũ, không hỗ trợ. Cách khắc phục lỗi là cập nhật nodeJs hoặc tải bản mới.</p>
+              <p>Lỗi đầu tiên có thể gặp là không khởi tạo được react-app. Nguyên nhân là do phiên bản nodeJs trong máy đã cũ, không hỗ trợ. Cách khắc phục lỗi là cập nhật nodeJs hoặc tải bản mới.</p>
+            </div>
+          </section>
+
+          <section className='container'>
+            <h2 className='text-2xl text-pink-300'>Một số vấn đề khác của ReactJs.</h2>
+            <div className="pl-4">
+              <h3 className='text-xl text-fuchsia-200 pl-3'>Pure component</h3>
+              <p>Trong một vài trường hợp, dù props của component không hề thay đổi nhưng vẫn bị update, dẫn tới ảnh hưởng performace của app (những component không cần setState lại nhưng vẫn bị setState lại), tức là giao diện không cần thiết phải thay đổi nhưng khi load lại trang trình duyệt vẫn đi load lại toàn bộ dữ liệu của trang web đó.</p>
+              <p>Chỉ cần thay thể cụm từ Component thành PureComponent là vấn đề được giải quyết</p>
+              <p>Vậy PureComponent giải quyết vấn đề gì? PureComponent giải quyết vấn đề khi không cần setState (tức là mặt giao diện của web không cần thay đổi khi load lại trang thì không cần phải tải lại toàn bộ dữ liệu). Không nên lạm dụng PureComponent. Bản chất PureComponent là tự động kiểm tra xem nếu props và state thay đổi thì sẽ render lại giao diện. Tuy nhiên sự so sánh của react là so sánh tham chiếu (tức là so sánh kiểu dữ liệu nguyên thuỷ), nếu như kiểu dữ liệu của props và state là những kiểu dữ liệu nguyên thuỷ thì không sao, nhưng nếu là object hoặc array thì sẽ khác. Thay đổi thuộc tính của object hoặc mảng thì react sẽ không phát hiện ra thay đổi nên sẽ không render lại trang.</p>
+              <h3 className='text-xl text-fuchsia-200 pl-3'>Redux</h3>
+              <p>Bình thường khi truyền props sẽ truyền từ component cha để component con sau đó truyền qua các component cháu đằng sau. Từ đó mới lấy được giá trị của state render ra component đang thực hiện. Đó là vấn đề, như vậy sẽ rất khó quản lý được props là của component nào, và phải truyền đi qua rất nhiều component khác nhau. Redux sinh ra để giải quyết vấn đề đó. Chỉ cần lưu lại states trên một reducer, và các component nào muốn gọi state đó ra thì gọi đến reducer của redux là giải quyết được vấn đề.</p>
+              <h3 className='text-xl text-fuchsia-200 pl-3'>Lifecycle react</h3>
+              <img src="https://images.viblo.asia/c3c37d71-9a8f-4250-b7a3-d01cb1cc525e.png" alt="" />
+              <p className='font-bold text-lg mb-0 mt-3'>Lifecycle có 3 phần chính là Mouting, Updating và Unmount</p>
+              <p className='text-violet-400 font-bold'>Mounting có 3 thành phần chính là CompponentWillMonut, render và ComponentDidMount.</p>
+              <p>ComponentWillMount() là hàm Hàm chạy ngay khi component được hiển thị lên giao diện (nơi thường được dùng để tạo thuộc tính state và props</p>
+              <p>Render() là hàm dùng dữ liệu đã có để tạo ra giao diện của trang.</p>
+              <p>ComponentDidMount() sẽ được gọi sau khi render ra giao diện, ở đây là nơi thực hiện các phương thức kết nối với back-end, update state.</p>
+              <p className='text-violet-400 font-bold'>Updating có những thành phần như sau:</p>
+              <p>componentWillReceiveProps(newProps): được thực thi ngay khi props component nhận và 1 props mới. (component thay đổi, props chạy)</p>
+              <p>shouldComponentUpdate (newProps, newState): tự chạy sau CWRP và trước render => chạy khi props hoặc state thay đổi. Trả về true hoặc false (true cho phép render chạy, false không render) thường dùng thay thế Pure component</p>
+              <p>ComponentWillUpdate(newProps, newState): chạy sau render. Tuy nhiên tránh setState ở component này vì đôi lúc ảnh hưởng đển shouldComponentUpdate thường dùng để xử lý JS ngoài react</p>
+              <p>ComponentDidUpdate(prevProps, prevState): nhận vào 2 tham số là props trước khi render và state trước khỉ render thường dùng để gán props vào state hoặc để xử ký các param mới từ url</p>
+              <p className='text-violet-400 font-bold'>Unmounting:</p>
+              <p>ComponentWillUnmount: sẽ được gọi trước khi 1 component bị remove khỏi 1 dom. Nếu 1 component khởi tạo bất kỳ 1 method nào mà method đó yêu cầu phải clean up thì componentWillUnmount là nơi nên đặt clean up</p>
+              <a className='text-blue-300' href="https://viblo.asia/p/lifecycle-component-trong-reactjs-gGJ59jzxKX2" target='_blank'>Xem thêm lifecycle tại đây</a>
+              <p className='mt-2'>Tuy nhiên lifecycle được sử dụng trong react class compponent. Khi sử dụng react functional components thì sẽ sử dụng các hooks để thay thế.</p>
+
+              <h3 className='text-xl text-fuchsia-200 pl-3 mt-3'>Hooks</h3>
+              <p>Hooks áp dụng cho react version 16.8 trở đi. Hooks cho phép sử dụng state và props trong react functional component, hooks thay thế cho lifecycle trong class component.</p>
+              <p>Chỉ gọi hooks ở trên cùng, không gọi các hooks ở trong những vòng lặp, câu điều kiện hay các function lồng nhau, và đương nhiên là chỉ sử dụng hooks với react functional component.</p>
+              <p className='text-violet-400 font-bold'>Các hooks thường được sử dụng:</p>
+              <p>useState hook: thay thế cho state trong class component. kết quả trả về là một state và một hàm setState. useState được dùng để thay thế thuộc tính this.state trong class component. Khai báo như sau</p>
+              <p>useEffect hook: cho phép thực hiện thay đổi các state ngoài hàm, 1 useEffect hoàn thiện ứng với 3 lifecycle là ComponentDidMount, didUpdate, ComponentWillUnmount</p>
+              <img src={require('../../assets/img/useEffect.jpg')} alt="" />
+              <p>Khi viết useEffect cơ bản sẽ cần truyền các hàm và tham số. hàm first là  hàm thực thi khi cập nhật state, giống hàm ComponentDidMount tức chạy 1 lần đầu tiên sau khi render giao diện thành công. Hàm second là hàm thực thi sau khi remove một component tương đương với ComponentWillUnmount. Ngoài ra còn truyền vào các tham số ở third, là điều kiện để chạy hàm first, tức là hàm first chỉ thực thi khi các tham số ở third thay đổi.</p>
+              <p>useRef: dùng để DOM đến 1 các component để lấy các giá trị và các thuộc tính cả component đó (thường là input), dùng để lưu giá trị (mỗi lần setState thì giá trị của useRef giữ nguyên, lấy giá trị thông qua thuộc tính current)</p>
+              <p>useSelector và useDispatch: 2 thư viện này không phải của react core cung cấp mà thuộc redux cho phép truy cập đến reducer dễ dàng và ngắn gọn. useSelector giúp lấy được state trong file reducer của redux, useDispatch giúp dispatch 1 action lên reducer để thay đổi giá trị của state, props</p>
+              <a className='text-blue-300' href="https://viblo.asia/p/cung-tim-hieu-ve-cac-hook-trong-react-hooks-Ljy5VYgjlra" target='_blank'>Xem thêm react hooks tại đây</a>
+
+              <h3 className='text-xl text-fuchsia-200 pl-3 mt-3'>React-router-dom</h3>
+              <p>React-router-dom là cơ chế trong single page giúp chuyển đổi qua lại giữa các component, phân các component theo đường dẫn dựa trên url </p>
+              <p>React-router-dom dùng thẻ NavLink có thuộc tính to thay thế thẻ a có thuộc tính href dùng để link qua lại giữa các pages</p>
+              <p>Khi component được định nghĩa trong thẻ Route thì các component đó có những thuộc tính như sau:</p>
+              <p>history: Giúp di chuyển qua lại giũa các route. Bằng nhiều phương thức khác nhau như push hay goBack, Ngoài ra nó còn hỗ trợ lấy các giá trị tham số thông qua thuộc tính search</p>
+              <p>history.goback(): dùng để quay lại trang trước khi thực hiện thao tác</p>
+              <p>history.push('/path'): khi thực hiện xong thao tác sẽ quay lại trang chỉ định trong push (chuyển hướng đến trang tương ứng) khi back lại sẽ quay lại trang thao tác</p>
+              <p>match cung cấp một số thuộc tính hỗ trợ như: path hiện tại, các tham số được truyền qua url, ... chỉ cần console.log(props.match) là sẽ biết được thuộc tính match có những thuộc tính con nào.</p>
+              <p>location: cung cấp key là thuộc tính được tạo ngẫu nhiên, path là đường dẫn, search là phần phía sau của pathname trên thanh url</p>
+              <p>Và một số thuộc tính khác</p>
             </div>
           </section>
         </div>

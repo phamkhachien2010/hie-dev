@@ -44,7 +44,7 @@ export default function ReactFolder() {
           <img src={require('../../assets/img/saga.jpg')} alt="" />
           <p>Gọi các api được định nghĩa từ service</p>
           <p>Như vậy là hoàn thành 1 setup tương đối đầy đủ về 1 app react sử dụng redux-saga để rest API</p>
-          <a className='text-fuchsia-800' target='_blank' href="https://github.com/phamkhachien2010/project-frontEnd-saga-co-ban">Có thể tham khảo tại đây</a>
+          <a className='text-fuchsia-800' target='_blank' href="https://github.com/phamkhachien2010/project-frontEnd-saga-co-ban">Có thể tham khảo project tại đây</a>
         </div>
       </div>
       <div className="container">
