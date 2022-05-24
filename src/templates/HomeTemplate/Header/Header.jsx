@@ -30,10 +30,6 @@ export default function Header(props) {
                     key: '1',
                 },
                 {
-                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/dev/fulllstack">Fullstack</NavLink>,
-                    key: '2',
-                },
-                {
                     type: 'divider',
                 },
             ]}
@@ -45,6 +41,54 @@ export default function Header(props) {
             items={[
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/app/todolist">Todo list</NavLink>,
+                    key: '0',
+                },
+                
+                {
+                    type: 'divider',
+                },
+            ]}
+        />
+    );
+    const menuTech = (
+        <Menu
+            items={[
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/reactjs">ReactJs</NavLink>,
+                    key: '0',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/nodejs">NodeJs</NavLink>,
+                    key: '0',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/github">Github</NavLink>,
+                    key: '0',
+                },
+                
+                {
+                    type: 'divider',
+                },
+            ]}
+        />
+    );
+    const menuOther = (
+        <Menu
+            items={[
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/cau-hinh-folder-react">Folder reactJs</NavLink>,
+                    key: '0',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Folder nodeJs</NavLink>,
+                    key: '0',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Library</NavLink>,
+                    key: '0',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Lệnh thường dùng</NavLink>,
                     key: '0',
                 },
                 
@@ -84,6 +128,26 @@ export default function Header(props) {
                             <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     Ứng dụng
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>                        
+                    </li>
+                    <li className="flex">
+                    <Dropdown overlay={menuTech} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Công nghệ
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>                        
+                    </li>
+                    <li className="flex">
+                    <Dropdown overlay={menuOther} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Khác
                                     <i className="fa fa-angle-down"></i>
                                 </Space>
                             </NavLink>

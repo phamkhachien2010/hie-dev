@@ -137,8 +137,7 @@ export default function FrontEnd(props) {
           <p>Theo như nguyên tắc thì Front-end developer cần tạo những file <span className='font-bold'>html</span> để tạo nội dung cho trang web, tiếp đó tạo những file <span className='font-bold'>css</span> để trang trí cho trang web, và tạo những file <span className='font-bold'>js</span> để tạo các phương thức hoạt động cho trang web.</p>
           <p>Tuy nhiên, đó là nếu thiết kế tạo web tĩnh, trong thực tế thì không phải lúc nào cũng tạo ra những trang web tĩnh như vậy.</p>
           <p>FE-dev thường ứng dụng những thư viện hoặc các framework để tạo động ra những tag html và chèn luôn css theo các tag html đó. Và dùng những thư viện/framework đó để tạo ra các phương thức hoạt động của trang web.</p>          
-          <p>Ở đây mình sẽ chia sẻ về kiến thức của React đặc biệt là <NavLink className='text-blue-500' to='/reactjs'>ReactJs</NavLink></p>
-         <NavLink className='text-teal-700' to="/dev/frontend/react">Xem chi tiết về ReactJs</NavLink>
+          <p>Ở đây mình sẽ chia sẻ về kiến thức của React đặc biệt là <NavLink className='text-blue-500' to='/tech/reactjs'>ReactJs</NavLink></p>
         </div>
       </section>
     </div>

@@ -48,7 +48,6 @@ export default function ReactFolder() {
         </div>
       </div>
       <div className="container">
-      <h1 className='text-4xl font-bold pt-5 pb-3 text-center'>Các thư viện hỗ trợ cho react-app:</h1>
       </div>
     </div>
   )

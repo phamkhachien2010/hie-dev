@@ -90,10 +90,10 @@ export default function HomePage(props) {
         <section className='container p-5' id='frontend'>
           <h2 className='text-3xl font-bold text-center'>Front-end</h2>
           <p className='text-xl'>Front-end là gì? Front-end theo mình hiểu đơn giản là thiết kế giao diện của 1 trang web, 1 ứng dụng nào đó.</p>
-          <p className='text-lg'>Ở đây mình sẽ nói về những thứ cần thiết cho front-end, tạo giao diện cho 1 website cần những gì, và những điều cơ bản về <NavLink className='text-sky-800' to='/dev/frontend/react' >ReactJs</NavLink></p>
+          <p className='text-lg'>Ở đây mình sẽ nói về những thứ cần thiết cho front-end, tạo giao diện cho 1 website cần những gì, và những điều cơ bản về <NavLink className='text-sky-800' to='/tech/reactjs' >ReactJs</NavLink></p>
 
           <div className='text-right w-2/3'>
-            <NavLink to='/frontend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
+            <NavLink to='/dev/frontend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
           </div>
         </section>
 
@@ -101,9 +101,9 @@ export default function HomePage(props) {
           <div className='container'>
             <h2 className='text-3xl font-bold text-center'>Back-end</h2>
             <p className='text-xl'>Back-end là gì? Back-end theo mình hiểu là thiết kế dữ liệu, luồng đi của dữ liệu đó khi người dùng thao tác trên giao diện của trang web.</p>
-            <p className='text-lg'>Mình sẽ nói về những điều cơ bản mà mình biết về thiết kế database, thiết lập các Api, luồng đi của dữ liệu và những điều cần chú ý. Và mình cũng chủ yếu bàn về <NavLink className='text-sky-800' to='/dev/frontend/react' >NodeJs</NavLink></p>
+            <p className='text-lg'>Mình sẽ nói về những điều cơ bản mà mình biết về thiết kế database, thiết lập các Api, luồng đi của dữ liệu và những điều cần chú ý. Và mình cũng chủ yếu bàn về <NavLink className='text-sky-800' to='/' >NodeJs</NavLink></p>
             <div className='text-right w-2/3'>
-              <NavLink to='/backend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
+              <NavLink to='/dev/backend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
             </div>
           </div>
         </section>

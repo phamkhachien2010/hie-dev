@@ -21,9 +21,6 @@ export default function Footer() {
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/dev/backend">Back-end</NavLink>
                             </li>
-                            <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/dev/fullstack">Fullstack</NavLink>
-                            </li>
                         </ul>
                     </div>
                     <div className="space-y-3">
@@ -41,13 +38,13 @@ export default function Footer() {
                         <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Công nghệ</h3>
                         <ul className="space-y-1">
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/reactjs">ReactJS</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/tech/reactjs">ReactJS</NavLink>
                             </li>
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/">NodeJs</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/tech/nodejs">NodeJs</NavLink>
                             </li>
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/git-basic">Git</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/tech/github">Git</NavLink>
                             </li>
                         </ul>
                     </div>

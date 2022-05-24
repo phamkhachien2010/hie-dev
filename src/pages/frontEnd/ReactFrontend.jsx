@@ -98,7 +98,7 @@ export default function ReactFrontend() {
                 <li><p><span className='font-bold text-lime-300'>redux: </span>Để chứa các file liên quan đến thư viện redux, bao gồm: file config: chứa khai báo chung cho redux, redux-saga hoặc redux-thunk, constant: chứa các định nghĩa hằng số, reducer: chứa các code reducer để xác định lại giá trị của state</p></li>
                 <p>Ngoài ra còn có các folder khác như: <span className='font-bold text-lime-300'>service</span> chứa các code định nghĩa phương thức lấy dữ liệu từ back-end, <span className='font-bold text-lime-300'>templates</span> định nghĩa các thành phần dùng chung của các pages khác nhau, ví dụ như homepage và aboutpage có chung phần header, footer thì cần định nghĩa header và footer trong file này. <span className='font-bold text-lime-300'>util</span> chứa các code định nghĩa hằng số cho cả website ví dụ như domain của back-end cung cấp...</p>
               </ul>
-              <NavLink className='text-teal-500 font-bold text-lg' to='/reactjs/cau-hinh-folder-react'>Cách setup từng folder và từng file, và các thư viện hỗ trợ.</NavLink>
+              <NavLink className='text-teal-500 font-bold text-lg' to='/other/cau-hinh-folder-react'>Cách setup từng folder và từng file.</NavLink>
             </div>
           </section>
 
@@ -107,7 +107,7 @@ export default function ReactFrontend() {
             <div className="pl-4">
               <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy 1 react-app free như deploy lên sure, lên một site của github. Ở đây minh sẽ hướng dẫn deploy lên github để có thể cập nhật code một cách dễ dàng.</p>
               <a className='text-teal-500 font-bold text-lg' href="https://github.com/gitname/react-gh-pages">Xem hướng dẫn của github tại đây</a>
-              <p>Để deploy react-app lên Github page chắc chắn bạn phải cần kiến thức về git. <NavLink className='text-teal-500 font-bold text-lg' to='/git-basic'>Ấn vào đây</NavLink></p>
+              <p>Để deploy react-app lên Github page chắc chắn bạn phải cần kiến thức về git. <NavLink className='text-teal-500 font-bold text-lg' to='/tech/github'>Ấn vào đây</NavLink></p>
               <p>Trước hết phải cài thư viện gh-pages bằng câu lệnh <span className='text-lime-300'>npm install gh-pages --save-dev</span> trong termonal</p>
               <p>Mở file packet.json trong phần khai báo đầu tiên (gồm có name, version, private) thêm 1 thuộc tính là homepage như sau: <span className='text-lime-300'>"homepage": "https://gitname.github.io/react-gh-pages",</span> trong đó phần <span className='font-bold'>gitname</span>  và phần <span className='font-bold'>react-gh-pages</span> là do bạn tự đặt. </p>
               <p>Sau đó trong phần <span className='font-bold'>scripts</span> thêm 2 thuộc tính nữa là predeploy và deploy như sau: <span className='text-lime-300'>"predeploy": "npm run build",</span> và <span className='text-lime-300'>"deploy": "gh-pages -d build",</span> </p>
