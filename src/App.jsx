@@ -3,9 +3,10 @@ import { Switch, Router } from 'react-router-dom';
 import AboutMe from './pages/about/AboutMe';
 import BackEnd from './pages/backEnd/BackEnd';
 import FrontEnd from './pages/frontEnd/FrontEnd';
+import ReactFolder from './pages/frontEnd/ReactFolder';
 import ReactFrontend from './pages/frontEnd/ReactFrontend';
+import GitBasic from './pages/git/GitBasic';
 import HomePage from './pages/Home/HomePage';
-import Librery from './pages/Library/Librery';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 
 
@@ -20,9 +21,10 @@ function App() {
         
         <HomeTemplate path='/dev/backend' exact Component={BackEnd} />
         <HomeTemplate path='/dev/frontend' exact Component={FrontEnd} />
-        <HomeTemplate path='/dev/frontend/react' exact Component={ReactFrontend} />
+        <HomeTemplate path='/reactjs' exact Component={ReactFrontend} />
+        <HomeTemplate path='/reactjs/cau-hinh-folder-react' exact Component={ReactFolder} />
 
-        <HomeTemplate path='/library' exact Component={Librery} />
+        <HomeTemplate path='/git-basic' exact Component={GitBasic} />
 
         <HomeTemplate path='/' exact Component={HomePage} />
       </Switch>

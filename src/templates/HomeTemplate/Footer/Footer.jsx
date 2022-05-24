@@ -41,13 +41,13 @@ export default function Footer() {
                         <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Công nghệ</h3>
                         <ul className="space-y-1">
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/dev/frontend/react">ReactJS</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/reactjs">ReactJS</NavLink>
                             </li>
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/">NodeJs</NavLink>
                             </li>
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/">Git</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/git-basic">Git</NavLink>
                             </li>
                         </ul>
                     </div>
