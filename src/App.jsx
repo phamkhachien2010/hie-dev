@@ -5,12 +5,15 @@ import InfoTakeBack from './pages/admin/InfoTakeBack';
 import LibraryManager from './pages/admin/LibraryManager';
 import UserManagerTodoList from './pages/admin/UserManagerTodoList';
 import BackEnd from './pages/backEnd/BackEnd';
+import MySql from './pages/backEnd/MySql';
 import NodeJs from './pages/backEnd/NodeJs';
 import FrontEnd from './pages/frontEnd/FrontEnd';
-import ReactFolder from './pages/frontEnd/ReactFolder';
 import ReactFrontend from './pages/frontEnd/ReactFrontend';
 import GitBasic from './pages/git/GitBasic';
 import HomePage from './pages/Home/HomePage';
+import Library from './pages/others/Library';
+import ReactFolder from './pages/others/ReactFolder';
+import TerminalInUse from './pages/others/TerminalInUse';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 
@@ -26,11 +29,15 @@ function App() {
         
         <HomeTemplate path='/dev/backend' exact Component={BackEnd} />
         <HomeTemplate path='/dev/frontend' exact Component={FrontEnd} />
+
         <HomeTemplate path='/tech/reactjs' exact Component={ReactFrontend} />
         <HomeTemplate path='/tech/nodejs' exact Component={NodeJs} />
-        <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
-
+        <HomeTemplate path='/tech/mysql' exact Component={MySql} />
         <HomeTemplate path='/tech/github' exact Component={GitBasic} />
+
+        <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
+        <HomeTemplate path='/other/library' exact Component={Library} />
+        <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />        
 
         <AdminTemplate path='/admin/user-manager-todolist' exact Component={UserManagerTodoList} />
         <AdminTemplate path='/admin/library-manager' exact Component={LibraryManager} />

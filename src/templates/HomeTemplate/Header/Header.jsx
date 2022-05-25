@@ -65,6 +65,10 @@ export default function Header(props) {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/github">Github</NavLink>,
                     key: '0',
                 },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/mysql">MySQL</NavLink>,
+                    key: '0',
+                },
                 
                 {
                     type: 'divider',
@@ -84,11 +88,11 @@ export default function Header(props) {
                     key: '0',
                 },
                 {
-                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Library</NavLink>,
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/library">Library</NavLink>,
                     key: '0',
                 },
                 {
-                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Lệnh thường dùng</NavLink>,
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/lenh-thuong-dung">Lệnh thường dùng</NavLink>,
                     key: '0',
                 },
                 
