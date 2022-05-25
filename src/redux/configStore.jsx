@@ -1,8 +1,10 @@
 import {combineReducers, createStore} from 'redux';
+import { LibraryReducer } from './reducer/LibraryReducer';
 import { TerminalInUseReducer } from './reducer/TerminalInUseReducer';
 
 const rootReducer = combineReducers({
-    TerminalInUseReducer
+    TerminalInUseReducer,
+    LibraryReducer
 })
 
 const store = createStore(rootReducer);

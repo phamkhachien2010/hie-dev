@@ -1,32 +1,30 @@
-import React from 'react';
-import { Button, Modal, Select, Form, Input } from 'antd';
+import React from 'react'
+import {  Modal, Select, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { CLOSE_MODAL_TEMINAL_USE } from '../redux/constant/ConstantReducer';
+import { CLOSE_MODAL_TEMINAL_EDIT } from '../redux/constant/ConstantReducer';
 
 const { Option } = Select;
 
-export default function ModalTerminalUseCreate() {
+export default function ModalEditTerminalUse() {
 
-    const { showModalTerminal } = useSelector(state => state.TerminalInUseReducer);
+    const {showModalTerminalEdit} = useSelector(state=>state.TerminalInUseReducer);
     const dispatch = useDispatch();
 
     const handleOk = () => {
         dispatch({
-            type: CLOSE_MODAL_TEMINAL_USE
+            type: CLOSE_MODAL_TEMINAL_EDIT
         })
     };
 
     const handleCancel = () => {
         dispatch({
-            type: CLOSE_MODAL_TEMINAL_USE
+            type: CLOSE_MODAL_TEMINAL_EDIT
         })
     };
 
-
-
-    return (
-        <>
-            <Modal title="Thêm lệnh" visible={showModalTerminal} onOk={handleOk} onCancel={handleCancel}>
+  return (
+    <>
+            <Modal title="Sửa lệnh" visible={showModalTerminalEdit} onOk={handleOk} onCancel={handleCancel}>
                 <Form
                     name="basic"
                     labelCol={{
@@ -87,5 +85,5 @@ export default function ModalTerminalUseCreate() {
                 </Form>
             </Modal>
         </>
-    )
+  )
 }

@@ -84,7 +84,7 @@ export default function Header(props) {
                     key: '0',
                 },
                 {
-                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/">Folder nodeJs</NavLink>,
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/cau-hinh-folder-nodejs">Folder nodeJs</NavLink>,
                     key: '0',
                 },
                 {

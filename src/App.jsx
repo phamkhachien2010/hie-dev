@@ -12,6 +12,7 @@ import ReactFrontend from './pages/frontEnd/ReactFrontend';
 import GitBasic from './pages/git/GitBasic';
 import HomePage from './pages/Home/HomePage';
 import Library from './pages/others/Library';
+import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
@@ -37,7 +38,8 @@ function App() {
 
         <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
         <HomeTemplate path='/other/library' exact Component={Library} />
-        <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />        
+        <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />    
+        <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />     
 
         <AdminTemplate path='/admin/user-manager-todolist' exact Component={UserManagerTodoList} />
         <AdminTemplate path='/admin/library-manager' exact Component={LibraryManager} />
