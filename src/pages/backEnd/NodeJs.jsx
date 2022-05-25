@@ -1,4 +1,5 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function NodeJs() {
     return (
@@ -89,7 +90,17 @@ export default function NodeJs() {
                     </tbody>
                 </table>
                 <p>Trong đó url là đường dẫn quy định, các method được thống nhất theo quy chuẩn như vậy, mỗi method sẽ có nhiệm vụ khác nhau. Về bản chất thì method get cũng có thể xóa được 1 đối tượng, quan trọng là những định nghĩa bên trong đó. Nhưng quy chuẩn ngữ nghĩa như vậy để những dev khác có thể hiểu phương thức đó là gì, đặc biệt là front-end.</p>
-
+                <p>Muốn test các đường dẫn dùng postman. <a href="https://www.postman.com/downloads/" target='_blank' className='text-blue-400'>postman</a> là phần mềm giúp test các đường dẫn API với đầy đủ các phương thức và tính năng của 1 API. Chỉ cần tạo các request và sử dụng như bình thường. Tuy nhiên trước để các url chạy được thì cần source chạy liên tục bằng cách chạy nodemon <NavLink to='/other/library' className='text-blue-400'>Xem các thư viện tại đây</NavLink>. </p>
+                <h4>Những tiện ích của postman</h4>
+                <p>Đặt những thành phần dùng chung thành tên biến.</p>
+                <p>Đầu tiên ấn vào biểu tượng con mắt ở góc bên phải, thêm 1 biến môi trường và đặt tên cho biến đó. Sau đó đặt tên biến và nhập url vào 2 trường còn lại</p>
+                <p>Để sử dụng biến môi trường cần ấn vào dropdown bên cạnh con mắt và chọn môi trường, sau đó đổi đường dẫn thành biến môi trường đó và thêm những thành phần tiếp theo để hoàn thiện đường dẫn.</p>
+                <h3>Những kiến thức khác cần thiết.</h3>
+                <p>Có nhiều trường hợp cần tạo password tuy nhiên nếu không mã hoá password rất có thể bị hack và dễ dàng lấy được password nên cần mã hoá password thành 1 chuỗi ngẫu nhiên. Trường hợp này nên dùng đến thư viện bcryptjs để thực hiện tính năng đó.</p>
+                <p>Trong hầu hết trường hợp, khi user đã đăng nhập rồi lần sau muốn chỉ cần truy cập trình duyệt thì tài khoản vẫn còn y nguyên, không phải đăng nhập lại thì cần dùng đến khái niệm token để mỗ khi đăng nhập thì tạo cho user 1 token được mã hoá ngẫu nhiên và lưu trên trình duyệt, thường là lưu tại localeStorage hoặc cookie. Dùng thư viện jsonwebtoken.</p>
+                <div className='pb-5'>
+                    <NavLink to='/other/library' className='text-blue-400'>Xem các thư viện tại đây</NavLink>
+                </div>
             </div>
         </div>
     )
