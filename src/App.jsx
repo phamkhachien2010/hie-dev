@@ -4,6 +4,7 @@ import AboutMe from './pages/about/AboutMe';
 import InfoTakeBack from './pages/admin/InfoTakeBack';
 import LibraryManager from './pages/admin/LibraryManager';
 import UserManagerTodoList from './pages/admin/UserManagerTodoList';
+import Todolist from './pages/app/Todolist';
 import BackEnd from './pages/backEnd/BackEnd';
 import MySql from './pages/backEnd/MySql';
 import NodeJs from './pages/backEnd/NodeJs';
@@ -35,6 +36,8 @@ function App() {
         <HomeTemplate path='/tech/nodejs' exact Component={NodeJs} />
         <HomeTemplate path='/tech/mysql' exact Component={MySql} />
         <HomeTemplate path='/tech/github' exact Component={GitBasic} />
+
+        <HomeTemplate path='/app/todolist' exact Component={Todolist} />
 
         <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
         <HomeTemplate path='/other/library' exact Component={Library} />

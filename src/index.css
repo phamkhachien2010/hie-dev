@@ -81,3 +81,7 @@ section .ant-carousel .slick-dots-bottom {
 .site-layout .site-layout-background {
     background: #fff;
 }
+
+.todolist__form .ant-form-item-label>label {
+    color: white;
+}
