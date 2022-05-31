@@ -58,7 +58,7 @@ export default function TodoListManager(props) {
                         })}
                     </Header>
                     <Content
-                        className="site-layout-background"
+                        className="site-layout-background relative"
                         style={{
                             margin: '24px 16px',
                             padding: 24,
@@ -66,10 +66,14 @@ export default function TodoListManager(props) {
                         }}
                     >
                         <TodoListDetail />
+
+                        <div className='absolute right-0 bottom-0 p-2'>
+                            <button className='bg-green-400 hover:bg-green-500 px-2 py-1 rounded-lg mr-3 text-white font-bold'>Sửa việc</button>
+                            <button className='bg-red-400 hover:bg-red-500 px-2 py-1 rounded-lg mr-3 font-bold'>Xóa việc</button>
+                        </div>
                     </Content>
                 </Layout>
             </Layout>
-
         </div>
 
     )

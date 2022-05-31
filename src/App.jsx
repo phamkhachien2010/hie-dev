@@ -13,12 +13,16 @@ import FrontEnd from './pages/frontEnd/FrontEnd';
 import ReactFrontend from './pages/frontEnd/ReactFrontend';
 import GitBasic from './pages/git/GitBasic';
 import HomePage from './pages/Home/HomePage';
+import Login from './pages/loginSignup/Login';
+import Register from './pages/loginSignup/Register';
 import Library from './pages/others/Library';
 import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
+import AdminPageDefault from './templates/AdminTemplate/defaultAdminTemplate/AdminPageDefault';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
+import UserTemplate from './templates/userTemplate/UserTemplate';
 
 
 export const history = createBrowserHistory();
@@ -29,7 +33,7 @@ function App() {
       <Switch>
         <HomeTemplate path='/home' exact Component={HomePage} />
         <HomeTemplate path='/about' exact Component={AboutMe} />
-        
+
         <HomeTemplate path='/dev/backend' exact Component={BackEnd} />
         <HomeTemplate path='/dev/frontend' exact Component={FrontEnd} />
 
@@ -43,12 +47,16 @@ function App() {
 
         <HomeTemplate path='/other/cau-hinh-folder-react' exact Component={ReactFolder} />
         <HomeTemplate path='/other/library' exact Component={Library} />
-        <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />    
-        <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />     
+        <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />
+        <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />
+
+        <UserTemplate path='/login' exact Component={Login} />
+        <UserTemplate path='/register' exact Component={Register} />
 
         <AdminTemplate path='/admin/user-manager-todolist' exact Component={UserManagerTodoList} />
         <AdminTemplate path='/admin/library-manager' exact Component={LibraryManager} />
         <AdminTemplate path='/admin/info-takeback-manager' exact Component={InfoTakeBack} />
+        <AdminTemplate path='/admin' exact Component={AdminPageDefault} />
 
         <HomeTemplate path='/' exact Component={HomePage} />
       </Switch>

@@ -25,7 +25,7 @@ export default function AdminTemplate(props) {
     return (
         <>
             <Route {...restProps} render={(propsRoute) => {
-                return <Layout>
+                return <Layout className='h-screen'>
                     <Sider trigger={null} collapsible collapsed={collapsed}>
                         <div className="logo" />
                         <Menu
@@ -69,7 +69,7 @@ export default function AdminTemplate(props) {
                             })}
                             <div className='flex justify-around items-center col-span-9'>
                                 <NavLink className='text-sky-900 text-2xl' to='/' ><HomeOutlined /></NavLink>
-                                <NavLink className='text-blue-400' to='/' >Home</NavLink>
+                                <NavLink className='text-sky-900 hover:no-underline' to='/about' >About me</NavLink>
                             </div>
                         </Header>
                         <Content

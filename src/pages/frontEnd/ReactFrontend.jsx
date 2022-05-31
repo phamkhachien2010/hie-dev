@@ -17,7 +17,7 @@ export default function ReactFrontend() {
   return (
     <div style={{ paddingTop: '112px' }}>
       <div className='py-5' style={{ backgroundImage: `url('${reactImgPath}')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionY: 'center' }}>
-        <div className="container">
+        <div className="container w-2/3 m-auto">
           <h1 className='text-4xl text-white font-bold'>Tìm hiểu về React</h1>
           <h2 className='text-2xl'><a href='#reactLaGi'> React là gì?</a></h2>
           <h2 className='text-2xl'><a href='#ungdungreact'>Ứng dụng react như thế nào?</a></h2>
@@ -29,7 +29,7 @@ export default function ReactFrontend() {
       </div>
 
       <section style={{ backgroundImage: `url('${bgSection}')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionY: 'center', backgroundAttachment: 'fixed' }}>
-        <div className='text-teal-200' style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+        <div className='text-teal-200 w-2/3 m-auto' style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
           <section id='reactLaGi' className='container'>
             <h2 className='text-2xl text-pink-300 pt-5'>React là gì</h2>
             <div className='pl-4'>

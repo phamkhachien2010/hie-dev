@@ -8,7 +8,7 @@ export default function GitBasic() {
         <div style={{ paddingTop: '112px' }}>
             <div className='text-white' style={{ backgroundImage: `url(${bgGit})`, backgroundAttachment: 'fixed' }}>
                 <div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                    
+                    <div className='w-2/3 m-auto'></div>
                     <div className='flex justify-center items-center'>
                     <h1 className='text-rose-100 text-5xl text-center pt-5 pb-3 inline-block'>Git là gì?</h1>
                         <img src={require('../../assets/img/9919.png')} alt="git-logo" style={{ width: '100px' }} className='inline-block' />

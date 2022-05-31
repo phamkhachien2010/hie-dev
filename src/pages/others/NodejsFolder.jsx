@@ -44,16 +44,16 @@ export default function NodejsFolder() {
 
                             </li>
                             <li>
-                                <p>folder models chứa file index.js: là những thiết lập sequelize cơ bản. Không cần chỉnh sửa gì trong file này. Đây là folder chứa các bảng khi khởi tạo bảng</p>
+                                <p> <span className='font-bold bg-rose-400'> folder models</span> chứa file <span className='font-bold bg-rose-400'> index.js</span>: là những thiết lập sequelize cơ bản. Không cần chỉnh sửa gì trong file này. Đây là folder chứa các bảng khi khởi tạo bảng</p>
                                 <img src={require('../../assets/img/index-modeljs.jpg')} alt="index model img" />
                             </li>
                             <li>
-                                <p>folder seeders: dùng để viết dữ liệu giả, hay dữ liệu mặc định của 1 bảng.</p>
+                                <p> <span className='font-bold bg-rose-400'>folder seeders</span>: dùng để viết dữ liệu giả, hay dữ liệu mặc định của 1 bảng.</p>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <p>B5. Tạo thêm 1 folder public để chứa những file dữ liệu (ảnh, file pdf...), và tạo thêm 1 file server.js để chứa code chính</p>
+                        <p>B5. Tạo thêm 1 <span className='font-bold bg-rose-400'>folder public</span> để chứa những file dữ liệu (ảnh, file pdf...), và tạo thêm 1 file <span className='font-bold bg-rose-400'>server.js</span> để chứa code chính</p>
 
                     </li>
                     <li>
@@ -61,28 +61,28 @@ export default function NodejsFolder() {
                     </li>
                     <li>
                         <p>B7. Tạo bảng trong nodejs bằng câu lệnh <span className='text-rose-500'>npx sequelize model:generate --name Tên-bảng  --attributes thuộc-tính1:kiểu-dữ-liệu</span>  (thuộc tính id sẽ được tạo tự động)</p>
-                        <p>Sau khi chạy lệnh xong sữ tự động tạo ra các file model và migrate. Tuy nhiên bảng vẫn chưa được tạo trong database, cần phải chạy tiếp lệnh: <span className='text-rose-500'>npx sequelize db:migrate</span>  để chạy lệnh up (tạo bảng) trong file migrate. Nếu muốn xoá bảng mới tạo dùng lệnh: <span className='text-rose-500'>npx sequelize db:migrate:undo</span> </p>
-                        <p>Lúc đó sẽ tạo ra 1 file trong folder model dạng như sau:</p>
+                        <p>Sau khi chạy lệnh xong sẽ tự động tạo ra các file model và migrate. Tuy nhiên bảng vẫn chưa được tạo trong database, cần phải chạy tiếp lệnh: <span className='text-rose-500'>npx sequelize db:migrate</span>  để chạy lệnh up (tạo bảng) trong file migrate. Nếu muốn xoá bảng mới tạo dùng lệnh: <span className='text-rose-500'>npx sequelize db:migrate:undo</span> </p>
+                        <p>Lúc đó sẽ tạo ra 1 file trong <span className='font-bold bg-rose-400'>folder model</span> dạng như sau:</p>
                         <img src={require('../../assets/img/modeljs.jpg')} alt="" />
-                        <p>Và 1 file trong migration có dạng:</p>
+                        <p>Và 1 file trong <span className='font-bold bg-rose-400'>migration</span> có dạng:</p>
                         <img src={require('../../assets/img/migrate.jpg')} alt="migrate" />
                     </li>
                     <li>
-                        <p>B8. Tạo ra 1 folder controllers để tạo các tính năng thao tác với req, res. Trong đó tạo các file controller để thao tác với từng bảng khác nhau</p>
+                        <p>B8. Tạo ra 1 folder <span className='font-bold bg-rose-400'>controllers</span> để tạo các tính năng thao tác với req, res. Trong đó tạo các file controller để thao tác với từng bảng khác nhau</p>
                         <img src={require('../../assets/img/controller.jpg')} alt="" />
                     </li>
                     <li>
-                        <p>B9. Tạo ra 1 folder routers để tạo các đường dẫn và các phương thức liên kết</p>
-                        <p>Các file router sẽ tạo như sau:</p>
+                        <p>B9. Tạo ra 1 folder <span className='font-bold bg-rose-400'>routers</span> để tạo các đường dẫn và các phương thức liên kết</p>
+                        <p>Các file <span className='font-bold bg-rose-400'>router</span> sẽ tạo như sau:</p>
                         <img src={require('../../assets/img/router.jpg')} alt="" />
-                        <p>Trong đó tạo file rootRouter như sau:</p>
+                        <p>Trong đó tạo file <span className='font-bold bg-rose-400'>rootRouter</span> như sau:</p>
                         <img src={require('../../assets/img/rootrouter.jpg')} alt="" />
-                        <p>Quay ra file server và chỉnh sửa như sau:</p>
+                        <p>Quay ra file <span className='font-bold bg-rose-400'>server.js</span> và chỉnh sửa như sau:</p>
                         <img src={require('../../assets/img/backend-server.jpg')} alt="" />
                     </li>
                     <li>
                         <p>Có thể tạo thêm các service để viết các code dùng chung của các phương thức controller, gọi hàm dễ dàng</p>
-                        <p>Thông thường sẽ cần tạo 1 folder middleware đẻ tạo ra các function nằm giữa nhằm kiểm các điều kiện, nếu thoả mãn thì mới cho liên kết được lưu thông. middleware được gọi trong router</p>
+                        <p>Thông thường sẽ cần tạo 1 folder <span className='font-bold bg-rose-400'>middleware</span> để tạo ra các function nằm giữa nhằm kiểm các điều kiện, nếu thoả mãn thì mới cho liên kết được lưu thông. middleware được gọi trong router</p>
                         <p>middleware có dạng như sau:</p>
                         <img src={require('../../assets/img/middleware.jpg')} alt="" />
                         <p>Sau đó chèn vào router như hình định dạng router vào các phương thức cần thiết.</p>

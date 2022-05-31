@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function BackEnd(props) {
   return (
     <div style={{paddingTop:'112px'}}>
-      <div className='container text-lg'>
+      <div className='container text-lg w-2/3 m-auto'>
         <h1 className='text-4xl font-bold text-center pt-5'>Back-end</h1>
       
       <section>

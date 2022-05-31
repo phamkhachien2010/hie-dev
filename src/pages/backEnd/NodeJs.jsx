@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function NodeJs() {
     return (
         <div style={{ paddingTop: '112px' }}>
-            <div className="container">
+            <div className="container w-2/3 m-auto">
                 <h1 className='text-center text-4xl font-bold pt-5 pb-3'>Tìm hiểu về NodeJs</h1>
                 <p>NodeJs thực tế là thiết kế 1 server, từ server đó tạo nên các đường dẫn API và từ những API đó front-end có thể lấy dữ liệu về hoặc gửi dữ liệu lên server, thực hiệc các tính năng của 1 trang web một cách trơn tru, mượt mà. </p>
                 <p>Nodejs là thiết kế các đoạn code JavaScript tạo ra các api, các phương thức, những luồn đi của dữ liệu.</p>
