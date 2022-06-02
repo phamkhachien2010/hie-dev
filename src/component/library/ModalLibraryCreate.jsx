@@ -50,7 +50,7 @@ export default function ModalLibraryCreate() {
 
             <Form.Item
                 label="Cú pháp"
-                name="cuPhap"
+                name="setup"
                 rules={[
                     {
                         required: true,
@@ -81,6 +81,18 @@ export default function ModalLibraryCreate() {
                     <Option value="back-end">Back-end</Option>
                     <Option value="both">Cả 2</Option>
                 </Select>
+            </Form.Item>
+            <Form.Item
+                label="Link thư viện"
+                name="link"
+            >
+                <Input />
+            </Form.Item>
+            <Form.Item
+                label="Link hướng dẫn"
+                name="tutorial"
+            >
+                <Input />
             </Form.Item>
         </Form>
     </Modal>

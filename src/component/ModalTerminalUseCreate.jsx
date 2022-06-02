@@ -52,7 +52,7 @@ export default function ModalTerminalUseCreate() {
 
                     <Form.Item
                         label="Cú pháp"
-                        name="cuPhap"
+                        name="setup"
                         rules={[
                             {
                                 required: true,

@@ -2,17 +2,29 @@ import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Button, Form, Input } from 'antd';
 import { useFormik } from 'formik';
+import { Card } from 'antd';
+import styleHomePage from './homepage.module.css'
+import ScrollAnimation from 'react-animate-on-scroll';
 
+
+const hienImage = require('../../assets/img/avatar2.jpg')
+const htmlCssJsimg = require('../../assets/img/html-css-js-img1.jpg')
+const nodeJsimg = require('../../assets/img/nodeJS.png')
+const backEndImg = require('../../assets/img/back-end-img.jpg')
+const reactImg = require('../../assets/img/react-img-home.jpg')
+const gitImg = require('../../assets/img/github-img.png')
+const mySqlImg = require('../../assets/img/mySql.jpg')
 
 export default function HomePage(props) {
 
   useEffect(() => {
-    window.scrollTo(0,0)
-  
+
+
     return () => {
-      
+
     }
   }, [])
+
 
   const formik = useFormik({
     initialValues: {
@@ -21,10 +33,10 @@ export default function HomePage(props) {
       comment: '',
     },
     onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
     },
   });
-  
+
 
   const formItemLayout = {
     labelCol: {
@@ -65,45 +77,143 @@ export default function HomePage(props) {
   };
 
   return (
-    <div className='grid grid-cols-12' style={{ paddingTop: '112px' }}>
-      <div className='col-span-11'>
+    <div style={{ paddingTop: '112px' }}>
+      <div>
         <section className="px-5 bg-indigo-200 text-center py-5">
           <div className='container'>
             <h1 className='text-4xl font-bold'>Hello, Welcome you</h1>
             <p className='text-xl text-left'>Xin chào các bạn! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc. Những anh/chị HR preview giúp mình với ạ.</p>
             {/* <p className='text-left text-xl'>Không những vậy blog này còn chia sẻ những câu chuyện đời sống bình thường mà hầu như ai cũng gặp ít nhiều trong quãng thời gian sống của mình.</p> */}
             {/* <p className='text-left' style={{ fontStyle: 'italic' }}>Hiện tại thì mình mới phát triển phiên bản tiếng Anh và tiếng Việt trên blog này, mong các bạn thông cảm!</p> */}
-            <p className='text-lg'>Và đây là câu châm ngôn ưa thích của mình: <span className='text-gray-500'>Đỉnh cao của hoàn hảo là sự đơn giản!</span></p>
+            {/* <p className='text-lg'>Và đây là câu châm ngôn ưa thích của mình: <span className='text-gray-500'>Đỉnh cao của hoàn hảo là sự đơn giản!</span></p> */}
           </div>
         </section>
 
-        <section className='py-5' style={{ background: 'url(./img/background-hoang-hon.jpg)' }} id='about'>
-          <div className='container'>
-            <h2 className='text-3xl font-bold text-rose-100 text-center'>About me</h2>
+        <section className='p-5 bg-lightBlue-300'>
+          <h2 className='text-3xl font-bold text-center'>Trang web này giải quyết vấn đề gì?</h2>
+          <div className='text-center' id='about__me'>
+            <NavLink className={`inline-block hover:no-underline ${styleHomePage.about} ${styleHomePage.hoverAnimate}`} to='/about'>
+              <Card
+                title='ABOUT ME'
+                headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                className='rounded-lg'
+                style={{ width: '300px', padding: '10px' }}
+                cover={
+                  <img src={hienImage} alt='hien img' className='w-4/5' />
+                }
+              >
+                My infomation (a simple person)
+              </Card>
+            </NavLink>
+          </div>
+
+          <h3 className='text-2xl font-bold text-center mt-5 mb-2'>DEV</h3>
+          <div className='flex justify-center' id='dev'>
+            <div className='text-center mr-5'>
+              <ScrollAnimation duration={1} animateIn='animate__fadeInLeft' animateOut='animate__fadeOutLeft'>
+                <NavLink className={`inline-block hover:no-underline  ${styleHomePage.hoverAnimate}`} to='/dev/frontend'>
+                  <Card
+                    title='FRONT-END'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={htmlCssJsimg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about front-end
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
+            </div>
             <div className='text-center'>
-              <h4 className='text-white text-xl'>Mình cũng chỉ là một con người bình thường như bao người khác và cũng chẳng có gì đặc biệt. <br /> Mình viết vài dòng code xàm xàm vậy thôi <i className="fa fa-smile text-lime-300"></i></h4>
-              <NavLink to='/about' className='hover:text-purple-500 text-purple-800 hover:underline text-lg'>Bạn có thể tìm hiểu mình là ai, mình làm được những gì ở đây <i className="fa fa-arrow-right"></i></NavLink>
+              <ScrollAnimation duration={1} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
+                <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/dev/backend'>
+                  <Card
+                    title='BACK-END'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={backEndImg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about back-end
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
             </div>
           </div>
-        </section>
 
-        <section className='container p-5' id='frontend'>
-          <h2 className='text-3xl font-bold text-center'>Front-end</h2>
-          <p className='text-xl'>Front-end là gì? Front-end theo mình hiểu đơn giản là thiết kế giao diện của 1 trang web, 1 ứng dụng nào đó.</p>
-          <p className='text-lg'>Ở đây mình sẽ nói về những thứ cần thiết cho front-end, tạo giao diện cho 1 website cần những gì, và những điều cơ bản về <NavLink className='text-sky-800' to='/tech/reactjs' >ReactJs</NavLink></p>
-
-          <div className='text-right w-2/3'>
-            <NavLink to='/dev/frontend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
-          </div>
-        </section>
-
-        <section className='p-5 bg-lightBlue-300' id='backend'>
-          <div className='container'>
-            <h2 className='text-3xl font-bold text-center'>Back-end</h2>
-            <p className='text-xl'>Back-end là gì? Back-end theo mình hiểu là thiết kế dữ liệu, luồng đi của dữ liệu đó khi người dùng thao tác trên giao diện của trang web.</p>
-            <p className='text-lg'>Mình sẽ nói về những điều cơ bản mà mình biết về thiết kế database, thiết lập các Api, luồng đi của dữ liệu và những điều cần chú ý. Và mình cũng chủ yếu bàn về <NavLink className='text-sky-800' to='/' >NodeJs</NavLink></p>
-            <div className='text-right w-2/3'>
-              <NavLink to='/dev/backend' className='hover:text-gray-700 text-gray-500 hover:underline text-lg'>Xem chi tiết <i className="fa fa-arrow-right"></i></NavLink>
+          <h3 className='text-2xl font-bold text-center mt-5 mb-2'>Công nghệ</h3>
+          <div className="grid grid-cols-4">
+            <div className='text-center mr-5 mb-5'>
+              <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/reactjs'>
+                  <Card
+                    title='REACT JS'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={reactImg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about React js
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
+            </div>
+            <div className='text-center mr-5 mb-5'>
+              <ScrollAnimation duration={1.2} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/nodejs'>
+                  <Card
+                    title='NODE JS'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={nodeJsimg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about NodeJs
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
+            </div>
+            <div className='text-center mr-5 mb-5'>
+              <ScrollAnimation duration={1.4} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/github'>
+                  <Card
+                    title='GITHUB'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={gitImg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about Github
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
+            </div>
+            <div className='text-center mr-5 mb-5'>
+              <ScrollAnimation duration={1.6} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/mysql'>
+                  <Card
+                    title='MYSQL'
+                    headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
+                    className='rounded-lg'
+                    style={{ width: '300px', padding: '10px' }}
+                    cover={
+                      <img src={mySqlImg} alt='hien img' className='w-4/5' />
+                    }
+                  >
+                    Produce about Mysql
+                  </Card>
+                </NavLink>
+              </ScrollAnimation>
             </div>
           </div>
         </section>
@@ -165,14 +275,6 @@ export default function HomePage(props) {
             </Form.Item>
           </Form>
         </section>
-      </div>
-      <div className='col-span-1'>
-        <div className='bg-gray-800 fixed w-1/12 h-screen right-0 text-center'>
-          <a className='block w-100 text-lg hover:text-white hover:underline' href="#about">About</a>
-          <a className='block w-100 text-lg hover:text-white hover:underline' href="#frontend">Front-end</a>
-          <a className='block w-100 text-lg hover:text-white hover:underline' href="#backend">Back-end</a>
-          <a className='block w-100 text-lg hover:text-white hover:underline' href="#contact">Contact</a>
-        </div>
       </div>
 
     </div>

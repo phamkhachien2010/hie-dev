@@ -6,13 +6,13 @@ export default function ReactFrontend() {
   const reactImgPath = require('../../assets/img/react-img.jpeg')
   const bgSection = require('../../assets/img/bg-section-react.jpg');
 
-  // useEffect(() => {
-  //   window.scroll(0, 0)
+  useEffect(() => {
+    window.scroll(0, 0)
 
-  //   return () => {
+    return () => {
 
-  //   }
-  // }, [])
+    }
+  }, [])
 
   return (
     <div style={{ paddingTop: '112px' }}>
@@ -52,7 +52,7 @@ export default function ReactFrontend() {
             <h2 className='text-2xl text-pink-300'>Ứng dụng react như thế nào</h2>
             <div className="pl-4">
               <p>Như đã giới thiệu ở trên, React sử dụng ngôn ngư JavaScript và dùng cơ chế jsx để tạo ra các thẻ html. Trong mỗi component sẽ dùng cơ chế đó để tạo ra các pages, các templates, các component nhỏ có thể được gọi trong component khác.</p>
-              <p>Sau đó, có thể dùng những <NavLink to='/' className='text-teal-500 font-bold text-lg'> thư viện</NavLink> hỗ trợ để link qua lại giữa các page với nhau. Về bản chất là tạo ra các giao diện của 1 website thì react hỗ trợ tương đối tốt.</p>
+              <p>Sau đó, có thể dùng những <NavLink to='/other/library' className='text-teal-500 font-bold text-lg'> thư viện</NavLink> hỗ trợ để link qua lại giữa các page với nhau. Về bản chất là tạo ra các giao diện của 1 website thì react hỗ trợ tương đối tốt.</p>
             </div>
           </section>
 
@@ -70,7 +70,7 @@ export default function ReactFrontend() {
               <p>Đầu tiên để tạo 1 react app mình cần cài <a className='text-teal-500 font-bold text-lg' href="https://nodejs.org/en/">nodeJs</a> phiên bản mới nhất, (Chú ý cài bản LTS, bản Curent là bản đang thử nghiệm và sớm phát hành. Nếu gặp lỗi khi tạo app, cần xem lại version của nodeJs).</p>
               <p>Sau đó bạn vào thư mục cần tạo 1 react app click chuột vào đường dẫn của thư mục gõ cmd để khởi tạo cmd. Sau đó thực hiện câu lệnh: <span className='text-lime-400'>npx create-react-app app_name</span>, thay thể tên app bạn muốn đặt vào chỗ app_name.</p>
               <p>Sau khi chạy xong sẽ tạo ra một tập thư mục cơ bản bao gồm: </p>
-              <ul>
+              <ul className='list-disc pl-4'>
                 <li><p>
                   1 folder <span className='font-bold text-lime-300'>node_modules</span>: chứa những code của những thư viện được cài vào khi cài app và những code của những thư viện cài ngoài. </p></li>
                 <li>
@@ -85,13 +85,13 @@ export default function ReactFrontend() {
               </ul>
               <p>Trên đây là những folder cơ bản mà khi setup 1 react-app. Để có thể hoàn thiện được 1 app hoàn chỉnh cần thêm những folder và những file source khác nữa.</p>
               <p>Để có thể chạy một cách trơn tru, cần cài các thư viện cần thiết, bao gồm:</p>
-              <ul>
+              <ul className='list-disc pl-4'>
                 <li><p><span className='font-bold text-lime-300'>react-router-dom</span> : để có thể link qua lại giữa các component dễ dàng, và thiết lập các template dễ dàng hơn.</p></li>
                 <li><p><span className='font-bold text-lime-300'>redux, react-redux</span> là các middleware phục vụ tái thiết lại state dễ dàng.</p></li>
                 <li><p>Ngoài ra còn cần: <span className='font-bold text-lime-300'>redux-saga hoặc redux-thunk</span> để kết nối với back-end lấy dữ liệu về, và các thư viện cần thiết theo từng nhu cầu của trang web</p></li>
               </ul>
-              <p>Tiếp theo cần tạo ra các thư mục trong folder src bao gồm</p>
-              <ul>
+              <p>Tiếp theo cần tạo ra các thư mục trong folder src bao gồm:</p>
+              <ul className='list-disc pl-4'>
                 <li><p><span className='font-bold text-lime-300'>assets: </span>để chứa những file ngoài code ví dụ hình ảnh...</p></li>
                 <li><p><span className='font-bold text-lime-300'>component: </span>để chứa code định nghĩa thành phần dùng chung cho cả trang web ví dụ như định nghĩa button...</p></li>
                 <li><p><span className='font-bold text-lime-300'>pages: </span>để chứa các component định nghĩa các trang cần render ví dụ như homepage, about, contact...</p></li>

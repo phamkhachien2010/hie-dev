@@ -27,7 +27,7 @@ export default function Footer() {
                         <h3 className="tracking-wide text-lg uppercase dark:text-gray-50">Ứng dụng</h3>
                         <ul className="space-y-1">
                             <li>
-                                <NavLink rel="noopener noreferrer" className='text-white' to="/">Todo list</NavLink>
+                                <NavLink rel="noopener noreferrer" className='text-white' to="/app/todolist">Todo list</NavLink>
                             </li>
                             <li>
                                 <NavLink rel="noopener noreferrer" className='text-white' to="/">Link</NavLink>

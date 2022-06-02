@@ -3,6 +3,7 @@ import { Switch, Router } from 'react-router-dom';
 import AboutMe from './pages/about/AboutMe';
 import InfoTakeBack from './pages/admin/InfoTakeBack';
 import LibraryManager from './pages/admin/LibraryManager';
+import TerminalClauseManager from './pages/admin/TerminalClauseManager';
 import UserManagerTodoList from './pages/admin/UserManagerTodoList';
 import Todolist from './pages/app/todolist/Todolist';
 import TodoListManager from './pages/app/todolist/TodoListManager';
@@ -56,6 +57,7 @@ function App() {
         <AdminTemplate path='/admin/user-manager-todolist' exact Component={UserManagerTodoList} />
         <AdminTemplate path='/admin/library-manager' exact Component={LibraryManager} />
         <AdminTemplate path='/admin/info-takeback-manager' exact Component={InfoTakeBack} />
+        <AdminTemplate path='/admin/terminal-command' exact Component={TerminalClauseManager} />
         <AdminTemplate path='/admin' exact Component={AdminPageDefault} />
 
         <HomeTemplate path='/' exact Component={HomePage} />

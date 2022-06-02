@@ -1,13 +1,12 @@
 import React from 'react';
 import { Table } from 'antd';
 import ModalTerminalUseCreate from '../../component/ModalTerminalUseCreate';
-import { useDispatch } from 'react-redux';
-import { OPEN_MODAL_TEMINAL_EDIT, OPEN_MODAL_TEMINAL_USE } from '../../redux/constant/ConstantReducer';
 import ModalEditTerminalUse from '../../component/ModalEditTerminalUse';
+import { OPEN_MODAL_TEMINAL_EDIT, OPEN_MODAL_TEMINAL_USE } from '../../redux/constant/ConstantReducer';
+import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
-
-
-export default function TerminalInUse() {
+export default function TerminalClauseManager() {
 
     const dispatch = useDispatch();
 
@@ -52,36 +51,52 @@ export default function TerminalInUse() {
             filterMode: 'tree',
             filterSearch: true,
             onFilter: (value, record) => record.name.includes(value),
-            width: '15%',
+            width: '10%',
             align: 'center'
         },
         {
             title: 'Lệnh',
-            dataIndex: 'cuPhap',
+            dataIndex: 'setup',
             sorter: (a, b) => a.age - b.age,
-            width: '25%',
+            width: '15%',
             align: 'center'
         },
         {
             title: 'Mô tả',
-            dataIndex: 'desc',
-            width: '30%',
-            align: 'center'
+            dataIndex: 'description',
+            width: '20%',
         },
         {
             title: 'Dùng trong',
             dataIndex: 'type',
-            width: '20%',
+            width: '15%',
             align: 'center'
         },
-       
+        {
+            title: 'Khác',
+            dataIndex: 'action',
+            width: '10%',
+            render: () => {
+                return <div>
+                    <button className='text-xl mr-3 text-blue-500 border-0 focus:outline-none' onClick={() => {
+                        dispatch({
+                            type: OPEN_MODAL_TEMINAL_EDIT
+                        })
+
+                    }}><i className="fa fa-edit"></i></button>
+                    <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+                </div>
+            },
+            align: 'center'
+        },
     ];
+
     const data = [
         {
             key: '1',
             name: 'start',
-            cuPhap: 'npm start',
-            desc: 'Start ứng dụng',
+            setup: 'npm start',
+            description: 'Start ứng dụng',
             type: 'front-end',
         },
     ];
@@ -91,13 +106,18 @@ export default function TerminalInUse() {
     };
 
     return (
-        <div style={{ paddingTop: '112px' }}>
+        <div>
             <div className="container relative">
-                <h1 className='text-center text-4xl font-bold pt-5 pb-3' >Các lệnh terminal thường dùng</h1>
+                <h1 className='text-center text-xl font-bold py-4'>Các lệnh terminal thường dùng</h1>
+                <button className='px-3 py-2 bg-green-500 rounded-full text-white hover:bg-green-600 hover:font-bold absolute top-10 right-10 focus:outline-none' onClick={() => {
+                    dispatch({
+                        type: OPEN_MODAL_TEMINAL_USE
+                    })
+                }}>Thêm lệnh</button>
                 <Table columns={columns} dataSource={data} onChange={onChange} />
             </div>
             <ModalTerminalUseCreate />
-            <ModalEditTerminalUse/>
+            <ModalEditTerminalUse />
         </div>
     )
 }

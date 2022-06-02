@@ -1,13 +1,9 @@
 import { Table } from 'antd'
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import ModalLibraryCreate from '../../component/library/ModalLibraryCreate';
-import ModalLibraryEdit from '../../component/library/ModalLibraryEdit';
-import { OPEN_LIBRARY_MODAL_CREATE, OPEN_LIBRARY_MODAL_EDIT } from '../../redux/constant/ConstantReducer';
+import { NavLink } from 'react-router-dom';
 
 export default function Library() {
 
-  const dispatch = useDispatch()
 
   const columns = [
     {
@@ -54,37 +50,32 @@ export default function Library() {
       align: 'center'
     },
     {
-      title: 'Lệnh',
+      title: 'Lệnh cài đặt',
       dataIndex: 'cuPhap',
       sorter: (a, b) => a.age - b.age,
-      width: '25%',
+      width: '15%',
     },
     {
       title: 'Mô tả',
       dataIndex: 'desc',
-      width: '30%',
+      width: '20%',
+    },
+    {
+      title: 'Link',
+      dataIndex: 'link',
+      width: '20%',
     },
     {
       title: 'Dùng trong',
       dataIndex: 'type',
-      width: '20%',
+      width: '15%',
     },
     {
-      title: 'Khác',
-      dataIndex: 'action',
+      title: 'Hướng dẫn',
+      dataIndex: 'tutorial',
       width: '10%',
-      render: () => {
-        return <div>
-          <button className='text-xl mr-3 text-blue-500 border-0' onClick={() => {
-            dispatch({
-              type: OPEN_LIBRARY_MODAL_EDIT
-            })
-
-          }}><i className="fa fa-edit"></i></button>
-          <button className='text-xl text-red-500'><i className="fa fa-trash-alt"></i></button>
-        </div>
-      }
     },
+
   ];
   const data = [
     {
@@ -92,7 +83,17 @@ export default function Library() {
       name: 'start',
       cuPhap: 'npm start',
       desc: 'Start ứng dụng',
+      link: 'cbs',
       type: 'front-end',
+    },
+    {
+      key: '2',
+      name: 'sequelize',
+      cuPhap: 'npm i sequelize',
+      desc: 'Viết code database trong NodeJs',
+      link: 'cbs',
+      type: 'back-end',
+      tutorial: <NavLink to='/' className='text-black'>link</NavLink>
     },
   ];
 
@@ -104,15 +105,10 @@ export default function Library() {
     <div style={{ paddingTop: '112px' }}>
       <div className="container relative">
         <h1 className='text-center text-4xl font-bold pt-5 pb-3' >Các thư viện thường dùng</h1>
-        <button className='px-3 py-2 bg-green-500 rounded-full text-white hover:bg-green-600 hover:font-bold absolute top-10 right-10' onClick={() => {
-          dispatch({
-            type: OPEN_LIBRARY_MODAL_CREATE
-          })
-        }}>Thêm Thư viện</button>
+
         <Table columns={columns} dataSource={data} onChange={onChange} />
       </div>
-      <ModalLibraryCreate />
-      <ModalLibraryEdit />
+
     </div>
   )
 }

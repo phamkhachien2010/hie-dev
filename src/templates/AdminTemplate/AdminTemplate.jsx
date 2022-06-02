@@ -7,7 +7,8 @@ import {
     InfoCircleOutlined,
     UserOutlined,
     BookOutlined,
-    HomeOutlined
+    HomeOutlined,
+    CommentOutlined
 } from '@ant-design/icons';
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { history } from '../../App';
@@ -51,10 +52,18 @@ export default function AdminTemplate(props) {
                                 },
                                 {
                                     key: '3',
-                                    icon: <InfoCircleOutlined />,
+                                    icon: <CommentOutlined />,
                                     label: 'Info take back',
                                     onClick:()=>{
                                         history.push('/admin/info-takeback-manager')
+                                    }
+                                },
+                                {
+                                    key: '4',
+                                    icon: <InfoCircleOutlined />,
+                                    label: 'Terminal command',
+                                    onClick:()=>{
+                                        history.push('/admin/terminal-command')
                                     }
                                 },
                             ]}

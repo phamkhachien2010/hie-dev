@@ -352,7 +352,7 @@ export default function AboutMe(props) {
 
       <section className='container py-5'>
         <h2 className='text-center text-3xl font-bold'>My projects</h2>
-        <h6 className='text-center text-lg'>There are my projects, that i did when i learn at <a href="#" className='text-blue-500'>Cyberlearn</a></h6>
+        <h6 className='text-center text-lg'>There are my projects, that i did when i learn at <a href="https://cyberlearn.vn/" target='_blank' className='text-blue-500'>Cyberlearn</a></h6>
         <Tabs defaultActiveKey="1">
           {renderTabProject()}
         </Tabs>
