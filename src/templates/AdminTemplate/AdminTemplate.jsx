@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { Route } from 'react-router-dom';
 import {
@@ -10,14 +10,38 @@ import {
     HomeOutlined,
     CommentOutlined
 } from '@ant-design/icons';
+import Swal from 'sweetalert2'
 import { NavLink } from 'react-router-dom/cjs/react-router-dom.min';
 import { history } from '../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_ALL_LIBRARIES } from '../../redux/constant/ConstantSaga';
+import { SUPER_ADMIN } from '../../util/setting/config';
 
 
 const { Header, Sider, Content } = Layout;
 
 
 export default function AdminTemplate(props) {
+    const dispatch = useDispatch();
+    const { userLogin } = useSelector(state => state.UserReducer);
+
+    if (userLogin.type !== SUPER_ADMIN) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Bạn không có quyền truy cập trang này!',
+            icon: 'error',
+            confirmButtonText: 'Cool!'
+        })
+        history.push('/login')
+    }
+
+    useEffect(() => {
+
+        return () => {
+
+        }
+    }, [])
+
 
     const [collapsed, setCollapsed] = useState(false);
 
@@ -32,13 +56,13 @@ export default function AdminTemplate(props) {
                         <Menu
                             theme="dark"
                             mode="inline"
-                            defaultSelectedKeys={['1']}
+                            defaultSelectedKeys={['-1']}
                             items={[
                                 {
                                     key: '1',
                                     icon: <UserOutlined />,
                                     label: 'User todolist',
-                                    onClick:()=>{
+                                    onClick: () => {
                                         history.push('/admin/user-manager-todolist')
                                     }
                                 },
@@ -46,7 +70,7 @@ export default function AdminTemplate(props) {
                                     key: '2',
                                     icon: <BookOutlined />,
                                     label: 'Library',
-                                    onClick:()=>{
+                                    onClick: () => {
                                         history.push('/admin/library-manager')
                                     }
                                 },
@@ -54,7 +78,7 @@ export default function AdminTemplate(props) {
                                     key: '3',
                                     icon: <CommentOutlined />,
                                     label: 'Info take back',
-                                    onClick:()=>{
+                                    onClick: () => {
                                         history.push('/admin/info-takeback-manager')
                                     }
                                 },
@@ -62,7 +86,7 @@ export default function AdminTemplate(props) {
                                     key: '4',
                                     icon: <InfoCircleOutlined />,
                                     label: 'Terminal command',
-                                    onClick:()=>{
+                                    onClick: () => {
                                         history.push('/admin/terminal-command')
                                     }
                                 },

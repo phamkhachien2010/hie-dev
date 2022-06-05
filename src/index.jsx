@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import "animate.css/animate.min.css";
 
+// import 'sweetalert2/src/sweetalert2.scss'
+
 import { Provider } from 'react-redux';
 import store from './redux/configStore';
 

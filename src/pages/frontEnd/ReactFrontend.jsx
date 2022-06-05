@@ -105,10 +105,10 @@ export default function ReactFrontend() {
           <section className='container' id='deployreactapp'>
             <h2 className='text-2xl text-pink-300'>Deploy react app.</h2>
             <div className="pl-4">
-              <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy 1 react-app free như deploy lên sure, lên một site của github. Ở đây minh sẽ hướng dẫn deploy lên github để có thể cập nhật code một cách dễ dàng.</p>
+              <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy 1 react-app free như deploy lên sure, lên một site của github. Ở đây minh sẽ hướng dẫn deploy lên site của github để có thể cập nhật code một cách dễ dàng.</p>
               <a className='text-teal-500 font-bold text-lg' href="https://github.com/gitname/react-gh-pages">Xem hướng dẫn của github tại đây</a>
               <p>Để deploy react-app lên Github page chắc chắn bạn phải cần kiến thức về git. <NavLink className='text-teal-500 font-bold text-lg' to='/tech/github'>Ấn vào đây</NavLink></p>
-              <p>Trước hết phải cài thư viện gh-pages bằng câu lệnh <span className='text-lime-300'>npm install gh-pages --save-dev</span> trong termonal</p>
+              <p>Trước hết phải cài thư viện gh-pages bằng câu lệnh <span className='text-lime-300'>npm install gh-pages --save-dev</span> trong terminal</p>
               <p>Mở file packet.json trong phần khai báo đầu tiên (gồm có name, version, private) thêm 1 thuộc tính là homepage như sau: <span className='text-lime-300'>"homepage": "https://gitname.github.io/react-gh-pages",</span> trong đó phần <span className='font-bold'>gitname</span>  và phần <span className='font-bold'>react-gh-pages</span> là do bạn tự đặt. </p>
               <p>Sau đó trong phần <span className='font-bold'>scripts</span> thêm 2 thuộc tính nữa là predeploy và deploy như sau: <span className='text-lime-300'>"predeploy": "npm run build",</span> và <span className='text-lime-300'>"deploy": "gh-pages -d build",</span> </p>
               <p>Tiếp đó cần khởi tạo 1 git repo trên git hub và làm theo các bước để tạo 1 repo chứa source code của mình.</p>

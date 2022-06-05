@@ -5,6 +5,8 @@ import { useFormik } from 'formik';
 import { Card } from 'antd';
 import styleHomePage from './homepage.module.css'
 import ScrollAnimation from 'react-animate-on-scroll';
+import { useDispatch } from 'react-redux';
+import { SEND_COMMENT_API } from '../../redux/constant/ConstantSaga';
 
 
 const hienImage = require('../../assets/img/avatar2.jpg')
@@ -16,6 +18,8 @@ const gitImg = require('../../assets/img/github-img.png')
 const mySqlImg = require('../../assets/img/mySql.jpg')
 
 export default function HomePage(props) {
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
 
@@ -33,7 +37,10 @@ export default function HomePage(props) {
       comment: '',
     },
     onSubmit: values => {
-      // alert(JSON.stringify(values, null, 2));
+      dispatch({
+        type: SEND_COMMENT_API,
+        comment: values
+      })
     },
   });
 
@@ -82,7 +89,7 @@ export default function HomePage(props) {
         <section className="px-5 bg-indigo-200 text-center py-5">
           <div className='container'>
             <h1 className='text-4xl font-bold'>Hello, Welcome you</h1>
-            <p className='text-xl text-left'>Xin chào các bạn! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc. Những anh/chị HR preview giúp mình với ạ.</p>
+            <p className='text-xl text-left'>Xin chào! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc.</p>
             {/* <p className='text-left text-xl'>Không những vậy blog này còn chia sẻ những câu chuyện đời sống bình thường mà hầu như ai cũng gặp ít nhiều trong quãng thời gian sống của mình.</p> */}
             {/* <p className='text-left' style={{ fontStyle: 'italic' }}>Hiện tại thì mình mới phát triển phiên bản tiếng Anh và tiếng Việt trên blog này, mong các bạn thông cảm!</p> */}
             {/* <p className='text-lg'>Và đây là câu châm ngôn ưa thích của mình: <span className='text-gray-500'>Đỉnh cao của hoàn hảo là sự đơn giản!</span></p> */}

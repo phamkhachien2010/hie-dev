@@ -1,17 +1,29 @@
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { LOGIN_API } from '../../redux/constant/ConstantSaga';
+
 
 
 const logoImg = require('../../assets/img/logo-dark.png')
 export default function Login() {
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+    const dispatch = useDispatch()
+
+    const formik = useFormik({
+        initialValues: {
+            userName: '',
+            password: '',
+        },
+        onSubmit: values => {
+            dispatch({
+                type: LOGIN_API,
+                user: values
+            })            
+        },
+    });
 
     return (
         <div className='flex flex-col justify-center py-5'>
@@ -20,7 +32,9 @@ export default function Login() {
             </div>
             <div className='w-1/2 m-auto p-5' style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
                 <h1 className='text-white font-bold text-center text-2xl mb-3'>LOGIN</h1>
+                
                 <Form
+                    onSubmitCapture={formik.handleSubmit}
                     name="basic"
                     labelCol={{
                         span: 4,
@@ -31,13 +45,10 @@ export default function Login() {
                     initialValues={{
                         remember: true,
                     }}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
                 >
                     <Form.Item
                         label="Username"
-                        name="username"
+                        name='username'
                         rules={[
                             {
                                 required: true,
@@ -45,12 +56,12 @@ export default function Login() {
                             },
                         ]}
                     >
-                        <Input placeholder='Input your userName' />
+                        <Input onChange={formik.handleChange} name='userName' placeholder='Input your userName' />
                     </Form.Item>
 
                     <Form.Item
                         label="Password"
-                        name="password"
+                        name='passWord'
                         rules={[
                             {
                                 required: true,
@@ -58,7 +69,7 @@ export default function Login() {
                             },
                         ]}
                     >
-                        <Input.Password placeholder='Input your password' />
+                        <Input.Password onChange={formik.handleChange} name='password' placeholder='Input your password' />
                     </Form.Item>
 
                     <Form.Item

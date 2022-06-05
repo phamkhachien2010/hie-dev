@@ -1,8 +1,10 @@
-import { CLOSE_LIBRARY_MODAL_CREATE, CLOSE_LIBRARY_MODAL_EDIT, OPEN_LIBRARY_MODAL_CREATE, OPEN_LIBRARY_MODAL_EDIT } from "../constant/ConstantReducer"
+import { CLOSE_LIBRARY_MODAL_CREATE, CLOSE_LIBRARY_MODAL_EDIT, GET_ALL_LIBRARIES, OPEN_LIBRARY_MODAL_CREATE, OPEN_LIBRARY_MODAL_EDIT } from "../constant/ConstantReducer"
 
 const initialState = {
     showLibraryModalCreate: false,
     showLibraryModalEdit: false,
+    listLibraries: [],
+    libraryEdit: {}
 }
 
 export const LibraryReducer = (state = initialState, action) => {
@@ -17,10 +19,14 @@ export const LibraryReducer = (state = initialState, action) => {
         }
 
         case OPEN_LIBRARY_MODAL_EDIT: {
-            return { ...state, showLibraryModalEdit: true }
+            return { ...state, libraryEdit: action.libraryEdit, showLibraryModalEdit: true }
         }
         case CLOSE_LIBRARY_MODAL_EDIT: {
             return { ...state, showLibraryModalEdit: false }
+        }
+
+        case GET_ALL_LIBRARIES: {
+            return { ...state, listLibraries: action.listLibraries }
         }
 
         default:

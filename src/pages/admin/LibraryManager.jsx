@@ -1,66 +1,59 @@
-import React from 'react';
-import { Input, Table } from 'antd';
+import React, { useEffect } from 'react';
+import { Input, Popconfirm, Table } from 'antd';
 import ModalLibraryCreate from '../../component/library/ModalLibraryCreate';
 import ModalLibraryEdit from '../../component/library/ModalLibraryEdit';
 import { OPEN_LIBRARY_MODAL_CREATE, OPEN_LIBRARY_MODAL_EDIT } from '../../redux/constant/ConstantReducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { DELETE_LIBRARY_API, GET_ALL_LIBRARIES_API } from '../../redux/constant/ConstantSaga';
+import { useFormik } from 'formik';
 
 const { Search } = Input;
 
 export default function LibraryManager() {
 
+  const { listLibraries } = useSelector(state => state.LibraryReducer)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: GET_ALL_LIBRARIES_API,
+      key: ''
+    })
+
+    return () => {
+
+    }
+  }, [])
+
 
 
   const columns = [
     {
       title: 'Tên thư viện',
       dataIndex: 'name',
-      filters: [
-        {
-          text: 'Joe',
-          value: 'Joe',
-        },
-        {
-          text: 'Category 1',
-          value: 'Category 1',
-          children: [
-            {
-              text: 'Yellow',
-              value: 'Yellow',
-            },
-            {
-              text: 'Pink',
-              value: 'Pink',
-            },
-          ],
-        },
-        {
-          text: 'Category 2',
-          value: 'Category 2',
-          children: [
-            {
-              text: 'Green',
-              value: 'Green',
-            },
-            {
-              text: 'Black',
-              value: 'Black',
-            },
-          ],
-        },
-      ],
-      filterMode: 'tree',
-      filterSearch: true,
-      onFilter: (value, record) => record.name.includes(value),
+      sorter: (a, b) => {
+        const name1 = a.name;
+        const name2 = b.name
+        if (name1 > name2) {
+          return 1
+        }
+        return -1
+      },
       width: '10%',
       align: 'center'
     },
     {
       title: 'Lệnh',
       dataIndex: 'setup',
-      sorter: (a, b) => a.age - b.age,
+      sorter: (a, b) => {
+        const setup1 = a.setup;
+        const setup2 = b.setup
+        if (setup1 > setup2) {
+          return 1
+        }
+        return -1
+      },
       width: '15%',
       align: 'center'
     },
@@ -73,7 +66,6 @@ export default function LibraryManager() {
       title: 'Link library',
       dataIndex: 'link',
       width: '10%',
-      align: 'center'
     },
     {
       title: 'Use',
@@ -82,51 +74,54 @@ export default function LibraryManager() {
       align: 'center'
     },
     {
-        title: 'Tutorial',
-        dataIndex: 'tutorial',
-        width: '10%',
-        align: 'center'
+      title: 'Tutorial',
+      dataIndex: 'tutorial',
+      width: '10%',
+      align: 'center'
     },
     {
       title: 'Khác',
       dataIndex: 'action',
       width: '10%',
-      render: () => {
-        return <div>
+      render: (text, record, index) => {
+        return <div key={index}>
           <button className='text-xl mr-3 text-blue-500 border-0 focus:outline-none' onClick={() => {
             dispatch({
-              type: OPEN_LIBRARY_MODAL_EDIT
+              type: OPEN_LIBRARY_MODAL_EDIT,
+              libraryEdit: record
             })
-
           }}><i className="fa fa-edit"></i></button>
-          <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+          <Popconfirm
+            title="Are you sure to delete this task?"
+            onConfirm={() => {
+              dispatch({
+                type: DELETE_LIBRARY_API,
+                id: record.id
+              })
+            }}
+            okText="Yes"
+            cancelText="No"
+          >
+            <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+          </Popconfirm>
         </div>
       },
       align: 'center'
     },
   ];
-  const data = [
-    {
-      key: '1',
-      name: 'start',
-      setup: 'npm start',
-      description: 'Start ứng dụng',
-      link: <a href="" target='_blank' className='text-black'>Link</a>,
-      type: 'front-end',
-    },
-    {
-      key: '2',
-      name: 'start',
-      setup: 'npm start',
-      description: 'Start ứng dụng',
-      type: 'front-end',
-      tutorial:<NavLink to='/' className='text-black'>Link</NavLink>
-    },
-  ];
 
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
+  const formik = useFormik({
+    initialValues: {
+      description: ''
+    },
+    onSubmit: values => {
+      dispatch({
+        type: GET_ALL_LIBRARIES_API,
+        key: values.description
+      })
+    }
+  })
+
 
   return (
     <div>
@@ -137,7 +132,8 @@ export default function LibraryManager() {
             type: OPEN_LIBRARY_MODAL_CREATE
           })
         }}>Thêm Thư viện</button>
-        <Table columns={columns} dataSource={data} onChange={onChange} />
+        <Search name='description' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
+        <Table columns={columns} dataSource={listLibraries} />
       </div>
       <ModalLibraryCreate />
       <ModalLibraryEdit />

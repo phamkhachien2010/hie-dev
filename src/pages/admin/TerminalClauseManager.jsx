@@ -1,63 +1,58 @@
-import React from 'react';
-import { Table } from 'antd';
+import React, { useEffect } from 'react';
+import { Input, Popconfirm, Table } from 'antd';
 import ModalTerminalUseCreate from '../../component/ModalTerminalUseCreate';
 import ModalEditTerminalUse from '../../component/ModalEditTerminalUse';
 import { OPEN_MODAL_TEMINAL_EDIT, OPEN_MODAL_TEMINAL_USE } from '../../redux/constant/ConstantReducer';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { DELETE_COMMAND_API, GET_ALL_COMMAND_API } from '../../redux/constant/ConstantSaga';
+import { useFormik } from 'formik';
+
+const { Search } = Input;
 
 export default function TerminalClauseManager() {
 
+    const { listCommand } = useSelector(state => state.TerminalInUseReducer)
     const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch({
+            type: GET_ALL_COMMAND_API,
+            key: ''
+        })
+
+        return () => {
+
+        }
+    }, [])
+
+
 
     const columns = [
         {
             title: 'Tên lệnh',
             dataIndex: 'name',
-            filters: [
-                {
-                    text: 'Joe',
-                    value: 'Joe',
-                },
-                {
-                    text: 'Category 1',
-                    value: 'Category 1',
-                    children: [
-                        {
-                            text: 'Yellow',
-                            value: 'Yellow',
-                        },
-                        {
-                            text: 'Pink',
-                            value: 'Pink',
-                        },
-                    ],
-                },
-                {
-                    text: 'Category 2',
-                    value: 'Category 2',
-                    children: [
-                        {
-                            text: 'Green',
-                            value: 'Green',
-                        },
-                        {
-                            text: 'Black',
-                            value: 'Black',
-                        },
-                    ],
-                },
-            ],
-            filterMode: 'tree',
-            filterSearch: true,
-            onFilter: (value, record) => record.name.includes(value),
+            sorter: (a, b) => {
+                const name1 = a.name;
+                const name2 = b.name;
+                if (name1 > name2) {
+                    return 1
+                }
+                return -1
+            },
             width: '10%',
             align: 'center'
         },
         {
             title: 'Lệnh',
             dataIndex: 'setup',
-            sorter: (a, b) => a.age - b.age,
+            sorter: (a, b) => {
+                const setup1 = a.setup;
+                const setup2 = b.setup;
+                if (setup1 > setup2) {
+                    return 1
+                }
+                return -1
+            },
             width: '15%',
             align: 'center'
         },
@@ -76,35 +71,45 @@ export default function TerminalClauseManager() {
             title: 'Khác',
             dataIndex: 'action',
             width: '10%',
-            render: () => {
-                return <div>
+            render: (text, recode, index) => {
+                return <div key={index}>
                     <button className='text-xl mr-3 text-blue-500 border-0 focus:outline-none' onClick={() => {
                         dispatch({
-                            type: OPEN_MODAL_TEMINAL_EDIT
+                            type: OPEN_MODAL_TEMINAL_EDIT,
+                            commandEdit: recode
                         })
 
                     }}><i className="fa fa-edit"></i></button>
-                    <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+                    <Popconfirm
+                        title="Are you sure to delete this task?"
+                        onConfirm={() => {
+                            dispatch({
+                                type: DELETE_COMMAND_API,
+                                id: recode.id
+                            })
+                        }}
+                        okText="Yes"
+                        cancelText="No"
+                    >
+                        <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+                    </Popconfirm>
                 </div>
             },
             align: 'center'
         },
     ];
 
-    const data = [
-        {
-            key: '1',
-            name: 'start',
-            setup: 'npm start',
-            description: 'Start ứng dụng',
-            type: 'front-end',
+    const formik = useFormik({
+        initialValues: {
+            setup: ''
         },
-    ];
-
-    const onChange = (pagination, filters, sorter, extra) => {
-        console.log('params', pagination, filters, sorter, extra);
-    };
-
+        onSubmit: values => {
+            dispatch({
+                type: GET_ALL_COMMAND_API,
+                key: values.setup
+            })
+        }
+    })
     return (
         <div>
             <div className="container relative">
@@ -114,7 +119,8 @@ export default function TerminalClauseManager() {
                         type: OPEN_MODAL_TEMINAL_USE
                     })
                 }}>Thêm lệnh</button>
-                <Table columns={columns} dataSource={data} onChange={onChange} />
+                <Search name='setup' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
+                <Table columns={columns} dataSource={listCommand} />
             </div>
             <ModalTerminalUseCreate />
             <ModalEditTerminalUse />

@@ -4,6 +4,8 @@ import style from './about.module.css'
 import { Button, Form, Input, Tabs } from 'antd';
 import { Carousel } from 'antd';
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { SEND_COMMENT_API } from '../../redux/constant/ConstantSaga';
 
 const { TabPane } = Tabs;
 
@@ -79,7 +81,7 @@ const myProject = [
         technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-housing-deploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/housing-deploy',
-        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/281572731_756054525535758_4415094465549776548_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=m5KXrF-a9poAX_fkg9I&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT8PF-t1YYkFgjmg6hR9GQyOwZqTYWmbBYtobo-IAgwqUw&oe=628B9467'
+        bgImage: require('../../assets/imgAbout/housing.png')
       },
       {
         projectName: 'Bake homepage',
@@ -87,7 +89,7 @@ const myProject = [
         technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-bake-deploy.netlify.app/',
         linkGithub: 'https://github.com/phamkhachien2010/bake-deploy',
-        bgImage: 'https://scontent.fsgn5-14.fna.fbcdn.net/v/t39.30808-6/280500673_756054585535752_721281389742887875_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=730e14&_nc_ohc=L1tIYAbBJOEAX-O0c6H&tn=gSge2FSkOv9qrkI9&_nc_ht=scontent.fsgn5-14.fna&oh=00_AT8ypeHOCOKGVBhXjymT5TU6zQuODo_IktNQ4eHhD7F6lw&oe=628B393A'
+        bgImage: require('../../assets/imgAbout/bake.png')
       },
       {
         projectName: 'Merged homepage',
@@ -95,7 +97,7 @@ const myProject = [
         technology: 'HTML5, CSS3, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-merged.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/mergedDeploy',
-        bgImage: 'https://scontent.fsgn5-8.fna.fbcdn.net/v/t39.30808-6/283096233_756054648869079_2346049001088418398_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=9IzfbyoDlGIAX9u1hAQ&_nc_ht=scontent.fsgn5-8.fna&oh=00_AT_Hw2NhCvXYvVzL2GZ0Yo82Nc8k-Efj7TR9SxWCQYrXfw&oe=628BA485'
+        bgImage: require('../../assets/imgAbout/merged.png')
       },
     ]
   },
@@ -108,7 +110,7 @@ const myProject = [
         technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-hondadeploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/hondaDeploy',
-        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/280450918_756054548869089_8938495260015686792_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=EFrv1vjF5M0AX9rnmiH&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT9bs9chM3cjebx4gv0Vwgmp3Vcx-X3s8PgXc1MFhA4eEA&oe=628BDC5E'
+        bgImage: require('../../assets/imgAbout/honda.png')
       },
       {
         projectName: 'Instruction homepage',
@@ -116,7 +118,7 @@ const myProject = [
         technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-instruction-deploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/instruction-deploy',
-        bgImage: 'https://scontent.fsgn5-13.fna.fbcdn.net/v/t39.30808-6/281271978_756054662202411_3964373805953894479_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=730e14&_nc_ohc=PwJ1M3un_okAX_Hnxcz&tn=gSge2FSkOv9qrkI9&_nc_ht=scontent.fsgn5-13.fna&oh=00_AT8RpuqmJqlUaYpCUDEFHmhtMWQJzreMvWE4wmkuxdO0TQ&oe=628C2751'
+        bgImage: require('../../assets/imgAbout/instruction.png')
       },
       {
         projectName: 'Elearning homepage',
@@ -124,7 +126,7 @@ const myProject = [
         technology: 'HTML5, CSS3, SASS, responsive, Jquery, Owlcarousel',
         linkDemo: 'https://phamkhachien-elearningdeploy.netlify.app',
         linkGithub: 'https://github.com/phamkhachien2010/elearning-depoly',
-        bgImage: 'https://scontent.fsgn5-15.fna.fbcdn.net/v/t39.30808-6/281739162_756054595535751_7767835138963970455_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=DrAUyFxTBCgAX8J5K69&_nc_ht=scontent.fsgn5-15.fna&oh=00_AT9HTIm2jcKEzPuPgLngTtXHJd2-hA02NAfp5X8xJxzvZA&oe=628B0F16'
+        bgImage: require('../../assets/imgAbout/elearning.png')
       },
     ]
   },
@@ -137,7 +139,7 @@ const myProject = [
         technology: 'ReactJs, React functional component, redux, redux thunk ...',
         linkDemo: 'http://phamkhachien_booking_ticket_movie.surge.s',
         linkGithub: 'https://github.com/phamkhachien2010/booking-ticket-deploy',
-        bgImage: 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t39.30808-6/282870019_756054705535740_7387877389122198732_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=zmkQDp_Z-jEAX95vZGt&_nc_ht=scontent.fsgn5-6.fna&oh=00_AT8G7V2z9amt6DWaGc9_BQkMhHxoE0PGPtwaUor29Jj0aQ&oe=628B488D'
+        bgImage: require('../../assets/imgAbout/bookingticket.png')
       },
       {
         projectName: 'Jira clone website',
@@ -145,7 +147,7 @@ const myProject = [
         technology: 'ReactJs, React functional component, redux, redux saga ...',
         linkDemo: 'http://phamkhachien-jira-clone.surge.sh',
         linkGithub: 'https://github.com/phamkhachien2010/jira-clone-deploy',
-        bgImage: 'https://scontent.fsgn5-2.fna.fbcdn.net/v/t39.30808-6/281722640_756054475535763_6880298382982924284_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=730e14&_nc_ohc=xesBg-LFzBYAX9V0i80&_nc_oc=AQlg3Boky1VRYB6RIAzVh46EAU6MwUHXepkN_HuvopCUzQgDZv_XEubp1-Mk9Tocxrk&_nc_ht=scontent.fsgn5-2.fna&oh=00_AT_yb77vwdWI-OvKLVeog-2-jwz-arTiOml86lLTV95VCA&oe=628B6C16'
+        bgImage: require('../../assets/imgAbout/jiraclone.png')
       },
     ]
   }
@@ -153,24 +155,15 @@ const myProject = [
 
 export default function AboutMe(props) {
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    window.scrollTo(0,0)
-  
+    window.scrollTo(0, 0)
+
     return () => {
-      
+
     }
   }, [])
-
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      name: '',
-      comment: '',
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
 
   const renderLiSkills = (skills) => {
     return skills.map((skill, index) => {
@@ -258,6 +251,21 @@ export default function AboutMe(props) {
       },
     },
   };
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      name: '',
+      comment: '',
+    },
+    onSubmit: values => {
+      dispatch({
+        type: SEND_COMMENT_API,
+        comment: values
+      })
+    },
+  });
+
 
   return (
     <div>
@@ -360,61 +368,61 @@ export default function AboutMe(props) {
 
       <section className='contact__form py-5' style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg?size=626&ext=jpg&uid=R71559152&ga=GA1.2.232571487.1602147622)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
         <div className='container'>
-        <h2 className='text-center text-3xl font-bold text-white'>Contact with me</h2>
-        <Form
-          {...formItemLayout}
-          scrollToFirstError
-          onSubmitCapture={formik.handleSubmit}
-        >
-          <Form.Item
-            name="email"
-            label="Email"
-            rules={[
-              {
-                type: 'email',
-                message: 'email không hợp lệ!',
-              },
-              {
-                required: true,
-                message: 'Email không nên bỏ trống!',
-              },
-            ]}
+          <h2 className='text-center text-3xl font-bold text-white'>Contact with me</h2>
+          <Form
+            {...formItemLayout}
+            scrollToFirstError
+            onSubmitCapture={formik.handleSubmit}
           >
-            <Input name='email' onChange={formik.handleChange} />
-          </Form.Item>
+            <Form.Item
+              name="email"
+              label="Email"
+              rules={[
+                {
+                  type: 'email',
+                  message: 'email không hợp lệ!',
+                },
+                {
+                  required: true,
+                  message: 'Email không nên bỏ trống!',
+                },
+              ]}
+            >
+              <Input name='email' onChange={formik.handleChange} />
+            </Form.Item>
 
-          <Form.Item
-            name="name"
-            label="Tên của bạn"
-            rules={[
-              {
-                required: true,
-                message: 'Mình muốn biết tên của bạn!',
-                whitespace: true,
-              },
-            ]}
-          >
-            <Input name='name' onChange={formik.handleChange} />
-          </Form.Item>
+            <Form.Item
+              name="name"
+              label="Tên của bạn"
+              rules={[
+                {
+                  required: true,
+                  message: 'Mình muốn biết tên của bạn!',
+                  whitespace: true,
+                },
+              ]}
+            >
+              <Input name='name' onChange={formik.handleChange} />
+            </Form.Item>
 
-          <Form.Item
-            name="comment"
-            label="Comment"
-            rules={[
-              {
-                required: true,
-                message: 'Comment ở đây nhé!',
-              },
-            ]}
-          >
-            <Input.TextArea name='comment' onChange={formik.handleChange} showCount maxLength={200} />
-          </Form.Item>
-          <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
-              Gửi
-            </Button>
-          </Form.Item>
-        </Form>
+            <Form.Item
+              name="comment"
+              label="Comment"
+              rules={[
+                {
+                  required: true,
+                  message: 'Comment ở đây nhé!',
+                },
+              ]}
+            >
+              <Input.TextArea name='comment' onChange={formik.handleChange} showCount maxLength={200} />
+            </Form.Item>
+            <Form.Item {...tailFormItemLayout}>
+              <Button type="primary" htmlType="submit">
+                Gửi
+              </Button>
+            </Form.Item>
+          </Form>
         </div>
       </section>
 

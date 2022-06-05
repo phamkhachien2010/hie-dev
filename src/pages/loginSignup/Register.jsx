@@ -1,19 +1,29 @@
 import { Button, Checkbox, Form, Input } from 'antd'
+import { useFormik } from 'formik';
 import React from 'react'
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
+import { REGISTER_API } from '../../redux/constant/ConstantSaga';
 
 
 const logoImg = require('../../assets/img/logo-dark.png')
 
 export default function Register() {
+    const dispatch = useDispatch();
 
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
-
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
+    const formik = useFormik({
+        initialValues: {
+            userName: '',
+            password: '',
+            confirmPassword: ''
+        },
+        onSubmit: values => {
+            dispatch({
+                type: REGISTER_API,
+                user: values
+            })
+        },
+    });
 
     return (
         <div className='flex flex-col justify-center py-5'>
@@ -22,7 +32,9 @@ export default function Register() {
             </div>
             <div className='w-1/2 m-auto p-5' style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
                 <h1 className='text-white font-bold text-center text-2xl mb-3'>REGISTER</h1>
+                <h2 className='text-center mb-3'>If you do not already have an account! <i className="fa fa-arrow-down"></i></h2>
                 <Form
+                    onSubmitCapture={formik.handleSubmit}
                     name="basic"
                     labelCol={{
                         span: 6,
@@ -33,13 +45,10 @@ export default function Register() {
                     initialValues={{
                         remember: true,
                     }}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
                 >
                     <Form.Item
                         label="Username"
-                        name="username"
+                        name='username'
                         rules={[
                             {
                                 required: true,
@@ -47,12 +56,12 @@ export default function Register() {
                             },
                         ]}
                     >
-                        <Input placeholder='Input your userName' />
+                        <Input name='userName' onChange={formik.handleChange} placeholder='Input your userName' />
                     </Form.Item>
 
                     <Form.Item
                         label="Password"
-                        name="password"
+                        name='passWord'
                         rules={[
                             {
                                 required: true,
@@ -60,13 +69,13 @@ export default function Register() {
                             },
                         ]}
                     >
-                        <Input.Password placeholder='Input your password' />
+                        <Input.Password name="password" onChange={formik.handleChange} placeholder='Input your password' />
                     </Form.Item>
 
                     <Form.Item
                         name="confirm"
                         label="Confirm Password"
-                        dependencies={['password']}
+                        dependencies={['passWord']}
                         hasFeedback
                         rules={[
                             {
@@ -75,7 +84,7 @@ export default function Register() {
                             },
                             ({ getFieldValue }) => ({
                                 validator(_, value) {
-                                    if (!value || getFieldValue('password') === value) {
+                                    if (!value || getFieldValue('passWord') === value) {
                                         return Promise.resolve();
                                     }
 
@@ -84,7 +93,7 @@ export default function Register() {
                             }),
                         ]}
                     >
-                        <Input.Password placeholder='Retype your password' />
+                        <Input.Password name="confirmPassword" onChange={formik.handleChange} placeholder='Retype your password' />
                     </Form.Item>
 
                     <Form.Item

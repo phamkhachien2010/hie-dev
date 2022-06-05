@@ -1,7 +1,25 @@
 import { Table } from 'antd';
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_ALL_COMMENT_API } from '../../redux/constant/ConstantSaga';
 
 export default function InfoTakeBack() {
+
+  const { listComment } = useSelector(state => state.CommentReducer);
+  console.log(listComment);
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: GET_ALL_COMMENT_API
+    })
+
+    return () => {
+
+    }
+  }, [])
+
 
   const columns = [
     {
@@ -19,7 +37,7 @@ export default function InfoTakeBack() {
     {
       title: 'Phản hồi',
       dataIndex: 'comment',
-      width: '50%',      
+      width: '50%',
     },
   ];
 
@@ -39,7 +57,7 @@ export default function InfoTakeBack() {
   return (
     <div className="container">
       <h1 className='text-center text-xl font-bold py-4'>Phản hồi</h1>
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table columns={columns} dataSource={listComment} onChange={onChange} />
     </div>
   )
 }

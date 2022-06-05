@@ -2,6 +2,8 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useState } from 'react';
 import { Menu, Dropdown, Space } from 'antd';
+import { USER_LOGIN } from '../../../util/setting/config';
+import { history } from '../../../App';
 
 
 export default function Header(props) {
@@ -40,10 +42,14 @@ export default function Header(props) {
         <Menu
             items={[
                 {
-                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/app/todolist">Todo list</NavLink>,
+                    label: <div onClick={() => {
+                        if (!localStorage.getItem(USER_LOGIN)) {
+                            history.push('/login')
+                        }
+                    }}> <NavLink className="dropdown-item bg-cyan-50 text-black" to="/app/todolist">Todo list</NavLink></div>,
                     key: '0',
                 },
-                
+
                 {
                     type: 'divider',
                 },
@@ -69,7 +75,7 @@ export default function Header(props) {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/mysql">MySQL</NavLink>,
                     key: '0',
                 },
-                
+
                 {
                     type: 'divider',
                 },
@@ -95,7 +101,7 @@ export default function Header(props) {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/lenh-thuong-dung">Lệnh thường dùng</NavLink>,
                     key: '0',
                 },
-                
+
                 {
                     type: 'divider',
                 },
@@ -104,13 +110,16 @@ export default function Header(props) {
     );
 
     return (
-        <header className="p-4 dark:bg-gray-800 dark:text-gray-100 w-100 fixed z-10">
+        <header className="lg:p-5 sm:p-3 dark:bg-gray-800 dark:text-gray-100 w-100 fixed z-10">
 
-            <div className="container flex lg:justify-around justify-between h-16 mx-auto">
-                <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" className="flex items-center p-2">
-                    <img style={{ width: '50px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
-                </NavLink>
-                <ul className={`items-stretch ${blockHidden} space-x-3 lg:flex`}>
+            <div className="container lg:flex lg:justify-around justify-between mx-auto">
+                <div className="flex items-center p-2 justify-center lg:pb-4">
+                    <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" >
+                        <img style={{ width: '50px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
+                    </NavLink>
+                </div>
+
+                <ul className={`items-stretch space-x-3 flex`}>
                     <li className="flex">
                         <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>Home</NavLink>
                     </li>
@@ -128,52 +137,85 @@ export default function Header(props) {
                         </Dropdown>
                     </li>
                     <li className="flex">
-                    <Dropdown overlay={menuApp} trigger={['click']}>
+                        <Dropdown overlay={menuApp} trigger={['click']}>
                             <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     Ứng dụng
                                     <i className="fa fa-angle-down"></i>
                                 </Space>
                             </NavLink>
-                        </Dropdown>                        
+                        </Dropdown>
                     </li>
                     <li className="flex">
-                    <Dropdown overlay={menuTech} trigger={['click']}>
+                        <Dropdown overlay={menuTech} trigger={['click']}>
                             <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     Công nghệ
                                     <i className="fa fa-angle-down"></i>
                                 </Space>
                             </NavLink>
-                        </Dropdown>                        
+                        </Dropdown>
                     </li>
                     <li className="flex">
-                    <Dropdown overlay={menuOther} trigger={['click']}>
+                        <Dropdown overlay={menuOther} trigger={['click']}>
                             <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     Khác
                                     <i className="fa fa-angle-down"></i>
                                 </Space>
                             </NavLink>
-                        </Dropdown>                        
+                        </Dropdown>
                     </li>
                 </ul>
-                <div className="items-center flex-shrink-0 hidden lg:flex">
-                    {/* <Space direction="vertical">
-                        <Search placeholder="input search text" onSearch={onSearch} allowClear style={{ width: 250 }} />
-                    </Space> */}
-                </div>
-                <button className="p-4 lg:hidden" onClick={() => {
-                    if (blockHidden === 'block') {
-                        setBlockHidden('hidden')
-                    } else {
-                        setBlockHidden('block')
-                    }
-                }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-100">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
+                {/* <ul className={`items-stretch space-x-3 flex lg:hidden`}>
+                    <li className="flex">
+                        <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>Home</NavLink>
+                    </li>
+                    <li className="flex">
+                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>About me</NavLink>
+                    </li>
+                    <li className="flex">
+                        <Dropdown overlay={menuDev} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/dev')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    DEV
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>
+                    </li>
+                    <li className="flex">
+                        <Dropdown overlay={menuApp} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Ứng dụng
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>
+                    </li>
+                    <li className="flex">
+                        <Dropdown overlay={menuTech} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Công nghệ
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>
+                    </li>
+                    <li className="flex">
+                        <Dropdown overlay={menuOther} trigger={['click']}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
+                                <Space>
+                                    Khác
+                                    <i className="fa fa-angle-down"></i>
+                                </Space>
+                            </NavLink>
+                        </Dropdown>
+                    </li>
+                </ul> */}
+
             </div>
         </header>
 

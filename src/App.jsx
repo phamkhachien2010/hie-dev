@@ -1,5 +1,6 @@
 import { createBrowserHistory } from 'history';
 import { Switch, Router } from 'react-router-dom';
+import LoadingComponent from './component/loading/LoadingComponent';
 import AboutMe from './pages/about/AboutMe';
 import InfoTakeBack from './pages/admin/InfoTakeBack';
 import LibraryManager from './pages/admin/LibraryManager';
@@ -31,6 +32,7 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
+      <LoadingComponent />
       <Switch>
         <HomeTemplate path='/home' exact Component={HomePage} />
         <HomeTemplate path='/about' exact Component={AboutMe} />

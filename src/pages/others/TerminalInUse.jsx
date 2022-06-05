@@ -1,72 +1,46 @@
-import React from 'react';
-import { Table } from 'antd';
-import ModalTerminalUseCreate from '../../component/ModalTerminalUseCreate';
-import { useDispatch } from 'react-redux';
-import { OPEN_MODAL_TEMINAL_EDIT, OPEN_MODAL_TEMINAL_USE } from '../../redux/constant/ConstantReducer';
-import ModalEditTerminalUse from '../../component/ModalEditTerminalUse';
+import React, { useEffect } from 'react';
+import { Input, Table } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { GET_ALL_COMMAND_API } from '../../redux/constant/ConstantSaga';
+import { useFormik } from 'formik';
 
-
+const { Search } = Input;
 
 export default function TerminalInUse() {
 
+    const { listCommand } = useSelector(state => state.TerminalInUseReducer);
+
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({
+            type: GET_ALL_COMMAND_API,
+            key: ''
+        })
+
+        return () => {
+
+        }
+    }, [])
+
 
     const columns = [
         {
             title: 'Tên lệnh',
             dataIndex: 'name',
-            filters: [
-                {
-                    text: 'Joe',
-                    value: 'Joe',
-                },
-                {
-                    text: 'Category 1',
-                    value: 'Category 1',
-                    children: [
-                        {
-                            text: 'Yellow',
-                            value: 'Yellow',
-                        },
-                        {
-                            text: 'Pink',
-                            value: 'Pink',
-                        },
-                    ],
-                },
-                {
-                    text: 'Category 2',
-                    value: 'Category 2',
-                    children: [
-                        {
-                            text: 'Green',
-                            value: 'Green',
-                        },
-                        {
-                            text: 'Black',
-                            value: 'Black',
-                        },
-                    ],
-                },
-            ],
-            filterMode: 'tree',
-            filterSearch: true,
-            onFilter: (value, record) => record.name.includes(value),
             width: '15%',
             align: 'center'
         },
         {
             title: 'Lệnh',
-            dataIndex: 'cuPhap',
+            dataIndex: 'setup',
             sorter: (a, b) => a.age - b.age,
             width: '25%',
-            align: 'center'
         },
         {
             title: 'Mô tả',
-            dataIndex: 'desc',
+            dataIndex: 'description',
             width: '30%',
-            align: 'center'
         },
         {
             title: 'Dùng trong',
@@ -74,30 +48,29 @@ export default function TerminalInUse() {
             width: '20%',
             align: 'center'
         },
-       
-    ];
-    const data = [
-        {
-            key: '1',
-            name: 'start',
-            cuPhap: 'npm start',
-            desc: 'Start ứng dụng',
-            type: 'front-end',
-        },
+
     ];
 
-    const onChange = (pagination, filters, sorter, extra) => {
-        console.log('params', pagination, filters, sorter, extra);
-    };
+    const formik = useFormik({
+        initialValues: {
+            setup: ''
+        },
+        onSubmit: values => {
+          const key = values.setup;
+          dispatch({
+            type: GET_ALL_COMMAND_API,
+            key
+          })
+        }
+      })
 
     return (
         <div style={{ paddingTop: '112px' }}>
             <div className="container relative">
                 <h1 className='text-center text-4xl font-bold pt-5 pb-3' >Các lệnh terminal thường dùng</h1>
-                <Table columns={columns} dataSource={data} onChange={onChange} />
+                <Search name='setup' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
+                <Table columns={columns} dataSource={listCommand} />
             </div>
-            <ModalTerminalUseCreate />
-            <ModalEditTerminalUse/>
         </div>
     )
 }

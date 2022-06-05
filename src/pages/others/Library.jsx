@@ -1,112 +1,107 @@
-import { Table } from 'antd'
-import React from 'react'
+import { Input, Table } from 'antd'
+import { useFormik } from 'formik';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { GET_ALL_LIBRARIES_API } from '../../redux/constant/ConstantSaga';
 
+const { Search } = Input;
 export default function Library() {
+
+  const { listLibraries } = useSelector(state => state.LibraryReducer)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: GET_ALL_LIBRARIES_API,
+      key: ''
+    })
+
+    return () => {
+
+    }
+  }, [])
 
 
   const columns = [
     {
       title: 'Tên thư viện',
+      key: 'name',
       dataIndex: 'name',
-      filters: [
-        {
-          text: 'Joe',
-          value: 'Joe',
-        },
-        {
-          text: 'Category 1',
-          value: 'Category 1',
-          children: [
-            {
-              text: 'Yellow',
-              value: 'Yellow',
-            },
-            {
-              text: 'Pink',
-              value: 'Pink',
-            },
-          ],
-        },
-        {
-          text: 'Category 2',
-          value: 'Category 2',
-          children: [
-            {
-              text: 'Green',
-              value: 'Green',
-            },
-            {
-              text: 'Black',
-              value: 'Black',
-            },
-          ],
-        },
-      ],
-      filterMode: 'tree',
-      filterSearch: true,
-      onFilter: (value, record) => record.name.includes(value),
       width: '15%',
       align: 'center'
     },
     {
       title: 'Lệnh cài đặt',
-      dataIndex: 'cuPhap',
-      sorter: (a, b) => a.age - b.age,
+      key: 'setup',
+      dataIndex: 'setup',
+      sorter: (a, b) => {
+        let setup1 = a.setup;
+        let setup2 = b.setup;
+        if (setup1 > setup2) {
+          return 1
+        }
+        return -1
+      },
       width: '15%',
     },
     {
       title: 'Mô tả',
-      dataIndex: 'desc',
+      dataIndex: 'description',
       width: '20%',
     },
     {
       title: 'Link',
+      key: 'link',
       dataIndex: 'link',
+      render: (text, record, index) => {
+        return <a className='text-blue-400' target='_blank' key={index} href={record.link}>Link Library</a>
+      },
+      align: 'center',
       width: '20%',
     },
     {
       title: 'Dùng trong',
+      key: 'type',
       dataIndex: 'type',
       width: '15%',
     },
     {
       title: 'Hướng dẫn',
+      key: 'tutorial',
       dataIndex: 'tutorial',
+      render: (text, record, index) => {
+        if (record.tutorial) {
+          return <NavLink className='text-blue-400' target='_blank' key={index} to={record.tutorial}>Link tutorial</NavLink>
+        }
+        return
+      },
       width: '10%',
     },
 
   ];
-  const data = [
-    {
-      key: '1',
-      name: 'start',
-      cuPhap: 'npm start',
-      desc: 'Start ứng dụng',
-      link: 'cbs',
-      type: 'front-end',
-    },
-    {
-      key: '2',
-      name: 'sequelize',
-      cuPhap: 'npm i sequelize',
-      desc: 'Viết code database trong NodeJs',
-      link: 'cbs',
-      type: 'back-end',
-      tutorial: <NavLink to='/' className='text-black'>link</NavLink>
-    },
-  ];
 
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
+
+  const formik = useFormik({
+    initialValues: {
+      description: ''
+    },
+    onSubmit: values => {
+      const key = values.description;
+      dispatch({
+        type: GET_ALL_LIBRARIES_API,
+        key
+      })
+    }
+  })
 
   return (
     <div style={{ paddingTop: '112px' }}>
       <div className="container relative">
         <h1 className='text-center text-4xl font-bold pt-5 pb-3' >Các thư viện thường dùng</h1>
+        <Search name='description' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
 
-        <Table columns={columns} dataSource={data} onChange={onChange} />
+        <Table columns={columns} dataSource={listLibraries}  />
       </div>
 
     </div>

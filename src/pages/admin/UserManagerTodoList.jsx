@@ -1,9 +1,27 @@
-import React from 'react';
-import { Input, Table } from 'antd';
+import React, { useEffect } from 'react';
+import { Input, message, Popconfirm, Table } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { DELETE_USER_API, GET_ALL_USER_API } from '../../redux/constant/ConstantSaga';
+import { OPEN_USER_MODAL_EDIT } from '../../redux/constant/ConstantReducer';
+import EditUserModal from '../../component/editUser/EditUserModal';
 
 const { Search } = Input;
 
 export default function UserManagerTodoList() {
+
+  const { listUser } = useSelector(state => state.UserReducer);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch({
+      type: GET_ALL_USER_API
+    })
+
+    return () => {
+
+    }
+  }, [])
+
 
   const onSearch = (value) => console.log(value);
 
@@ -22,10 +40,27 @@ export default function UserManagerTodoList() {
     {
       title: 'Action',
       dataIndex: 'action',
-      render: (user) => {
-        return <div>
-          <button className='bg-sky-400 px-3 py-2 rounded-lg hover:bg-sky-500 mr-2 focus:outline-none'><i className="fa fa-edit"></i></button>
-          <button className='bg-red-400 px-3 py-2 rounded-lg hover:bg-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+      render: (text, recode, index) => {
+        return <div key={index}>
+          <button className='bg-sky-400 px-3 py-2 rounded-lg hover:bg-sky-500 mr-2 focus:outline-none' onClick={() => {
+            dispatch({
+              type: OPEN_USER_MODAL_EDIT,
+              userEdit: recode
+            })
+          }} ><i className="fa fa-edit"></i></button>
+          <Popconfirm
+            title="Are you sure to delete this task?"
+            onConfirm={() => {
+              dispatch({
+                type: DELETE_USER_API,
+                id: recode.id
+              })
+            }}
+            okText="Yes"
+            cancelText="No"
+          >
+            <button className='bg-red-400 px-3 py-2 rounded-lg hover:bg-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+          </Popconfirm>
         </div>
       },
       width: '40%',
@@ -33,32 +68,6 @@ export default function UserManagerTodoList() {
     },
   ];
 
-  const data = [
-    {
-      key: '1',
-      userName: 'John Brown',
-      type: 'Client',
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      userName: 'Jim Green',
-      type: 'Client',
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      userName: 'Joe Black',
-      type: 'Client',
-      address: 'Sidney No. 1 Lake Park',
-    },
-    {
-      key: '4',
-      userName: 'Jim Red',
-      type: 'Client',
-      address: 'London No. 2 Lake Park',
-    },
-  ];
 
   const onChange = (pagination, filters, sorter, extra) => {
     console.log('params', pagination, filters, sorter, extra);
@@ -68,7 +77,9 @@ export default function UserManagerTodoList() {
     <div>
       <h1 className='text-center text-xl font-bold py-4'>USER MANAGEMENT</h1>
       <Search placeholder="input search text" onSearch={onSearch} enterButton />
-      <Table columns={columns} dataSource={data} onChange={onChange} />
+      <Table columns={columns} dataSource={listUser} onChange={onChange} />
+
+      <EditUserModal />
     </div>
   )
 }

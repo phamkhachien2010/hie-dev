@@ -1,12 +1,67 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, DatePicker, Dropdown, Form, Input, Menu, Select } from 'antd';
 import { NavLink } from 'react-router-dom';
+import { useFormik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import date from 'date-and-time'
+import { CREATE_TODOLIST, GET_ALL_TODOLIST_SAGA } from '../../../redux/constant/ConstantSaga';
+import HandleWorksForm from './HandleWorksForm';
+import { SET_LIST_TODO_BY_ID } from '../../../redux/constant/ConstantReducer';
 
-
-const { Option } = Select;
 const { RangePicker } = DatePicker;
 
 export default function Todolist() {
+
+    const { userLogin } = useSelector(state => state.UserReducer);
+    const { listTodo } = useSelector(state => state.TodoListReducer);
+    const dispatch = useDispatch();
+
+    const getListtoDoById = () => {
+        return listTodo?.filter((todo) => todo.userId === userLogin.id);
+    }
+
+    const listTodoById = getListtoDoById()
+
+    useEffect(() => {
+        dispatch({
+            type: GET_ALL_TODOLIST_SAGA
+        })
+
+        return () => {
+
+        }
+    }, [])
+
+
+    const handleChangRangePicker = (name) => {
+        return (value) => {
+            formik.setFieldValue(name, value)
+        }
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            title: '',
+            rangePicker: '',
+        },
+        onSubmit: values => {
+            const { id } = userLogin
+            const { title, rangePicker } = values
+            const from = date.format(rangePicker[0]._d, 'YYYY/MM/DD');
+            const to = date.format(rangePicker[1]._d, 'YYYY/MM/DD');
+            const todo = {
+                title,
+                from,
+                to,
+                userId: id
+            }
+            dispatch({
+                type: CREATE_TODOLIST,
+                todo
+            })
+        },
+    });
+
 
     const menu = () => {
         return <Menu
@@ -58,6 +113,7 @@ export default function Todolist() {
                     <h2 className='text-3xl text-center text-white font-bold pt-2'>Thêm việc lớn cần làm</h2>
                     <Form
                         name="basic"
+                        onSubmitCapture={formik.handleSubmit}
                         labelCol={{
                             span: 4,
                         }}
@@ -79,11 +135,11 @@ export default function Todolist() {
                                 },
                             ]}
                         >
-                            <Input placeholder='Thêm mục cần làm' />
+                            <Input name='title' onChange={formik.handleChange} placeholder='Thêm mục cần làm' />
                         </Form.Item>
 
-                        <Form.Item name="range-picker" label="Thời gian thực hiện" {...rangeConfig}>
-                            <RangePicker />
+                        <Form.Item label="Thời gian thực hiện" {...rangeConfig}>
+                            <RangePicker name="rangePicker" onChange={handleChangRangePicker('rangePicker')} />
                         </Form.Item>
 
 
@@ -100,69 +156,14 @@ export default function Todolist() {
                     </Form>
 
                     <h2 className='text-2xl text-center text-white font-bold pt-2'>Thêm những việc nhỏ cần làm</h2>
-                    <Form
-                        labelCol={{
-                            span: 4,
-                        }}
-                        wrapperCol={{
-                            span: 18,
-                        }}
-                        initialValues={{
-                            remember: true,
-                        }}
-                        autoComplete="off"
-                    >
+                    <HandleWorksForm />
 
-                        <Form.Item
-                            name="title"
-                            label="Mục cần làm"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Thêm mục cần làm!',
-                                },
-                            ]}
-                        >
-                            <Select placeholder="Chọn mục cần làm">
-                                <Option value="male">Male</Option>
-                                <Option value="female">Female</Option>
-                                <Option value="other">Other</Option>
-                            </Select>
-                        </Form.Item>
-
-                        <Form.Item
-                            label="Tên việc cần làm"
-                            name="name"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'Nhập việc cần làm!',
-                                },
-                            ]}
-                        >
-                            <Input placeholder='Thêm việc cần làm' />
-                        </Form.Item>
-
-                        <Form.Item
-                            label="Ghi chú"
-                            name="description"
-                        >
-                            <Input.TextArea placeholder='Nhập ghi chú' />
-                        </Form.Item>
-
-                        <Form.Item
-                            wrapperCol={{
-                                offset: 20,
-                                span: 2,
-                            }}
-                        >
-                            <Button type="primary" htmlType="submit">
-                                Thêm việc
-                            </Button>
-                        </Form.Item>
-                    </Form>
-
-                    <div className='text-right pr-5 pt-5'>
+                    <div className='text-right pr-5 pt-5' onClick={() => {
+                        dispatch({
+                            type: SET_LIST_TODO_BY_ID,
+                            listTodoById
+                        })
+                    }} >
                         <NavLink className='text-xl' to='/app/todolist-manager'>Xem danh sách việc <i className="fa fa-arrow-right"></i></NavLink>
                     </div>
                 </div>

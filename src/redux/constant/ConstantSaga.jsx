@@ -1,0 +1,34 @@
+/***********USER********* */
+export const LOGIN_API = 'LOGIN_API';
+export const REGISTER_API = 'REGISTER_API';
+export const GET_ALL_USER_API = 'GET_ALL_USER_API';
+export const EDIT_TYPE_USER_API = 'EDIT_TYPE_USER_API';
+export const DELETE_USER_API = 'DELETE_USER_API';
+
+/**********LIBRARIES********/
+export const GET_ALL_LIBRARIES_API = 'GET_ALL_LIBRARIES_API';
+export const CREATE_LIBRARY_API = 'CREATE_LIBRARY_API';
+export const EDIT_LIBRARY_API = 'EDIT_LIBRARY_API';
+export const DELETE_LIBRARY_API = 'DELETE_LIBRARY_API';
+
+/**********COMMENT********/
+export const SEND_COMMENT_API = 'SEND_COMMENT_API'
+export const GET_ALL_COMMENT_API = 'GET_ALL_COMMENT_API'
+
+/**********TODOLIST********/
+export const CREATE_TODOLIST = 'CREATE_TODOLIST'
+export const GET_ALL_TODOLIST_SAGA = 'GET_ALL_TODOLIST_SAGA'
+export const EDIT_TODOLIST_SAGA = 'EDIT_TODOLIST_SAGA'
+export const DELETE_TODOLIST_SAGA = 'DELETE_TODOLIST_SAGA'
+
+/**********WORKS********/
+export const CREATE_WORK = 'CREATE_WORK'
+export const GET_ALL_WORK_API = 'GET_ALL_WORK_API'
+export const EDIT_WORK_API = 'EDIT_WORK_API'
+export const DELETE_WORK_API = 'DELETE_WORK_API'
+
+/**********COMMAND********/
+export const GET_ALL_COMMAND_API = 'GET_ALL_COMMAND_API'
+export const CREATE_COMMAND_API = 'CREATE_COMMAND_API'
+export const EDIT_COMMAND_API = 'EDIT_COMMAND_API'
+export const DELETE_COMMAND_API = 'DELETE_COMMAND_API'

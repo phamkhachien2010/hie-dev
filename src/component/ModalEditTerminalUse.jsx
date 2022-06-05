@@ -1,20 +1,16 @@
 import React from 'react'
-import {  Modal, Select, Form, Input } from 'antd';
+import { Modal, Select, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_MODAL_TEMINAL_EDIT } from '../redux/constant/ConstantReducer';
+import { useFormik } from 'formik';
+import { EDIT_COMMAND_API } from '../redux/constant/ConstantSaga';
 
 const { Option } = Select;
 
 export default function ModalEditTerminalUse() {
 
-    const {showModalTerminalEdit} = useSelector(state=>state.TerminalInUseReducer);
+    const { showModalTerminalEdit, commandEdit } = useSelector(state => state.TerminalInUseReducer);
     const dispatch = useDispatch();
-
-    const handleOk = () => {
-        dispatch({
-            type: CLOSE_MODAL_TEMINAL_EDIT
-        })
-    };
 
     const handleCancel = () => {
         dispatch({
@@ -22,9 +18,27 @@ export default function ModalEditTerminalUse() {
         })
     };
 
-  return (
-    <>
-            <Modal title="Sửa lệnh" visible={showModalTerminalEdit} onOk={handleOk} onCancel={handleCancel}>
+    const formik = useFormik({
+        enableReinitialize: true,
+        initialValues: {
+            name: commandEdit.name,
+            setup: commandEdit.setup,
+            description: commandEdit.description,
+            type: commandEdit.type
+        },
+        onSubmit: values => {
+            const { id } = commandEdit;
+            dispatch({
+                type: EDIT_COMMAND_API,
+                id,
+                command: values
+            })
+        }
+    })
+
+    return (
+        <>
+            <Modal title="Sửa lệnh" visible={showModalTerminalEdit} onOk={formik.handleSubmit} onCancel={handleCancel}>
                 <Form
                     name="basic"
                     labelCol={{
@@ -37,7 +51,6 @@ export default function ModalEditTerminalUse() {
                 >
                     <Form.Item
                         label="Tên lệnh"
-                        name="name"
                         rules={[
                             {
                                 required: true,
@@ -45,12 +58,11 @@ export default function ModalEditTerminalUse() {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input name='name' value={formik.values.name} onChange={formik.handleChange} />
                     </Form.Item>
 
                     <Form.Item
                         label="Cú pháp"
-                        name="cuPhap"
                         rules={[
                             {
                                 required: true,
@@ -58,11 +70,10 @@ export default function ModalEditTerminalUse() {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input name='setup' value={formik.values.setup} onChange={formik.handleChange} />
                     </Form.Item>
                     <Form.Item
                         label="Mô tả"
-                        name="description"
                         rules={[
                             {
                                 required: true,
@@ -70,20 +81,13 @@ export default function ModalEditTerminalUse() {
                             },
                         ]}
                     >
-                        <Input.TextArea />
+                        <Input.TextArea name='description' value={formik.values.description} onChange={formik.handleChange} />
                     </Form.Item>
-                    <Form.Item name="gender" label="Dùng trong" rules={[{ required: true }]}>
-                        <Select
-                            placeholder="Chọn môi trường dùng"
-                            allowClear
-                        >
-                            <Option value="front-end">Front-end</Option>
-                            <Option value="back-end">Back-end</Option>
-                            <Option value="both">Cả 2</Option>
-                        </Select>
+                    <Form.Item label="Dùng trong" rules={[{ required: true }]}>
+                        <Input name='type' value={formik.values.type} onChange={formik.handleChange} />
                     </Form.Item>
                 </Form>
             </Modal>
         </>
-  )
+    )
 }

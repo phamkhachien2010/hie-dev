@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, Modal, Select, Form, Input } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { CLOSE_MODAL_TEMINAL_USE } from '../redux/constant/ConstantReducer';
+import { useFormik } from 'formik';
+import { CREATE_COMMAND_API } from '../redux/constant/ConstantSaga';
 
 const { Option } = Select;
 
@@ -11,9 +13,7 @@ export default function ModalTerminalUseCreate() {
     const dispatch = useDispatch();
 
     const handleOk = () => {
-        dispatch({
-            type: CLOSE_MODAL_TEMINAL_USE
-        })
+        formik.handleSubmit()
     };
 
     const handleCancel = () => {
@@ -21,6 +21,27 @@ export default function ModalTerminalUseCreate() {
             type: CLOSE_MODAL_TEMINAL_USE
         })
     };
+
+    const handleChaneSelect = (name) => {
+        return value => {
+            formik.setFieldValue(name, value)
+        }
+    }
+
+    const formik = useFormik({
+        initialValues: {
+            name: '',
+            setup: '',
+            description: '',
+            type: ''
+        },
+        onSubmit: values => {
+            dispatch({
+                type: CREATE_COMMAND_API,
+                command: values
+            })
+        }
+    })
 
 
 
@@ -39,7 +60,7 @@ export default function ModalTerminalUseCreate() {
                 >
                     <Form.Item
                         label="Tên lệnh"
-                        name="name"
+                        name="commandName"
                         rules={[
                             {
                                 required: true,
@@ -47,12 +68,12 @@ export default function ModalTerminalUseCreate() {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input name='name' onChange={formik.handleChange} />
                     </Form.Item>
 
                     <Form.Item
                         label="Cú pháp"
-                        name="setup"
+                        name="commandSetup"
                         rules={[
                             {
                                 required: true,
@@ -60,11 +81,11 @@ export default function ModalTerminalUseCreate() {
                             },
                         ]}
                     >
-                        <Input />
+                        <Input name='setup' onChange={formik.handleChange} />
                     </Form.Item>
                     <Form.Item
                         label="Mô tả"
-                        name="description"
+                        name="commandDescription"
                         rules={[
                             {
                                 required: true,
@@ -72,17 +93,10 @@ export default function ModalTerminalUseCreate() {
                             },
                         ]}
                     >
-                        <Input.TextArea />
+                        <Input.TextArea name='description' onChange={formik.handleChange} />
                     </Form.Item>
                     <Form.Item name="gender" label="Dùng trong" rules={[{ required: true }]}>
-                        <Select
-                            placeholder="Chọn môi trường dùng"
-                            allowClear
-                        >
-                            <Option value="front-end">Front-end</Option>
-                            <Option value="back-end">Back-end</Option>
-                            <Option value="both">Cả 2</Option>
-                        </Select>
+                        <Input name='type' onChange={formik.handleChange} />
                     </Form.Item>
                 </Form>
             </Modal>
