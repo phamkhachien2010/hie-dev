@@ -1,3 +1,12 @@
+.hompage {
+    padding-top: 100px;
+    width: 100%;
+}
+
+.content__slog {
+    padding: 1.25rem 1.25rem;
+}
+
 .ant-card-head {
     min-height: 0;
 }
@@ -18,6 +27,65 @@
     transition: all 0.5s;
     -webkit-box-shadow: 2px 6px 13px 3px rgba(0, 0, 0, 0.74);
     box-shadow: 2px 6px 13px 3px rgba(0, 0, 0, 0.74);
+}
+
+.card__style {
+    width: 300px;
+    padding: 10px;
+}
+
+.card__dev {
+    width: 300px;
+    padding: 10px;
+}
+
+.contact__content {
+    padding: 1.25rem;
+}
+
+@media screen and (max-width: 1280px) {
+    .hompage {
+        padding-top: 100px;
+        width: 100%;
+    }
+    .card__style {
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hompage {
+        padding-top: 140px;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .hompage {
+        padding-top: 60px;
+        width: 100%;
+    }
+    .content__slog {
+        padding: 20px .5rem;
+    }
+    .card__style {
+        width: 200px;
+    }
+    .ant-card-body {
+        padding: 10px;
+    }
+    .contact__content {
+        padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .card__style {
+        width: 130px;
+    }
+    .front__end {
+        font-size: 9px;
+    }
 }
 
 @keyframes scaleAbout {

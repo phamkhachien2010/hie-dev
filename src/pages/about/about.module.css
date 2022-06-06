@@ -8,7 +8,7 @@
 }
 
 .about {
-    height: 300px;
+    height: 50%;
     background-color: #009688;
 }
 
@@ -157,4 +157,20 @@
 
 .project__item:hover .project__overlay {
     transform: translateY(0);
+}
+
+@media screen and (max-width: 768px) {
+    .information .info__text {
+        margin: 5px 0;
+        padding: 0;
+    }
+    .about__id {
+        height: 700px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .about__id {
+        height: 570px;
+    }
 }

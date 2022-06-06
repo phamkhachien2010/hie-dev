@@ -221,7 +221,7 @@ export default function AboutMe(props) {
         span: 24,
       },
       sm: {
-        span: 8,
+        span: 4,
       },
       lg: {
         span: 4
@@ -232,7 +232,7 @@ export default function AboutMe(props) {
         span: 24,
       },
       sm: {
-        span: 16,
+        span: 18,
       },
       lg: {
         span: 18
@@ -271,18 +271,17 @@ export default function AboutMe(props) {
 
   return (
     <div>
-      <div style={{ paddingTop: '112px' }} className={`${style.aboutme__content} grid grid-cols-12`}>
-        <div className='col-span-8 container py-5 text-center flex flex-col justify-center'>
-          <h1 className='text-4xl '>{t('phamkhachien')}</h1>
+      <div style={{ paddingTop: '112px' }} className={`${style.aboutme__content} grid grid-cols-12 px-3`}>
+        <div className='col-span-12 sm:col-span-8 lg:pt-5 text-center flex flex-col justify-center'>
+          <h1 className='text-xl md:text-2xl lg:text-3xl '>{t('phamkhachien')}</h1>
           <h2 className='text-3xl text-white' >{t('fullstackDeveloper')}</h2>
-          {/* <p className='text-left text-lg'>I am interested in new technology, always want to change my mindset </p> */}
-          <p className='text-left text-lg'>{t('aboutSlogen')}</p>
+          <p className='text-left text-xs md:text-sm xl:text-lg'>{t('aboutSlogen')}</p>
           <div className='mt-5'>
             <NavLink to='/' target='_blank' className='bg-rose-500 border-2 rounded-full px-3 py-2 hover:bg-white hover:text-black hover:no-underline inline-block'>{t('mycv')}</NavLink>
           </div>
         </div>
-        <div className='col-span-4'>
-          <img src={require('../../assets/img/avatarc.jpg')} alt="avatarc" />
+        <div className='col-span-4 hidden sm:block'>
+          <img className='' src={require('../../assets/img/avatarc.jpg')} alt="avatarc" />
         </div>
       </div>
 
@@ -290,11 +289,11 @@ export default function AboutMe(props) {
         <div className={style.about} />
         <div className={style.about__content}>
           <h2 className='text-center text-3xl font-bold'>{t('about me')}</h2>
-          <div className="grid grid-cols-2">
-            <div className={`flex justify-center ${style.about_img}`}>
+          <div className="grid lg:grid-cols-2">
+            <div className={`hidden sm:flex justify-center ${style.about_img}`}>
               <img src={require('../../assets/img/avatar2.jpg')} alt="avatar2" />
             </div>
-            <div className={`${style.information}`}>
+            <div className={`${style.information} pl-5 sm:pl-4`}>
               <ul>
                 <li>
                   <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-user" /> {t('name')}</span> <span className={style.info__text}>{t('phamkhachien')}</span>
@@ -339,7 +338,7 @@ export default function AboutMe(props) {
             </div>
             <div>
               <div className={style.education}>
-                <h5 className="font-bold mt-3 mb-0">{t('education')}</h5>
+                <h5 className="font-bold mt-0 lg:mt-3 mb-0">{t('education')}</h5>
                 <hr />
                 <p className="font-bold">{t('cybersoftLearning')}</p>
                 <p>- {t('timeLearnOnCyber')}</p>
@@ -355,13 +354,13 @@ export default function AboutMe(props) {
       </section>
 
       <section className={`${style.skills__id} py-5`} id="skills" style={{ backgroundImage: 'url(./img/background-skill.jpg)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
-        <div className="container text-base">
+        <div className=" text-base">
           <h2 className='text-center text-3xl font-bold'>{t('skill')}</h2>
           {renderMySkill()}
         </div>
       </section>
 
-      <section className='container py-5'>
+      <section className=' py-5'>
         <h2 className='text-center text-3xl font-bold'>{t('project')}</h2>
         <h6 className='text-center text-lg'>{t('projectSlog')} <a href="https://cyberlearn.vn/" target='_blank' className='text-blue-500'>Cyberlearn</a></h6>
         <Tabs defaultActiveKey="1">
@@ -370,7 +369,7 @@ export default function AboutMe(props) {
       </section>
 
       <section className='contact__form py-5' style={{ backgroundImage: 'url(https://img.freepik.com/free-photo/old-black-background-grunge-texture-dark-wallpaper-blackboard-chalkboard-room-wall_1258-28312.jpg?size=626&ext=jpg&uid=R71559152&ga=GA1.2.232571487.1602147622)', backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-        <div className='container'>
+        <div className=''>
           <h2 className='text-center text-3xl font-bold text-white'>{t('contact')}</h2>
           <Form
             {...formItemLayout}
