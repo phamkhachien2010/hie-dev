@@ -153,7 +153,7 @@ export default function HomePage(props) {
             </div>
           </div>
 
-          <h3 className='text-2xl font-bold text-center mt-5 mb-2'>Công nghệ</h3>
+          <h3 className='text-2xl font-bold text-center mt-5 mb-2'>{t('technology')}</h3>
           <div className="grid grid-cols-4">
             <div className='text-center mr-5 mb-5'>
               <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
@@ -167,7 +167,7 @@ export default function HomePage(props) {
                       <img src={reactImg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about React js
+                   {t('produceReactjs')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>
@@ -184,7 +184,7 @@ export default function HomePage(props) {
                       <img src={nodeJsimg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about NodeJs
+                    {t('producenodejs')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>
@@ -201,7 +201,7 @@ export default function HomePage(props) {
                       <img src={gitImg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about Github
+                    {t('producegithub')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>
@@ -218,7 +218,7 @@ export default function HomePage(props) {
                       <img src={mySqlImg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about Mysql
+                    {t('produceMysql')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>
@@ -227,7 +227,7 @@ export default function HomePage(props) {
         </section>
 
         <section className='container p-5' id='contact'>
-          <h2 className='text-3xl font-bold text-center'>Contact</h2>
+          <h2 className='text-3xl font-bold text-center'>{t('contact')}</h2>
           <Form
             {...formItemLayout}
             onSubmitCapture={formik.handleSubmit}
@@ -239,11 +239,11 @@ export default function HomePage(props) {
               rules={[
                 {
                   type: 'email',
-                  message: 'email không hợp lệ!',
+                  message: `${t('emailValid')}`,
                 },
                 {
                   required: true,
-                  message: 'Email không nên bỏ trống!',
+                  message: `${t('emailRequire')}`,
                 },
               ]}
             >
@@ -252,11 +252,11 @@ export default function HomePage(props) {
 
             <Form.Item
               name="name"
-              label="Tên của bạn"
+              label={t('name')}
               rules={[
                 {
                   required: true,
-                  message: 'Mình muốn biết tên của bạn!',
+                  message: `${t('nameValid')}`,
                   whitespace: true,
                 },
               ]}
@@ -266,11 +266,11 @@ export default function HomePage(props) {
 
             <Form.Item
               name="comment"
-              label="Commnent"
+              label="Comment"
               rules={[
                 {
                   required: true,
-                  message: 'Comment ở đây nhé!',
+                  message: `${t('commentValid')}`,
                 },
               ]}
             >
@@ -278,7 +278,7 @@ export default function HomePage(props) {
             </Form.Item>
             <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit">
-                Gửi
+                {t('send')}
               </Button>
             </Form.Item>
           </Form>

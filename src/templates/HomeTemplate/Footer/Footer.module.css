@@ -1,0 +1,29 @@
+.footer__h3 {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+.ul_heading {
+    font-size: 18px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer_link {
+    font-size: 15px;
+    color: #fff;
+}
+
+@media screen and (max-width: 576px) {
+    .footer__h3 {
+        font-size: 15px;
+        margin: 0;
+    }
+    .ul_heading {
+        font-size: 13px;
+        margin-top: 15px;
+    }
+    .footer_link {
+        font-size: 11px;
+    }
+}

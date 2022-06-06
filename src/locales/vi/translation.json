@@ -12,5 +12,19 @@
     "fronEnd": "Kỹ năng tạo giao diện",
     "backEnd": "kỹ năng tạo server và cơ sở dữ liệu",
     "produceFrontEnd": "Giới thiệu về kỹ năng tạo giao diện và liên kết với server",
-    "produceBackEnd": "Giới thiệu về kỹ năng tạo server và cơ sở dữ liệu"
+    "produceBackEnd": "Giới thiệu về kỹ năng tạo server và cơ sở dữ liệu",
+    "produceReactjs": "Giới thiệu kỹ năng về React js",
+    "producenodejs": "Giới thiệu kỹ năng về Node js",
+    "producegithub": "Giới thiệu kỹ năng về github",
+    "produceMysql": "Giới thiệu kỹ năng về MySQL",
+    "technology": "Công nghệ",
+    "contact": "Liên lạc với tôi",
+    "name": "Tên của ban",
+    "send": "Gửi",
+    "emailRequire": "Email không được bỏ trống",
+    "emailValid": "Email không hợp lệ",
+    "nameValid": "Mình muốn biết tên của bạn",
+    "commentValid": "Comment ở đây nhé!",
+    "thankyou": "Cảm ơn bạn đã dành chút thời gian quý báu của mình để xem hết trang web ",
+    "social": "Mạng xã hội"
 }

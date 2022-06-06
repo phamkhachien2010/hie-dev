@@ -4,6 +4,7 @@ import { Menu, Dropdown, Space, Select } from 'antd';
 import { USER_LOGIN } from '../../../util/setting/config';
 import { history } from '../../../App';
 import { useTranslation } from 'react-i18next';
+import styleHeader from './header.module.css'
 
 
 const { Option } = Select
@@ -114,33 +115,34 @@ export default function Header(props) {
 
     return (
         <header className="lg:p-5 sm:p-3 dark:bg-gray-800 dark:text-gray-100 w-100 fixed z-10">
-            <div className="items-center flex-shrink-0 hidden lg:flex absolute right-5">
-                <Select defaultValue="vi" style={{ width: 70 }} onChange={handleChange}>
-                    <Option value="vi">Vie</Option>
-                    <Option value="en">Eng</Option>
-                </Select>
-            </div>
-            <div className="container lg:flex lg:justify-around justify-between mx-auto">
-                <div className="flex items-center p-2 justify-center lg:pb-4">
+
+            <div className={styleHeader.header__content}>
+                <div className="sm:flex items-center p-2 hidden justify-center lg:pb-4">
                     <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" >
                         <img style={{ width: '50px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
                     </NavLink>
                 </div>
+                <div className="items-center flex-shrink-0 hidden sm:flex absolute right-5">
+                    <Select defaultValue="vi" style={{ width: 70 }} onChange={handleChange}>
+                        <Option value="vi">Vie</Option>
+                        <Option value="en">Eng</Option>
+                    </Select>
+                </div>
 
-                <ul className={`items-stretch space-x-3 flex`}>
+                <ul className={`items-stretch space-x-3 flex justify-center`}>
                     <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>
+                        <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>
                             {t('home')}
                         </NavLink>
                     </li>
                     <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>
+                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>
                             {t('about me')}
                         </NavLink>
                     </li>
                     <li className="flex">
                         <Dropdown overlay={menuDev} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/dev')}`} onClick={(e) => e.preventDefault()}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/dev')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     DEV
                                     <i className="fa fa-angle-down"></i>
@@ -150,7 +152,7 @@ export default function Header(props) {
                     </li>
                     <li className="flex">
                         <Dropdown overlay={menuApp} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     {t('app')}
                                     <i className="fa fa-angle-down"></i>
@@ -160,7 +162,7 @@ export default function Header(props) {
                     </li>
                     <li className="flex">
                         <Dropdown overlay={menuTech} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     {t('tech')}
                                     <i className="fa fa-angle-down"></i>
@@ -170,7 +172,7 @@ export default function Header(props) {
                     </li>
                     <li className="flex">
                         <Dropdown overlay={menuOther} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
+                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
                                 <Space>
                                     {t('other')}
                                     <i className="fa fa-angle-down"></i>
@@ -179,54 +181,6 @@ export default function Header(props) {
                         </Dropdown>
                     </li>
                 </ul>
-                {/* <ul className={`items-stretch space-x-3 flex lg:hidden`}>
-                    <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/home" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/home')}`}>Home</NavLink>
-                    </li>
-                    <li className="flex">
-                        <NavLink rel="noopener noreferrer" to="/about" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/about')}`}>About me</NavLink>
-                    </li>
-                    <li className="flex">
-                        <Dropdown overlay={menuDev} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/dev')}`} onClick={(e) => e.preventDefault()}>
-                                <Space>
-                                    DEV
-                                    <i className="fa fa-angle-down"></i>
-                                </Space>
-                            </NavLink>
-                        </Dropdown>
-                    </li>
-                    <li className="flex">
-                        <Dropdown overlay={menuApp} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/app')}`} onClick={(e) => e.preventDefault()}>
-                                <Space>
-                                    Ứng dụng
-                                    <i className="fa fa-angle-down"></i>
-                                </Space>
-                            </NavLink>
-                        </Dropdown>
-                    </li>
-                    <li className="flex">
-                        <Dropdown overlay={menuTech} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/tech')}`} onClick={(e) => e.preventDefault()}>
-                                <Space>
-                                    Công nghệ
-                                    <i className="fa fa-angle-down"></i>
-                                </Space>
-                            </NavLink>
-                        </Dropdown>
-                    </li>
-                    <li className="flex">
-                        <Dropdown overlay={menuOther} trigger={['click']}>
-                            <NavLink rel="noopener noreferrer" to="#" style={{ textDecoration: 'none' }} className={`flex items-center px-4 -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/other')}`} onClick={(e) => e.preventDefault()}>
-                                <Space>
-                                    Khác
-                                    <i className="fa fa-angle-down"></i>
-                                </Space>
-                            </NavLink>
-                        </Dropdown>
-                    </li>
-                </ul> */}
 
             </div>
         </header>
