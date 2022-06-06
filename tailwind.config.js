@@ -6,10 +6,12 @@ module.exports = {
     darkMode: 'class',
     theme: {
         screens: {
-            sm: '480px',
+            xs: '0',
+            sm: '576px',
             md: '768px',
-            lg: '976px',
-            xl: '1440px',
+            lg: '992px',
+            xl: '1200px',
+            xxl: '1400px'
         },
         colors: {
             transparent: 'transparent',
@@ -95,6 +97,7 @@ module.exports = {
             'sm': '.125rem',
             DEFAULT: '.25rem',
             'lg': '.5rem',
+            'xl': '1rem',
             'full': '9999px',
         },
         plugins: [],
