@@ -7,6 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 import "animate.css/animate.min.css";
 
+import i18n from './i18n';
+import { I18nextProvider } from 'react-i18next';
+
+
 // import 'sweetalert2/src/sweetalert2.scss'
 
 import { Provider } from 'react-redux';

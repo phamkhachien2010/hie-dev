@@ -7,6 +7,7 @@ import styleHomePage from './homepage.module.css'
 import ScrollAnimation from 'react-animate-on-scroll';
 import { useDispatch } from 'react-redux';
 import { SEND_COMMENT_API } from '../../redux/constant/ConstantSaga';
+import { useTranslation } from 'react-i18next';
 
 
 const hienImage = require('../../assets/img/avatar2.jpg')
@@ -83,25 +84,25 @@ export default function HomePage(props) {
     },
   };
 
+  const {t} = useTranslation();
+
   return (
     <div style={{ paddingTop: '112px' }}>
       <div>
         <section className="px-5 bg-indigo-200 text-center py-5">
           <div className='container'>
-            <h1 className='text-4xl font-bold'>Hello, Welcome you</h1>
-            <p className='text-xl text-left'>Xin chào! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc.</p>
-            {/* <p className='text-left text-xl'>Không những vậy blog này còn chia sẻ những câu chuyện đời sống bình thường mà hầu như ai cũng gặp ít nhiều trong quãng thời gian sống của mình.</p> */}
-            {/* <p className='text-left' style={{ fontStyle: 'italic' }}>Hiện tại thì mình mới phát triển phiên bản tiếng Anh và tiếng Việt trên blog này, mong các bạn thông cảm!</p> */}
-            {/* <p className='text-lg'>Và đây là câu châm ngôn ưa thích của mình: <span className='text-gray-500'>Đỉnh cao của hoàn hảo là sự đơn giản!</span></p> */}
+            <h1 className='text-4xl font-bold'>{t('helloWelcome')}</h1>
+            <p className='text-xl text-left'>{t('slogenHomePage')}</p>
+            
           </div>
         </section>
 
         <section className='p-5 bg-lightBlue-300'>
-          <h2 className='text-3xl font-bold text-center'>Trang web này giải quyết vấn đề gì?</h2>
+          <h2 className='text-3xl font-bold text-center'>{t('whatProblem')}</h2>
           <div className='text-center' id='about__me'>
             <NavLink className={`inline-block hover:no-underline ${styleHomePage.about} ${styleHomePage.hoverAnimate}`} to='/about'>
               <Card
-                title='ABOUT ME'
+                title={t('about me')}
                 headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
                 className='rounded-lg'
                 style={{ width: '300px', padding: '10px' }}
@@ -109,7 +110,7 @@ export default function HomePage(props) {
                   <img src={hienImage} alt='hien img' className='w-4/5' />
                 }
               >
-                My infomation (a simple person)
+                {t('myInfomation')}
               </Card>
             </NavLink>
           </div>
@@ -120,7 +121,7 @@ export default function HomePage(props) {
               <ScrollAnimation duration={1} animateIn='animate__fadeInLeft' animateOut='animate__fadeOutLeft'>
                 <NavLink className={`inline-block hover:no-underline  ${styleHomePage.hoverAnimate}`} to='/dev/frontend'>
                   <Card
-                    title='FRONT-END'
+                    title={t('fronEnd')}
                     headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
                     className='rounded-lg'
                     style={{ width: '300px', padding: '10px' }}
@@ -128,7 +129,7 @@ export default function HomePage(props) {
                       <img src={htmlCssJsimg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about front-end
+                    {t('produceFrontEnd')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>
@@ -137,7 +138,7 @@ export default function HomePage(props) {
               <ScrollAnimation duration={1} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
                 <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/dev/backend'>
                   <Card
-                    title='BACK-END'
+                    title={t('backEnd')}
                     headStyle={{ textAlign: 'center', fontWeight: 'bold', padding: '0' }}
                     className='rounded-lg'
                     style={{ width: '300px', padding: '10px' }}
@@ -145,7 +146,7 @@ export default function HomePage(props) {
                       <img src={backEndImg} alt='hien img' className='w-4/5' />
                     }
                   >
-                    Produce about back-end
+                    {t('produceBackEnd')}
                   </Card>
                 </NavLink>
               </ScrollAnimation>

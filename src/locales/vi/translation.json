@@ -1,0 +1,16 @@
+{
+    "home": "Trang chủ",
+    "about me": "Giới thiệu",
+    "dev": "DEV",
+    "app": "Ứng dụng",
+    "tech": "Công nghệ",
+    "other": "Khác",
+    "slogenHomePage": "Xin chào! Đây là blog mình viết trong thời gian rảnh rỗi, nói về những kỹ năng lập trình, chủ yếu để mình có thể review lại kiến thức dễ dàng, và cũng là 1 dự án để mình đi xin việc.",
+    "helloWelcome": "Chào mừng đến với Trang web của tôi",
+    "whatProblem": "Trang web này giải quyết vấn đề gì",
+    "myInfomation": "Thông tin giới thiệu của tôi (Cũng chỉ là một người bình thường thôi)",
+    "fronEnd": "Kỹ năng tạo giao diện",
+    "backEnd": "kỹ năng tạo server và cơ sở dữ liệu",
+    "produceFrontEnd": "Giới thiệu về kỹ năng tạo giao diện và liên kết với server",
+    "produceBackEnd": "Giới thiệu về kỹ năng tạo server và cơ sở dữ liệu"
+}
