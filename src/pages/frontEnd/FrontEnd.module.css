@@ -1,0 +1,23 @@
+.frontEnd__content {
+    padding-top: 100px;
+}
+
+.frontEnd__img {
+    height: 380px;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .frontEnd__content {
+        padding-top: 140px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .frontEnd__content {
+        padding-top: 65px;
+    }
+    .frontEnd__img {
+        height: 250px;
+    }
+}

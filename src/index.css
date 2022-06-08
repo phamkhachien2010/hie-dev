@@ -98,3 +98,9 @@ section .ant-carousel .slick-dots-bottom {
         padding: 0 !important;
     }
 }
+
+@media screen and (max-width: 411px) {
+    .ant-tabs-tab-btn {
+        font-size: 10px;
+    }
+}

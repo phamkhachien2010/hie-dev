@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import styleFrontEnd from './FrontEnd.module.css'
 
 export default function FrontEnd(props) {
 
@@ -12,27 +13,27 @@ export default function FrontEnd(props) {
   }, [])
 
   return (
-    <div style={{ paddingTop: '112px' }}>
+    <div className={styleFrontEnd.frontEnd__content} >
       <div style={{ backgroundImage: 'url(https://nentang.vn/wp-content/uploads/2018/07/html-css-js-course-intro.jpeg)', backgroundRepeat: 'no-repeat', backgroundSize: 'contain', backgroundPosition: 'center' }}>
-        <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 350 }}>
-          <div className='container'>
-            <h1 className='text-7xl text-white font-bold text-center' style={{ lineHeight: '350px' }}>FRONT-END</h1>
+        <div className={styleFrontEnd.frontEnd__img}>
+          <div className='flex justify-center items-center h-100'>
+            <h1 className='text-2xl md:text-6xl text-white font-bold text-center' >FRONT-END</h1>
           </div>
         </div>
       </div>
       <section>
         <div style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
-          <div className='container pt-5 pb-3'>
-            <h2 className='text-3xl'>Front-end là gì?</h2>
+          <div className='w-4/5 m-auto pt-5 pb-3'>
+            <h2 className='text-xl md:text-3xl'>Front-end là gì?</h2>
             <img className='w-100' src="http://iviettech.vn/wp-content/uploads/2017/05/FRONT-END.jpg" alt="" />
-            <p className='text-lg'>Trước hết Front-end được hiểu là giao diện của một trang web. Tất cả những gì bạn có thể nhìn thấy khi truy cập 1 trang web chính là front-end. Front-end có thể coi là tiền tuyến của trang web đó. Để viết được 1 giao diện của trang web hay 1 ứng dụng thì bạn cần phải biết <a target='_blank' href='https://hocwebchuan.com/tutorial/tutorial_html.php'>HTML</a> và <a target='_blank' href='https://hocwebchuan.com/tutorial/tutorial_css.php'>CSS</a>. Tuy nhiên mới chỉ biết HTML và CSS thì vẫn chưa đủ. Hãy tưởng tượng bạn cần thiết kế, xây dựng một ngôi nhà thì HTML là nền móng, tường, cửa, mái,... CSS để trang cho cho những phần cứng mà HTML tạo nên, như là sơn tường, ốp gạch, thêm bàn ghế... cho phù hợp với ý của mình. Nhưng đó mới chỉ dừng ở mức độ nhìn thấy được. Còn những thứ như điện, nước chạy trong nhà thì chưa có. Tương tự nếu bạn chỉ dùng HTML và CSS thì chỉ thiết kế được 1 trang web tĩnh, chưa có liên kết được với các thành phần, hoạt động trong trang. Để hoạt động được thì cần phải thêm <a target='_blank' href="https://quantrimang.com/javascript-la-gi-155978">JavaScript</a>.</p>
+            <p className='text-sm md:text-lg'>Trước hết Front-end được hiểu là giao diện của một trang web. Tất cả những gì bạn có thể nhìn thấy khi truy cập 1 trang web chính là front-end. Front-end có thể coi là tiền tuyến của trang web đó. Để viết được 1 giao diện của trang web hay 1 ứng dụng thì bạn cần phải biết <a target='_blank' href='https://hocwebchuan.com/tutorial/tutorial_html.php'>HTML</a> và <a target='_blank' href='https://hocwebchuan.com/tutorial/tutorial_css.php'>CSS</a>. Tuy nhiên mới chỉ biết HTML và CSS thì vẫn chưa đủ. Hãy tưởng tượng bạn cần thiết kế, xây dựng một ngôi nhà thì HTML là nền móng, tường, cửa, mái,... CSS để trang cho cho những phần cứng mà HTML tạo nên, như là sơn tường, ốp gạch, thêm bàn ghế... cho phù hợp với ý của mình. Nhưng đó mới chỉ dừng ở mức độ nhìn thấy được. Còn những thứ như điện, nước chạy trong nhà thì chưa có. Tương tự nếu bạn chỉ dùng HTML và CSS thì chỉ thiết kế được 1 trang web tĩnh, chưa có liên kết được với các thành phần, hoạt động trong trang. Để hoạt động được thì cần phải thêm <a target='_blank' href="https://quantrimang.com/javascript-la-gi-155978">JavaScript</a>.</p>
           </div>
         </div>
       </section>
 
       <section>
-        <div className='pt-5 pb-3 container text-lg'>
-          <h2 className='text-3xl inline-block mr-5 font-bold'>HTML là gì?</h2>
+        <div className='pt-5 pb-3 w-4/5 m-auto text-sm md:text-lg'>
+          <h2 className='text-xl md:text-3xl inline-block mr-5 font-bold'>HTML là gì?</h2>
           <img style={{ width: '70px' }} className='inline' src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/HTML5_logo_resized.svg/1200px-HTML5_logo_resized.svg.png" alt="html_image" />
           <p>HTML thực chất là sử dụng những thẻ hay còn gọi là tag và bạn cần điền nội dung cần thể hiện ra giao diện vào những thẻ đó. Thông thường sẽ tạo ra 1 file html để chứa những code html</p>
           <h3>Những thẻ (tag) HTML thường được dử dụng</h3>
@@ -82,23 +83,23 @@ export default function FrontEnd(props) {
       </section>
 
       <section className='pt-5 pb-3' style={{ backgroundColor: '#9e9e9e' }}>
-        <div className='container text-lg'>
-          <h2 className='text-3xl inline-block mr-5 font-bold'>CSS là gì?</h2>
+        <div className='text-sm w-4/5 m-auto md:text-lg'>
+          <h2 className='text-xl md:text-3xl inline-block mr-5 font-bold'>CSS là gì?</h2>
           <img className='inline-block' style={{ width: '70px' }} src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png" alt="cssimg" />
           <p>Như đã nói ở trên, CSS dùng để thêm định dạng cho trang web, giúp trang web bắt mắt hơn với màu sắc, font chữ, cũng như các animation</p>
           <a target='_blank' href="https://hocwebchuan.com/tutorial/tut_css_basic.php">Tìm hiểu về CSS</a>
-          <h5 className='text-xl'>Có thể dùng 3 loại css cho một trang web</h5>
+          <h5 className='text-sm md:text-xl'>Có thể dùng 3 loại css cho một trang web:</h5>
           <ol>
             <li>
-              <h6 className='text-lg font-bold'>Inline CSS</h6>
+              <h6 className='text-md md:text-lg font-bold'>Inline CSS</h6>
               <p>Inline css là định nghĩa css ngay trên thẻ html. Chỉ cần thêm thuộc tính style='' và viết những code css định dạng cho thẻ đó ngay trên thẻ đó</p>
             </li>
             <li>
-              <h6 className='text-lg font-bold'>Internal CSS</h6>
+              <h6 className='text-md md:text-lg font-bold'>Internal CSS</h6>
               <p>Internal css là phương thức định nghĩa css ngay trong file html. Mình rất ít khi dùng cách này nên không rành lắm.</p>
             </li>
             <li>
-              <h6 className='text-lg font-bold'>External CSS</h6>
+              <h6 className='text-md md:text-lg font-bold'>External CSS</h6>
               <p>External css là cách tách ra một file css riêng, định nghĩa những code css trong file đó, theo những class hoặc id, hoặc tên thẻ html tương ứng. Để liên kết file html với file css cần dùng thẻ link trong file html và liên kết tới file css cần truyền vào.</p>
             </li>
           </ol>
@@ -113,8 +114,8 @@ export default function FrontEnd(props) {
       </section>
 
       <section className='pt-5 pb-3' style={{ backgroundColor: '#cfcfcf' }}>
-        <div className='container text-lg'>
-          <h2 className='text-3xl inline-block mr-5 font-bold'>JS là gì?</h2>
+        <div className='text-sm w-4/5 m-auto md:text-lg'>
+          <h2 className='text-xl md:text-3xl inline-block mr-5 font-bold'>JS là gì?</h2>
           <img className='inline-block' src='https://thienanblog.com/wp-content/uploads/2015/04/javascript_logo.png' style={{ width: '70px' }} alt='' />
           <a target='_blank' className='block text-blue-400' href="https://quantrimang.com/javascript-la-gi-155978">Tìm hiểu về JS</a>
           <p>JS là viết tắt của JavaScript. Như đã nói ở phần đầu, HTML là khung, CSS là trang trí vậy thì JS chính là cách thức hoạt động của 1 trang web. Nôm na là khi bạn tác động vào một phần nào đó của một trang web thì nó sẽ hoạt động ra sao. Ví dự như khi thực hiện nhập thông tin vào 1 form đăng ký và bạn ấn nút <button className='bg-emerald-500 rounded-lg px-2 py-1 hover:text-white hover:bg-emerald-400'>Đăng ký</button> trang web sẽ thực hiện chức năng đăng ký cho bạn một tài khoản.</p>
@@ -132,8 +133,8 @@ export default function FrontEnd(props) {
       </section>
 
       <section className='pt-5 pb-3'>
-        <div className='container text-lg'>
-          <h2 className='text-3xl inline-block mr-5 font-bold'>Vậy Front-end developer cần phải làm những gì?</h2>
+        <div className='text-sm w-4/5 m-auto md:text-lg'>
+          <h2 className='text-xl md:text-3xl inline-block mr-5 font-bold'>Vậy Front-end developer cần phải làm những gì?</h2>
           <p>Theo như nguyên tắc thì Front-end developer cần tạo những file <span className='font-bold'>html</span> để tạo nội dung cho trang web, tiếp đó tạo những file <span className='font-bold'>css</span> để trang trí cho trang web, và tạo những file <span className='font-bold'>js</span> để tạo các phương thức hoạt động cho trang web.</p>
           <p>Tuy nhiên, đó là nếu thiết kế tạo web tĩnh, trong thực tế thì không phải lúc nào cũng tạo ra những trang web tĩnh như vậy.</p>
           <p>FE-dev thường ứng dụng những thư viện hoặc các framework để tạo động ra những tag html và chèn luôn css theo các tag html đó. Và dùng những thư viện/framework đó để tạo ra các phương thức hoạt động của trang web.</p>          

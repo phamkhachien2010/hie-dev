@@ -7,6 +7,7 @@ import date from 'date-and-time'
 import { CREATE_TODOLIST, GET_ALL_TODOLIST_SAGA } from '../../../redux/constant/ConstantSaga';
 import HandleWorksForm from './HandleWorksForm';
 import { SET_LIST_TODO_BY_ID } from '../../../redux/constant/ConstantReducer';
+import styleTodoList from './todoList.module.css'
 
 const { RangePicker } = DatePicker;
 
@@ -97,7 +98,7 @@ export default function Todolist() {
     const bgTodoList = require('../../../assets/img/bg-todolist.jpg')
 
     return (
-        <div style={{ paddingTop: '112px' }}>
+        <div className={styleTodoList.todoList__content}>
             <div className='h-screen' style={{ backgroundImage: `url(${bgTodoList})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
                 <div className="container todolist__form h-full relative" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
                     <h1 className='text-5xl text-center text-white font-bold pt-4'>TodoList</h1>

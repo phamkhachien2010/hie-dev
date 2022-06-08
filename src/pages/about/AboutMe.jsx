@@ -7,6 +7,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { SEND_COMMENT_API } from '../../redux/constant/ConstantSaga';
 import { useTranslation } from 'react-i18next';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const { TabPane } = Tabs;
 
@@ -57,6 +58,7 @@ const mySkill = [
       { name: 'Data Structure and Algorithms' }
     ]
   },
+
   {
     name: 'Soft skills',
     skills: [
@@ -176,26 +178,28 @@ export default function AboutMe(props) {
 
   const renderMySkill = () => {
     return mySkill.map((skills, index) => {
-      return <div key={index} className={style.skills}>
-        <h6><i className="fa fa-circle" />{skills.name}</h6>
-        <ul className={style.skill__list}>
-          {renderLiSkills(skills.skills)}
-        </ul>
-      </div>
+      return <ScrollAnimation key={index} duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+        <div className={style.skills}>
+          <h6><i className="fa fa-circle" />{skills.name}</h6>
+          <ul className={style.skill__list}>
+            {renderLiSkills(skills.skills)}
+          </ul>
+        </div>
+      </ScrollAnimation>
     })
   }
 
   const renderCarouselItemProject = (listProject) => {
     return listProject.map((project, index) => {
       return <div key={index}>
-        <div className={`flex flex-col justify-center pl-5 ${style.project__item}`} style={{ backgroundImage: `url(${project.bgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', height: '300px' }}>
+        <div className={`flex flex-col justify-center pl-5 ${style.project__item}`} style={{ backgroundImage: `url(${project.bgImage})` }}>
           <div className={style.project__overlay}>
-            <div className="text-white text-lg">
+            <div className="text-white text-xs sm:text-lg">
               <div><span>Project's name: </span><span className="text-blue-400">{project.projectName}</span></div>
               <div><span>Description: </span><span>{project.description}</span></div>
               <div><span>Technology: </span><span>{project.technology}</span></div>
             </div>
-            <a className='px-2 py-2 mt-3 mr-3 bg-transparent border-2 hover:no-underline inline-block rounded-lg' target="_blank" href={project.linkDemo}>Link demo</a>
+            <a className='px-2 py-2 mt-3 mr-3 bg-transparent border-2 text-xs md:text-base hover:no-underline inline-block rounded-lg' target="_blank" href={project.linkDemo}>Link demo</a>
             <a className='px-2 py-2 mt-3 bg-transparent border-2 hover:no-underline inline-block rounded-lg' target="_blank" href={project.linkGithub}>Link github</a>
           </div>
         </div>
@@ -218,7 +222,7 @@ export default function AboutMe(props) {
   const formItemLayout = {
     labelCol: {
       xs: {
-        span: 24,
+        span: 10,
       },
       sm: {
         span: 4,
@@ -229,7 +233,7 @@ export default function AboutMe(props) {
     },
     wrapperCol: {
       xs: {
-        span: 24,
+        span: 10,
       },
       sm: {
         span: 18,
@@ -267,7 +271,7 @@ export default function AboutMe(props) {
     },
   });
 
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div>
@@ -276,57 +280,79 @@ export default function AboutMe(props) {
           <h1 className='text-xl md:text-2xl lg:text-3xl '>{t('phamkhachien')}</h1>
           <h2 className='text-3xl text-white' >{t('fullstackDeveloper')}</h2>
           <p className='text-left text-xs md:text-sm xl:text-lg'>{t('aboutSlogen')}</p>
-          <div className='mt-5'>
-            <NavLink to='/' target='_blank' className='bg-rose-500 border-2 rounded-full px-3 py-2 hover:bg-white hover:text-black hover:no-underline inline-block'>{t('mycv')}</NavLink>
-          </div>
+          <ScrollAnimation animateIn='animate__tada'>
+            <div className='mt-5'>
+              <NavLink to='/' target='_blank' className='bg-rose-500 border-2 rounded-full px-3 py-2 hover:bg-white hover:text-black hover:no-underline inline-block'>{t('mycv')}</NavLink>
+            </div>
+          </ScrollAnimation>
         </div>
+
         <div className='col-span-4 hidden sm:block'>
-          <img className='' src={require('../../assets/img/avatarc.jpg')} alt="avatarc" />
+          <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOut'>
+            <img className='' src={require('../../assets/img/avatarc.jpg')} alt="avatarc" />
+          </ScrollAnimation>
         </div>
+
       </div>
 
       <section className={style.about__id} id="about">
         <div className={style.about} />
-        <div className={style.about__content}>
-          <h2 className='text-center text-3xl font-bold'>{t('about me')}</h2>
-          <div className="grid lg:grid-cols-2">
-            <div className={`hidden sm:flex justify-center ${style.about_img}`}>
-              <img src={require('../../assets/img/avatar2.jpg')} alt="avatar2" />
-            </div>
-            <div className={`${style.information} pl-5 sm:pl-4`}>
-              <ul>
-                <li>
-                  <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-user" /> {t('name')}</span> <span className={style.info__text}>{t('phamkhachien')}</span>
-                </li>
-                <li>
-                  <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-map-marker-alt" /> {t('address')}</span> <span className={style.info__text}> {t('addressName')}</span>
-                </li>
-                <li>
-                  <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-envelope" /> Email</span> <span className={style.info__text}> phamkhachien17@gmail.com</span>
-                </li>
-                <li>
-                  <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-phone" /> {t('phone')}</span> <span className={style.info__text}> 0971948634</span>
-                </li>
-              </ul>
-              <div className="flex">
-                <div className={`${style.info__icon} ${style.icon__facebook}`}>
-                  <a href="https://www.facebook.com/hien.phamkhac.1656/" target="_blank"><i className="fab fa-facebook-f" /></a>
+        <ScrollAnimation duration={1.5} animateIn='animate__zoomIn' animateOut='animate__zoomOut'>
+          <div className={style.about__content}>
+            <h2 className='text-center text-3xl font-bold'>{t('about me')}</h2>
+            <div className="grid lg:grid-cols-2">
+              <ScrollAnimation duration={1.2} animateIn='animate__fadeInLeft' animateOut='animate__fadeOutLeft'>
+                <div className={`hidden sm:flex justify-center ${style.about_img}`}>
+                  <img src={require('../../assets/img/avatar2.jpg')} alt="avatar2" />
                 </div>
-                <div className={`${style.info__icon} ${style.icon__github}`}>
-                  <a href="https://github.com/phamkhachien2010" target="_blank"><i className="fab fa-github" /></a>
+              </ScrollAnimation>
+              <div className={`${style.information} pl-5 sm:pl-4`}>
+                <ul>
+                  <li>
+                    <ScrollAnimation duration={1} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
+                      <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-user" /> {t('name')}</span> <span className={style.info__text}>{t('phamkhachien')}</span>
+                    </ScrollAnimation>
+                  </li>
+                  <li>
+                    <ScrollAnimation duration={1.2} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
+                      <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-map-marker-alt" /> {t('address')}</span> <span className={style.info__text}> {t('addressName')}</span>
+                    </ScrollAnimation>
+                  </li>
+                  <li>
+                    <ScrollAnimation duration={1.4} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
+                      <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-envelope" /> Email</span> <span className={style.info__text}> phamkhachien17@gmail.com</span>
+                    </ScrollAnimation>
+                  </li>
+                  <li>
+                    <ScrollAnimation duration={1.6} animateIn='animate__fadeInRight' animateOut='animate__fadeOutRight'>
+                      <span className={`${style.infomation__info} ${style.info__text}`}><i className="fa fa-phone" /> {t('phone')}</span> <span className={style.info__text}> 0971948634</span>
+                    </ScrollAnimation>
+                  </li>
+                </ul>
+                <div className="flex">
+                  <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                    <div className={`${style.info__icon} ${style.icon__facebook}`}>
+                      <a href="https://www.facebook.com/hien.phamkhac.1656/" target="_blank"><i className="fab fa-facebook-f" /></a>
+                    </div>
+                  </ScrollAnimation>
+                  <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
+                    <div className={`${style.info__icon} ${style.icon__github}`}>
+                      <a href="https://github.com/phamkhachien2010" target="_blank"><i className="fab fa-github" /></a>
+                    </div>
+                  </ScrollAnimation>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollAnimation>
       </section>
 
       <section id="resume" className='py-5' style={{ backgroundImage: 'url(./img/backgroud-resume.jpg)', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <h2 className='text-center text-3xl font-bold'>{t('resume')}</h2>
         <div className={style.resume__content}>
-          <div className="grid grid-cols-2 lg:grid-cols-1 text-base">
+          <div className="text-base">
             <div>
-              <div className={style.experience}>
+              <div className={`text-xs md:text-md lg:text-lg ${style.experience}`}>
                 <h5 className="font-bold mb-0">{t('experience')}</h5>
                 <hr />
                 <p>- {t('exper1')}</p>
@@ -337,7 +363,7 @@ export default function AboutMe(props) {
               </div>
             </div>
             <div>
-              <div className={style.education}>
+              <div className={`text-xs md:text-md lg:text-lg ${style.education}`}>
                 <h5 className="font-bold mt-0 lg:mt-3 mb-0">{t('education')}</h5>
                 <hr />
                 <p className="font-bold">{t('cybersoftLearning')}</p>
@@ -345,6 +371,7 @@ export default function AboutMe(props) {
                 <p>- {t('programCourse')}</p>
                 <p>- {t('frontendcourse')}</p>
                 <p>- {t('frontendReact')}</p>
+                <p>- {t('nodeJS')}</p>
                 <p className="font-bold">{t('MALStudy')}</p>
                 <p>- {t('learnOnMAL')}</p>
               </div>
@@ -353,16 +380,16 @@ export default function AboutMe(props) {
         </div>
       </section>
 
-      <section className={`${style.skills__id} py-5`} id="skills" style={{ backgroundImage: 'url(./img/background-skill.jpg)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+      <section className={`${style.skills__id}`} id="skills" style={{ backgroundImage: 'url(./img/background-skill.jpg)', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <div className=" text-base">
-          <h2 className='text-center text-3xl font-bold'>{t('skill')}</h2>
+          <h2 className='text-center text-xl md:text-3xl font-bold'>{t('skill')}</h2>
           {renderMySkill()}
         </div>
       </section>
 
       <section className=' py-5'>
-        <h2 className='text-center text-3xl font-bold'>{t('project')}</h2>
-        <h6 className='text-center text-lg'>{t('projectSlog')} <a href="https://cyberlearn.vn/" target='_blank' className='text-blue-500'>Cyberlearn</a></h6>
+        <h2 className='text-center text-xl md:text-3xl font-bold'>{t('project')}</h2>
+        <h6 className='text-center text-sm md:text-lg'>{t('projectSlog')} <a href="https://cyberlearn.vn/" target='_blank' className='text-blue-500'>Cyberlearn</a></h6>
         <Tabs defaultActiveKey="1">
           {renderTabProject()}
         </Tabs>
@@ -375,6 +402,7 @@ export default function AboutMe(props) {
             {...formItemLayout}
             onSubmitCapture={formik.handleSubmit}
             scrollToFirstError
+            className='w-4/5 m-auto'
           >
             <Form.Item
               name="email"
