@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { GET_ALL_LIBRARIES_API } from '../../redux/constant/ConstantSaga';
+import styleOther from './other.module.css'
 
 const { Search } = Input;
 export default function Library() {
@@ -96,9 +97,9 @@ export default function Library() {
   })
 
   return (
-    <div style={{ paddingTop: '112px' }}>
-      <div className="container relative">
-        <h1 className='text-center text-4xl font-bold pt-5 pb-3' >Các thư viện thường dùng</h1>
+    <div className={styleOther.other}>
+      <div className="w-4/5 m-auto relative">
+        <h1 className='text-center text-xl md:text-2xl lg:text-4xl font-bold py-3' >Các thư viện thường dùng</h1>
         <Search name='description' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
 
         <Table columns={columns} dataSource={listLibraries}  />

@@ -1,0 +1,29 @@
+.profile {
+    padding: 2.5rem;
+}
+
+.avatar_overlay {
+    height: 100%;
+    display: inline-block;
+    border-radius: 100%;
+}
+
+.avatar_overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hie_logo {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+
+@media screen and (max-width: 411px) {
+    .profile {
+        padding: 1.25rem;
+    }
+    .hie_logo {
+        width: 75px;
+        height: 75px;
+    }
+}

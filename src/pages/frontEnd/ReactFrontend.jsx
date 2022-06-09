@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import styleFrontend from './FrontEnd.module.css'
 
 export default function ReactFrontend() {
 
@@ -15,23 +16,23 @@ export default function ReactFrontend() {
   }, [])
 
   return (
-    <div style={{ paddingTop: '112px' }}>
+    <div className={styleFrontend.frontEnd__content}>
       <div className='py-5' style={{ backgroundImage: `url('${reactImgPath}')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionY: 'center' }}>
-        <div className="container w-2/3 m-auto">
-          <h1 className='text-4xl text-white font-bold'>Tìm hiểu về React</h1>
-          <h2 className='text-2xl'><a href='#reactLaGi'> React là gì?</a></h2>
-          <h2 className='text-2xl'><a href='#ungdungreact'>Ứng dụng react như thế nào?</a></h2>
-          <h2 className='text-2xl'><a href='#thuvienreact'>Các thư viện hỗ trợ react app</a></h2>
-          <h2 className='text-2xl'><a href='#thietkethumucreact'>Thiết kế thư mục react app</a></h2>
-          <h2 className='text-2xl'><a href='#deployreactapp'>Deploy react app như thế nào?</a></h2>
-          <h2 className='text-2xl'><a href='#loithuonggap'>Các lỗi thường gặp khi dùng react</a></h2>
+      <h1 className='text-4xl pl-4 text-white font-bold'>Tìm hiểu về React</h1>
+        <div className="w-4/5 m-auto">          
+          <h2 className='text-lg lg:text-2xl'><a href='#reactLaGi'> React là gì?</a></h2>
+          <h2 className='text-lg lg:text-2xl'><a href='#ungdungreact'>Ứng dụng react như thế nào?</a></h2>
+          <h2 className='text-lg lg:text-2xl'><a href='#thuvienreact'>Các thư viện hỗ trợ react app</a></h2>
+          <h2 className='text-lg lg:text-2xl'><a href='#thietkethumucreact'>Thiết kế thư mục react app</a></h2>
+          <h2 className='text-lg lg:text-2xl'><a href='#deployreactapp'>Deploy react app như thế nào?</a></h2>
+          <h2 className='text-lg lg:text-2xl'><a href='#loithuonggap'>Các lỗi thường gặp khi dùng react</a></h2>
         </div>
       </div>
 
       <section style={{ backgroundImage: `url('${bgSection}')`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPositionY: 'center', backgroundAttachment: 'fixed' }}>
-        <div className='text-teal-200 w-2/3 m-auto' style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-          <section id='reactLaGi' className='container'>
-            <h2 className='text-2xl text-pink-300 pt-5'>React là gì</h2>
+        <div className='text-teal-200 w-4/5 m-auto' style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <section id='reactLaGi' className='text-xs md:text-base' >
+            <h2 className='text-xl md:text-2xl text-pink-300 pt-3'>React là gì</h2>
             <div className='pl-4'>
               <p>React là 1 thư viện giúp xây dựng giao diện web sử dụng ngôn ngữ lập trình JavaScript. React sử dụng 2 component chính là React Class Component, React Functional Component.</p>
               <p>Các Components giúp chia nhỏ nội dung để dễ quản lý các thành phần của 1 trang web. Mục đích chia nhỏ các component là để đóng gói chức năng ứng với giao diện để tổ chức thư mục, có thể dễ dàng tái sử dụng và bảo trì nâng cấp.</p>
@@ -48,23 +49,23 @@ export default function ReactFrontend() {
             </div>
           </section>
 
-          <section className='container' id='ungdungreact'>
-            <h2 className='text-2xl text-pink-300'>Ứng dụng react như thế nào</h2>
+          <section id='ungdungreact' className='text-xs md:text-base'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Ứng dụng react như thế nào</h2>
             <div className="pl-4">
               <p>Như đã giới thiệu ở trên, React sử dụng ngôn ngư JavaScript và dùng cơ chế jsx để tạo ra các thẻ html. Trong mỗi component sẽ dùng cơ chế đó để tạo ra các pages, các templates, các component nhỏ có thể được gọi trong component khác.</p>
               <p>Sau đó, có thể dùng những <NavLink to='/other/library' className='text-teal-500 font-bold text-lg'> thư viện</NavLink> hỗ trợ để link qua lại giữa các page với nhau. Về bản chất là tạo ra các giao diện của 1 website thì react hỗ trợ tương đối tốt.</p>
             </div>
           </section>
 
-          <section className='container' id='thuvienreact'>
-            <h2 className='text-2xl text-pink-300'>Các thư viện hỗ trợ react</h2>
+          <section className='text-xs md:text-base' id='thuvienreact'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Các thư viện hỗ trợ react</h2>
             <div className='pl-4'>
               <p>Dưới đây là một vài thư viện hỗ trợ reactJs trong quá trình tạo ra giao diện mà mình thường hay sử dụng.</p>
             </div>
           </section>
 
-          <section className='container' id='thietkethumucreact'>
-            <h2 className='text-2xl text-pink-300'>Thiết kế thư mục react như thế nào.</h2>
+          <section className='text-xs md:text-base' id='thietkethumucreact'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Thiết kế thư mục react như thế nào.</h2>
             <div className="pl-4">
               <p>Có nhiều kiểu thiết kế thư mục và không phải ở đâu cũng giống nhau. Căn bản là mình làm sao cho gọn code để dễ bảo trì, sửa code, dễ tìm ra vị trí của bug, từ đó tiết kiệm thời gian cho dev.</p>
               <p>Đầu tiên để tạo 1 react app mình cần cài <a className='text-teal-500 font-bold text-lg' href="https://nodejs.org/en/">nodeJs</a> phiên bản mới nhất, (Chú ý cài bản LTS, bản Curent là bản đang thử nghiệm và sớm phát hành. Nếu gặp lỗi khi tạo app, cần xem lại version của nodeJs).</p>
@@ -102,8 +103,8 @@ export default function ReactFrontend() {
             </div>
           </section>
 
-          <section className='container' id='deployreactapp'>
-            <h2 className='text-2xl text-pink-300'>Deploy react app.</h2>
+          <section className='text-xs md:text-base' id='deployreactapp'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Deploy react app.</h2>
             <div className="pl-4">
               <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy 1 react-app free như deploy lên sure, lên một site của github. Ở đây minh sẽ hướng dẫn deploy lên site của github để có thể cập nhật code một cách dễ dàng.</p>
               <a className='text-teal-500 font-bold text-lg' href="https://github.com/gitname/react-gh-pages">Xem hướng dẫn của github tại đây</a>
@@ -116,16 +117,16 @@ export default function ReactFrontend() {
             </div>
           </section>
 
-          <section className='container' id='loithuonggap'>
-            <h2 className='text-2xl text-pink-300'>Các lỗi thường gặp của react.</h2>
+          <section className='text-xs md:text-base' id='loithuonggap'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Các lỗi thường gặp của react.</h2>
             <div className="pl-4">
               <p>Trong quá trình sử dụng react chắc chẳn sẽ gặp một số lỗi không thể tránh khỏi.</p>
               <p>Lỗi đầu tiên có thể gặp là không khởi tạo được react-app. Nguyên nhân là do phiên bản nodeJs trong máy đã cũ, không hỗ trợ. Cách khắc phục lỗi là cập nhật nodeJs hoặc tải bản mới.</p>
             </div>
           </section>
 
-          <section className='container'>
-            <h2 className='text-2xl text-pink-300'>Một số vấn đề khác của ReactJs.</h2>
+          <section className='text-xs md:text-base'>
+            <h2 className='text-xl md:text-2xl text-pink-300'>Một số vấn đề khác của ReactJs.</h2>
             <div className="pl-4">
               <h3 className='text-xl text-fuchsia-200 pl-3'>Pure component</h3>
               <p>Trong một vài trường hợp, dù props của component không hề thay đổi nhưng vẫn bị update, dẫn tới ảnh hưởng performace của app (những component không cần setState lại nhưng vẫn bị setState lại), tức là giao diện không cần thiết phải thay đổi nhưng khi load lại trang trình duyệt vẫn đi load lại toàn bộ dữ liệu của trang web đó.</p>

@@ -21,6 +21,7 @@ import Library from './pages/others/Library';
 import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
+import Profile from './pages/user/Profile';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import AdminPageDefault from './templates/AdminTemplate/defaultAdminTemplate/AdminPageDefault';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
@@ -55,6 +56,7 @@ function App() {
 
         <UserTemplate path='/login' exact Component={Login} />
         <UserTemplate path='/register' exact Component={Register} />
+        <UserTemplate path='/profile' exact Component={Profile} />
 
         <AdminTemplate path='/admin/user-manager-todolist' exact Component={UserManagerTodoList} />
         <AdminTemplate path='/admin/library-manager' exact Component={LibraryManager} />

@@ -2,8 +2,36 @@
     padding-top: 100px;
 }
 
-@media screen and(max-width: 768px) {
+.user_avatar {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+}
+
+.user_avatar_img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+@media screen and (max-width: 768px) {
     .todoList__content {
-        padding-top: 150px;
+        padding-top: 140px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .todoList__content {
+        padding-top: 65px;
+    }
+    .user_avatar_img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .todoList__content {
+        padding-top: 65px;
     }
 }

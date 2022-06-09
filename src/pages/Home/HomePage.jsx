@@ -92,7 +92,7 @@ export default function HomePage(props) {
         <section className={` bg-indigo-200 text-center ${styleHomePage.content__slog}`}>
           <div className=''>
             <h1 className='text-lg sm:text-xl lg:text-4xl font-bold'>{t('helloWelcome')}</h1>
-            <p className='text-xs md:text-lg lg:text-xl text-left'>{t('slogenHomePage')}</p>
+            <p className='text-xs md:text-lg lg:text-xl text-center'>{t('slogenHomePage')}</p>
 
           </div>
         </section>

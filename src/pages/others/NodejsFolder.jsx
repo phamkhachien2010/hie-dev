@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import styleOther from './other.module.css'
 
 export default function NodejsFolder() {
     return (
-        <div style={{ paddingTop: '112px' }}>
-            <div className="container">
-                <h1 className='text-4xl text-center font-bold pt-5 pb-3'>Cấu trúc thư mục nodeJs</h1>
-                <p className='pl-36 text-xl'>Khi đã học qua front-end và back-end là đã biết được đường đi của dữ liệu. Vậy để làm được 1 dự án fullstack cần làm những gì:</p>
-                <ul className='pl-5'>
+        <div className={styleOther.other}>
+            <div className='w-4/5 m-auto text-xs md:text-sm lg:text-base'>
+                <h1 className='text-xl md:text-2xl lg:text-4xl text-center font-bold py-3'>Cấu trúc thư mục nodeJs</h1>
+                <p className='pl-3 text-sm md:text-lg lg:text-xl'>Khi đã học qua front-end và back-end là đã biết được đường đi của dữ liệu. Vậy để làm được 1 dự án fullstack cần làm những gì:</p>
+                <ul className='pl-4'>
                     <li>
                         <p>Bước 1: Đầu tiên cần phân tích và thiết kế database</p>
                     </li>
@@ -21,7 +22,7 @@ export default function NodejsFolder() {
                     </li>
                 </ul>
 
-                <h2 className='text-2xl font-bold'>Tạo thư mục để code back-end</h2>
+                <h2 className='text-lg md:text-xl lg:text-2xl font-bold'>Tạo thư mục để code back-end</h2>
                 <ul className='pl-5'>
                     <li>
                         <p>B1. Cần tạo 1 folder để chứa code và khởi tạo trong Vscode</p>

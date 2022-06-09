@@ -56,18 +56,48 @@ export default function HandleWorksForm() {
         return listTodoByUserId
     }
 
+    const formItemLayout = {
+        labelCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 7,
+            },
+            lg: {
+                span: 4
+            }
+        },
+        wrapperCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 14,
+            },
+            lg: {
+                span: 18
+            }
+        },
+    };
+
+    const tailFormItemLayout = {
+        wrapperCol: {
+            xs: {
+                span: 12,
+                offset: 12,
+            },
+            sm: {
+                span: 12,
+                offset: 12,
+            },
+        },
+    };
+
     return (
         <Form
             onSubmitCapture={fomikWork.handleSubmit}
-            labelCol={{
-                span: 4,
-            }}
-            wrapperCol={{
-                span: 18,
-            }}
-            initialValues={{
-                remember: true,
-            }}
+            {...formItemLayout}
             autoComplete="off"
         >
 
@@ -106,12 +136,7 @@ export default function HandleWorksForm() {
                 <Input.TextArea name='description' onChange={fomikWork.handleChange} placeholder='Nhập ghi chú' />
             </Form.Item>
 
-            <Form.Item
-                wrapperCol={{
-                    offset: 20,
-                    span: 2,
-                }}
-            >
+            <Form.Item {...tailFormItemLayout}>
                 <Button type="primary" htmlType="submit" >
                     Thêm việc
                 </Button>

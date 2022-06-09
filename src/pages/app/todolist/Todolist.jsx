@@ -8,6 +8,9 @@ import { CREATE_TODOLIST, GET_ALL_TODOLIST_SAGA } from '../../../redux/constant/
 import HandleWorksForm from './HandleWorksForm';
 import { SET_LIST_TODO_BY_ID } from '../../../redux/constant/ConstantReducer';
 import styleTodoList from './todoList.module.css'
+import { TOKEN, USER_LOGIN } from '../../../util/setting/config';
+import { history } from '../../../App'
+
 
 const { RangePicker } = DatePicker;
 
@@ -70,7 +73,7 @@ export default function Todolist() {
                 {
                     key: '1',
                     label: (
-                        <NavLink rel="noopener noreferrer" to="/">
+                        <NavLink to='/profile' >
                             Quản lý tài khoản
                         </NavLink>
                     ),
@@ -78,9 +81,13 @@ export default function Todolist() {
                 {
                     key: '2',
                     label: (
-                        <NavLink rel="noopener noreferrer" to="/">
+                        <div onClick={() => {
+                            localStorage.setItem(TOKEN, '');
+                            localStorage.setItem(USER_LOGIN, '')
+                            history.push('/')
+                        }}>
                             Đăng xuất
-                        </NavLink>
+                        </div>
                     ),
                 },
             ]}
@@ -95,35 +102,65 @@ export default function Todolist() {
         ],
     };
 
+    const formItemLayout = {
+        labelCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 7,
+            },
+            lg: {
+                span: 4
+            }
+        },
+        wrapperCol: {
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 14,
+            },
+            lg: {
+                span: 18
+            }
+        },
+    };
+
+    const tailFormItemLayout = {
+        wrapperCol: {
+            xs: {
+                span: 12,
+                offset: 12,
+            },
+            sm: {
+                span: 12,
+                offset: 12,
+            },
+        },
+    };
+
     const bgTodoList = require('../../../assets/img/bg-todolist.jpg')
 
     return (
         <div className={styleTodoList.todoList__content}>
-            <div className='h-screen' style={{ backgroundImage: `url(${bgTodoList})`, backgroundRepeat: 'no-repeat', backgroundSize: '100%' }}>
-                <div className="container todolist__form h-full relative" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-                    <h1 className='text-5xl text-center text-white font-bold pt-4'>TodoList</h1>
+            <div className='' style={{ backgroundImage: `url(${bgTodoList})`, backgroundSize: '100%' }}>
+                <div className="w-4/5 m-auto todolist__form h-full relative" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+                    <h1 className='text-2xl lg:text-5xl text-center text-white font-bold pt-4'>TodoList</h1>
 
-                    <div className='absolute top-5 right-52'>
+                    <div className={styleTodoList.user_avatar}>
                         <Dropdown overlay={menu} placement="bottomLeft">
                             <div>
-                                <img src="https://toppng.com/uploads/preview/roger-berry-avatar-placeholder-11562991561rbrfzlng6h.png" className='rounded-full' style={{ width: '50px' }} alt="" />
+                                <img src={userLogin.avatar} className={styleTodoList.user_avatar_img} alt="" />
                             </div>
                         </Dropdown>
                     </div>
 
-                    <h2 className='text-3xl text-center text-white font-bold pt-2'>Thêm việc lớn cần làm</h2>
+                    <h2 className='text-xl lg:text-3xl text-center text-white font-bold'>Thêm việc lớn cần làm</h2>
                     <Form
+                        {...formItemLayout}
                         name="basic"
                         onSubmitCapture={formik.handleSubmit}
-                        labelCol={{
-                            span: 4,
-                        }}
-                        wrapperCol={{
-                            span: 18,
-                        }}
-                        initialValues={{
-                            remember: true,
-                        }}
                         autoComplete="off"
                     >
                         <Form.Item
@@ -139,33 +176,36 @@ export default function Todolist() {
                             <Input name='title' onChange={formik.handleChange} placeholder='Thêm mục cần làm' />
                         </Form.Item>
 
-                        <Form.Item label="Thời gian thực hiện" {...rangeConfig}>
+                        <Form.Item
+                            label="Thời gian thực hiện"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'Thêm thời gian làm!',
+                                },
+                            ]}
+                            {...rangeConfig}>
                             <RangePicker name="rangePicker" onChange={handleChangRangePicker('rangePicker')} />
                         </Form.Item>
 
 
-                        <Form.Item
-                            wrapperCol={{
-                                offset: 20,
-                                span: 2,
-                            }}
-                        >
+                        <Form.Item {...tailFormItemLayout}>
                             <Button type="primary" htmlType="submit">
                                 Thêm việc
                             </Button>
                         </Form.Item>
                     </Form>
 
-                    <h2 className='text-2xl text-center text-white font-bold pt-2'>Thêm những việc nhỏ cần làm</h2>
+                    <h2 className='text-xl lg:text-2xl text-center text-white font-bold pt-2'>Thêm những việc nhỏ cần làm</h2>
                     <HandleWorksForm />
 
-                    <div className='text-right pr-5 pt-5' onClick={() => {
+                    <div className='text-right pr-5 pt-2' onClick={() => {
                         dispatch({
                             type: SET_LIST_TODO_BY_ID,
                             listTodoById
                         })
                     }} >
-                        <NavLink className='text-xl' to='/app/todolist-manager'>Xem danh sách việc <i className="fa fa-arrow-right"></i></NavLink>
+                        <NavLink className='text-sm md:text-xl' to='/app/todolist-manager'>Xem danh sách việc <i className="fa fa-arrow-right"></i></NavLink>
                     </div>
                 </div>
             </div>

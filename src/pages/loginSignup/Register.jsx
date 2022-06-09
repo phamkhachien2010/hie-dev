@@ -1,9 +1,10 @@
-import { Button, Checkbox, Form, Input } from 'antd'
+import { Button, Form, Input } from 'antd'
 import { useFormik } from 'formik';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { REGISTER_API } from '../../redux/constant/ConstantSaga';
+import styleLogin from './loginSignup.module.css'
 
 
 const logoImg = require('../../assets/img/logo-dark.png')
@@ -25,23 +26,44 @@ export default function Register() {
         },
     });
 
+    const formItemLayout = {
+        labelCol: {
+          xs: {
+            span: 24,
+          },
+          sm: {
+            span: 7,
+          },
+          lg: {
+            span: 4
+          }
+        },
+        wrapperCol: {
+          xs: {
+            span: 24,
+          },
+          sm: {
+            span: 16,
+          },
+          lg: {
+            span: 18
+          }
+        },
+      };
+
+
     return (
         <div className='flex flex-col justify-center py-5'>
             <div className='text-center mb-5'>
-                <img src={logoImg} className='rounded-full inline-block' style={{ width: '100px' }} alt="logo" />
+                <img src={logoImg} className={styleLogin.hie_logo} alt="logo" />
             </div>
-            <div className='w-1/2 m-auto p-5' style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
+            <div className={`w-3/4 lg:w-1/2 m-auto ${styleLogin.login}`} style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
                 <h1 className='text-white font-bold text-center text-2xl mb-3'>REGISTER</h1>
-                <h2 className='text-center mb-3'>If you do not already have an account! <i className="fa fa-arrow-down"></i></h2>
+                <h2 className='text-center text-xs md:text-base mb-3'>If you do not already have an account! <i className="fa fa-arrow-down"></i></h2>
                 <Form
                     onSubmitCapture={formik.handleSubmit}
                     name="basic"
-                    labelCol={{
-                        span: 6,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
+                    {...formItemLayout}
                     initialValues={{
                         remember: true,
                     }}

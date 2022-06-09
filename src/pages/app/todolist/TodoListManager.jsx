@@ -9,7 +9,11 @@ import TodoListDetail from './TodoListDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_TITLE_TODO } from '../../../redux/constant/ConstantReducer';
 import { GET_ALL_TODOLIST_SAGA } from '../../../redux/constant/ConstantSaga';
+import styleTodoList from './todoList.module.css'
+
+
 const { Header, Sider, Content } = Layout;
+
 
 
 export default function TodoListManager(props) {
@@ -34,7 +38,7 @@ export default function TodoListManager(props) {
     const listTodoById = getListtoDoById()
 
 
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(true);
 
     const createItemsMenu = () => {
         return listTodoById?.map((todo, index) => {
@@ -64,7 +68,7 @@ export default function TodoListManager(props) {
     }
 
     return (
-        <div style={{ paddingTop: '112px' }}>
+        <div className={`todoManager ${styleTodoList.todoList__content}`}>
             <Layout>
                 <Sider trigger={null} collapsible collapsed={collapsed}>
                     <div className="logo" />

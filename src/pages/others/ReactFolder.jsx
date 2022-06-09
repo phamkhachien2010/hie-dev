@@ -1,11 +1,12 @@
 import React from 'react'
+import styleOther from './other.module.css'
 
 export default function ReactFolder() {
   return (
-    <div style={{ paddingTop: '112px' }}>
-      <div className='w-3/4 m-auto'>
-        <div className='container'>
-          <h1 className='text-4xl font-bold pt-5 pb-3 text-center'>Cấu hình các folder ReactJs dùng redux saga:</h1>
+    <div className={styleOther.other}>
+      <div className='w-4/5 m-auto text-xs md:text-sm lg:text-base'>
+        <div >
+          <h1 className='text-xl md:text-2xl lg:text-4xl font-bold pt-3 pb-3 text-center'>Cấu hình các folder ReactJs dùng redux saga:</h1>
           <div >
             <p>Trong folder src cần cấu hình thêm những folder, những file để có thể dễ theo dõi và chỉnh sửa, cập nhật code.</p>
             <p>Tạo thêm 1 folder assets trong đó chứa ảnh hoặc những file không phải code.</p>

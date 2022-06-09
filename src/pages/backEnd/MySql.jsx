@@ -1,15 +1,16 @@
 import React from 'react'
+import styleMysql from './backend.module.css'
 
 export default function MySql() {
     return (
-        <div style={{ paddingTop: '112px' }}>
-            <div className="container">
-                <h1 className='text-4xl text-center font-bold pt-5 pb-3'>MySQL, làm việc với MySQL </h1>
+        <div className={styleMysql.back__end}>
+            <div className="w-4/5 m-auto text-xs md:text-base">
+                <h1 className='text-xl md:text-2xl lg:text-4xl text-center font-bold pt-3 pb-3'>MySQL, làm việc với MySQL </h1>
                 <p>MySQL là một hệ thống quản trị cơ sở dữ liệu mã nguồn mở (Relational Database Management System, viết tắt là RDBMS) hoạt động theo mô hình client-server. MySQL dùng để lưu trữ cơ sở dữ liệu. </p>
                 <p>Nói cách khác MySQL dùng để tạo những bảng đại diện cho 1 đối tượng có những thuộc tính của đối tượng đó. Khi client cần dữ liệu thì phải gửi cho MySQL một yêu cầu, và MySQL sẽ trả về dữ liệu nếu thoả mãn các điều kiện.</p>
                 <p>Trước hết cần download mySQL workbench <a href="https://dev.mysql.com/downloads/workbench/" className='text-blue-400 ' target='_blank' >tại đây</a></p>
                 <p>Sau đó tạo các database và các bảng, và làm việc với các bảng đó. Các thao tác căn bản với database và bảng:</p>
-                <table className="table">
+                <table className="table text-xs md:text-sm lg:text-base">
                     <thead>
                         <tr>
                             <th>Thao tác</th>
@@ -64,8 +65,8 @@ export default function MySql() {
                     </tbody>
                 </table>
 
-                <h2  className='text-2xl font-bold pl-4 m-0'>CRUD trong MySQL</h2>
-                <table className="table">
+                <h2  className='text-lg md:text-xl lg:text-2xl font-bold pl-4 m-0'>CRUD trong MySQL</h2>
+                <table className="table text-xs md:text-sm lg:text-base">
                     <thead>
                         <tr>
                             <th>Thao tác</th>
@@ -103,7 +104,7 @@ export default function MySql() {
                 </table>
 
                 <h2  className='text-2xl font-bold pl-4 mb-0 mt-3'>Những hàm, câu lệnh thường dùng trong MySQL</h2>
-                <table className="table">
+                <table className="table text-xs md:text-sm lg:text-base">
                     <thead>
                         <tr>
                             <th>Tên hàm</th>
@@ -171,12 +172,12 @@ export default function MySql() {
                 </table>
                 <p>Ngoài ra còn nhiều hàm khác, có thể xem thêm <a href="https://viblo.asia/p/cac-function-trong-mysql-phan-1-yMnKMnODZ7P" target='_blank' className='text-blue-400'>tại đây</a> và <a href="https://viblo.asia/p/cac-function-trong-mysql-phan-2-GrLZDvD35k0" target='_blank' className='text-blue-400'>tại đây</a></p>
 
-                <h2  className='text-2xl font-bold pl-4 mb-0 mt-3'>Quan hệ giữa các bảng</h2>
+                <h2  className='text-lg md:text-xl lg:text-2xl font-bold pl-4 mb-0 mt-3'>Quan hệ giữa các bảng</h2>
                 <p>Trong một database không phải chỉ có một bảng, mà có nhiều bảng, và trong những bảng đó có những bảng có mối quan hệ với nhau, vậy làm thế nào để kết nối những bảng đó lại? Từ đó sinh ra những cách mà từ 1 thành phần của bảng này liên kết được với bảng khác.</p>
                 <p>Có 2 loại quan hệ chính giữa các bảng: Quan hệ 1-nhiều và quan hệ nhiều-nhiều. Quan hệ 1 nhiều tức là một đối tượng này có thể có nhiều thuộc tính của đối tượng khác, và đối tượng đó chỉ thuộc về 1 đối tượng còn lại. Ví dụ 1 người và 1 xe máy là 2 đối tượng, 1 người có thể có nhiều xe máy, nhưng 1 xe máy thì chỉ đứng tên 1 người. Quan hệ nhiều-nhiều là 1 đối tượng này có thể có nhiều đối tượng kia và đối tượng kia cũng có thể có nhiều đối tượng còn lại. Ví dụ 1 người trên 1 chuyến đi thì người là 1 đối tượng, chuyến đi là 1 đối tượng. 1 người có thể có nhiều chuyến đi khác nhau, và một chuyến đi cũng có thể có nhiều người khác nhau.</p>
                 <p>Như đã nói ở bên trên, mỗi bảng nên có 1 khóa chính (thường là id) để phân biệt các đối tượng. Bên cạnh đó, những bảng nhiều cần phải thêm khóa phụ (lấy luôn id của bảng 1) để biết đối tượng đó thuộc về đối tượng nào trong bảng 1. Còn với quan hệ nhiều-nhiều thì không thể tạo như vậy được, mà cần phải tạo 1 bảng phụ để chứa 2 khóa phụ của 2 bảng nhiều, đưa về mối quan hệ 1-nhiều.</p>
                 <p>Trong bảng phụ cần định nghĩa những khóa phụ bằng câu lệnh: foreign key (column_name) references table_name1 (column_name)</p>
-                <h2  className='text-2xl font-bold pl-4 m-0 mt-3'>Cách truy xuất giữa các bảng quan hệ 1-nhiều</h2>
+                <h2  className='text-lg md:text-xl lg:text-2xl font-bold pl-4 m-0 mt-3'>Cách truy xuất giữa các bảng quan hệ 1-nhiều</h2>
                 <img src={require('../../assets/img/sql-joins-4213.jpg')} alt="" />
 
                 <table className="table">

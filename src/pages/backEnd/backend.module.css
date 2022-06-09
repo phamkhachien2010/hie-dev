@@ -1,0 +1,19 @@
+.back__end {
+    padding-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .back__end {
+        padding-top: 140px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .back__end {
+        padding-top: 65px;
+    }
+    .back__end th,
+    td {
+        font-size: 10px;
+    }
+}

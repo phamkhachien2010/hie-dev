@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { LOGIN_API } from '../../redux/constant/ConstantSaga';
+import styleLogin from './loginSignup.module.css'
 
 
 
@@ -25,23 +26,42 @@ export default function Login() {
         },
     });
 
+    const formItemLayout = {
+        labelCol: {
+          xs: {
+            span: 24,
+          },
+          sm: {
+            span: 6,
+          },
+          lg: {
+            span: 4
+          }
+        },
+        wrapperCol: {
+          xs: {
+            span: 24,
+          },
+          sm: {
+            span: 16,
+          },
+          lg: {
+            span: 18
+          }
+        },
+      };
+
     return (
         <div className='flex flex-col justify-center py-5'>
             <div className='text-center mb-5'>
-                <img src={logoImg} className='rounded-full inline-block' style={{ width: '100px' }} alt="logo" />
+                <img src={logoImg} className={styleLogin.hie_logo} alt="logo" />
             </div>
-            <div className='w-1/2 m-auto p-5' style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
+            <div className={`w-3/4 lg:w-1/2 m-auto ${styleLogin.login}`} style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
                 <h1 className='text-white font-bold text-center text-2xl mb-3'>LOGIN</h1>
                 
                 <Form
                     onSubmitCapture={formik.handleSubmit}
-                    name="basic"
-                    labelCol={{
-                        span: 4,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
+                   {...formItemLayout}
                     initialValues={{
                         remember: true,
                     }}

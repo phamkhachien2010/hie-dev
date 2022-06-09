@@ -1,0 +1,18 @@
+.login {
+    padding: 2.5rem;
+}
+
+.hie_logo {
+    width: 100px;
+    border-radius: 100% !important;
+    display: inline-block;
+}
+
+@media screen and (max-width: 411px) {
+    .login {
+        padding: 1.25rem;
+    }
+    .hie_logo {
+        width: 75px;
+    }
+}

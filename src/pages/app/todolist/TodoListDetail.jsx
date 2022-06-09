@@ -65,10 +65,10 @@ export default function TodoListDetail(props) {
       return <Dropdown key={index} overlay={desc}>
         <Space>
           <div className='grid grid-cols-5 p-2'>
-            <div className='col-span-4'>
+            <div className='col-span-3 lg:col-span-4'>
               <span>{work.name}</span>
             </div>
-            <div>
+            <div className='col-span-2 lg:col-span-1'>
               <button className='bg-green-400 py-1 px-2 rounded-lg hover:bg-green-500 hover:text-white mr-2 focus:outline-none' onClick={() => {
                 const { id, name, description } = work
                 dispatch({
@@ -88,7 +88,7 @@ export default function TodoListDetail(props) {
                 })
               }} ><i className="fa fa-edit"></i></button>
               <Popconfirm
-                title="Are you sure to delete this task?"
+                title="Xoá việc này?"
                 onConfirm={() => {
                   dispatch({
                     type: DELETE_WORK_API,
@@ -117,10 +117,10 @@ export default function TodoListDetail(props) {
       return <Dropdown key={index} overlay={desc} className='block'>
         <Space>
           <div key={index} className='grid grid-cols-5 p-2'>
-            <div className='col-span-4'>
+            <div className='col-span-3 lg:col-span-4'>
               <span>{work.name}</span>
             </div>
-            <div>
+            <div className='col-span-2 lg:col-span-1'>
               <button className='bg-green-400 py-1 px-2 rounded-lg hover:bg-green-500 hover:text-white mr-2 focus:outline-none' onClick={() => {
                 const { id, name, description } = work
                 dispatch({
@@ -134,7 +134,7 @@ export default function TodoListDetail(props) {
                 })
               }} ><i className="fa fa-exchange-alt"></i></button>
               <Popconfirm
-                title="Are you sure to delete this task?"
+                title="Xoá việc này?"
                 onConfirm={() => {
                   dispatch({
                     type: DELETE_WORK_API,
@@ -156,28 +156,28 @@ export default function TodoListDetail(props) {
 
   if (!titleTodoClick) {
     return <div>
-      <h1 className='text-4xl font-bold text-center mt-5'>Click vào thanh bên để xem chi tiết todoList</h1>
+      <h1 className='text-xl md:text-4xl font-bold text-center mt-5'>Click vào thanh bên để xem chi tiết todoList</h1>
     </div>
   }
 
   return (
     <div className='relative'>
-      <div className='grid grid-cols-2 gap-5'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         <div className='border-2'>
-          <h2 className='text-center text-xl font-bold my-1'>Danh sách việc chưa làm</h2>
+          <h2 className='text-center text-md md:text-xl font-bold my-1'>Danh sách việc chưa làm</h2>
           <hr />
           {renderListWorkWillDo()}
         </div>
 
         <div className='border-2'>
-          <h2 className='text-center text-xl font-bold my-1'>Danh sách việc đã làm</h2>
+          <h2 className='text-center text-md md:text-xl font-bold my-1'>Danh sách việc đã làm</h2>
           <hr />
           {renderListWorkDone()}
         </div>
       </div>
       <ModalEditWork />
 
-      <div className='right-0 -bottom-40 absolute p-2'>
+      <div className='absolute mt-2 right-0'>
         <button className='bg-green-400 hover:bg-green-500 px-2 py-1 rounded-lg mr-3 text-white font-bold focus:outline-none' onClick={() => {
           const todoListEdit = getTodoListById()[0];
           dispatch({
@@ -186,7 +186,7 @@ export default function TodoListDetail(props) {
           })
         }}>Sửa việc</button>
         <Popconfirm
-          title="Xoá việc này?"
+          title={`Xoá ${titleTodoClick} ?`}
           onConfirm={() => {
             const todoListDeleteId = getTodoListById()[0].id;
             dispatch({

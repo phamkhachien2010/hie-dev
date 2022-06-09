@@ -1,0 +1,19 @@
+.other {
+    padding-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .other {
+        padding-top: 140px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .other {
+        padding-top: 65px;
+    }
+    .other th,
+    td {
+        font-size: 10px;
+    }
+}
