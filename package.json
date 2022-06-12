@@ -1,7 +1,6 @@
 {
     "name": "hie-dev",
     "version": "0.1.0",
-    "homepage": "https://phamkhachien2010.github.io/hie-dev",
     "private": true,
     "dependencies": {
         "@testing-library/jest-dom": "^5.16.4",

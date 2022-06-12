@@ -21,6 +21,8 @@ import Library from './pages/others/Library';
 import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
+import NenNhat from './pages/stock/NenNhat';
+import Stock from './pages/stock/Stock';
 import Profile from './pages/user/Profile';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import AdminPageDefault from './templates/AdminTemplate/defaultAdminTemplate/AdminPageDefault';
@@ -53,6 +55,9 @@ function App() {
         <HomeTemplate path='/other/library' exact Component={Library} />
         <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />
         <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />
+
+        <HomeTemplate path='/stock' exact Component={Stock} />
+        <HomeTemplate path='/stock/nen-nhat' exact Component={NenNhat} />
 
         <UserTemplate path='/login' exact Component={Login} />
         <UserTemplate path='/register' exact Component={Register} />
