@@ -7,13 +7,13 @@ export default function ReactFrontend() {
   const reactImgPath = require('../../assets/img/react-img.jpeg')
   const bgSection = require('../../assets/img/bg-section-react.jpg');
 
-  useEffect(() => {
-    window.scroll(0, 0)
+  // useEffect(() => {
+  //   window.scroll(0, 0)
 
-    return () => {
+  //   return () => {
 
-    }
-  }, [])
+  //   }
+  // }, [])
 
   return (
     <div className={styleFrontend.frontEnd__content}>
@@ -106,14 +106,10 @@ export default function ReactFrontend() {
           <section className='text-xs md:text-base' id='deployreactapp'>
             <h2 className='text-xl md:text-2xl text-pink-300'>Deploy react app.</h2>
             <div className="pl-4">
-              <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy 1 react-app free như deploy lên sure, lên một site của github. Ở đây minh sẽ hướng dẫn deploy lên site của github để có thể cập nhật code một cách dễ dàng.</p>
-              <a className='text-teal-500 font-bold text-lg' href="https://github.com/gitname/react-gh-pages">Xem hướng dẫn của github tại đây</a>
-              <p>Để deploy react-app lên Github page chắc chắn bạn phải cần kiến thức về git. <NavLink className='text-teal-500 font-bold text-lg' to='/tech/github'>Ấn vào đây</NavLink></p>
-              <p>Trước hết phải cài thư viện gh-pages bằng câu lệnh <span className='text-lime-300'>npm install gh-pages --save-dev</span> trong terminal</p>
-              <p>Mở file packet.json trong phần khai báo đầu tiên (gồm có name, version, private) thêm 1 thuộc tính là homepage như sau: <span className='text-lime-300'>"homepage": "https://gitname.github.io/react-gh-pages",</span> trong đó phần <span className='font-bold'>gitname</span>  và phần <span className='font-bold'>react-gh-pages</span> là do bạn tự đặt. </p>
-              <p>Sau đó trong phần <span className='font-bold'>scripts</span> thêm 2 thuộc tính nữa là predeploy và deploy như sau: <span className='text-lime-300'>"predeploy": "npm run build",</span> và <span className='text-lime-300'>"deploy": "gh-pages -d build",</span> </p>
-              <p>Tiếp đó cần khởi tạo 1 git repo trên git hub và làm theo các bước để tạo 1 repo chứa source code của mình.</p>
-              <p>Cuổi cùng khởi chạy lệnh <span className='text-lime-300'>npm run deloy</span> trong terminal. Đợi chạy xong là bạn đã có 1 website với đường dẫn đã lưu ở phần đầu của packet.json được định nghĩa trong phần "homepage". Chỉ việc copy đường dẫn và khởi chạy trên trình duyệt.</p>
+              <p>Sau mỗi dự án hoàn thành, chạy ổn định tại localhost thì cần deploy lên internet. Có nhiều cách để deploy free 1 react-app free như deploy lên sure, lên một site của github, hoặc lên vercel. Mỗi một cách đều có những ưu điểm và hạn chế.</p>
+              <a href="https://blog.logrocket.com/8-ways-deploy-react-app-free/" target='_blank'>Xem hướng dẫn tại đây</a>
+              <p>Web này mình deploy với vercel. Lên trang chủ của <a href="https://vercel.com/" target='_blank'>Vercel</a> kết nối với github và làm theo hướng dẫn là được. Phải đợi một chút thời gian để vercel deploy app</p>
+              <p>Cách deploy với gh-page của git hub thì chỉ nên deploy với điều kiện trang web chỉ có 1 homepage vì nó sẽ không hiểu những đường dẫn khi sử dụng react-router-dom. Có cách khắc phục nhưng sẽ rất lằng nhằng</p>
             </div>
           </section>
 
@@ -122,6 +118,7 @@ export default function ReactFrontend() {
             <div className="pl-4">
               <p>Trong quá trình sử dụng react chắc chẳn sẽ gặp một số lỗi không thể tránh khỏi.</p>
               <p>Lỗi đầu tiên có thể gặp là không khởi tạo được react-app. Nguyên nhân là do phiên bản nodeJs trong máy đã cũ, không hỗ trợ. Cách khắc phục lỗi là cập nhật nodeJs hoặc tải bản mới.</p>
+        
             </div>
           </section>
 
