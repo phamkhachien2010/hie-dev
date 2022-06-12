@@ -1,5 +1,5 @@
 import { Table } from 'antd';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styleTech from './git.module.css'
 
 const bgGit = require('../../assets/img/bg-git.jpg')
@@ -166,6 +166,14 @@ const columns = [
 
 
 export default function GitBasic() {
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+      
+        return () => {
+          
+        }
+      }, [])
     return (
         <div className={styleTech.gitBasic}>
             <div className='text-white' style={{ backgroundImage: `url(${bgGit})`, backgroundAttachment: 'fixed' }}>

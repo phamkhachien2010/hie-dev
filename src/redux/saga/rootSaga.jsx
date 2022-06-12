@@ -14,6 +14,9 @@ export function* rootSaga() {
         UserSaga.theoDoiGetAllUserSaga(),
         UserSaga.theoDoiEditTypeUserSaga(),
         UserSaga.theoDoiDeleteUserSaga(),
+        UserSaga.theoDoiEditUserClientSaga(),
+        UserSaga.theoDoiUploadAvatar(),
+        UserSaga.theoDoiDeleteAccount(),
 
         LibrariesSaga.theoDoiGetAllLibrariesSaga(),
         LibrariesSaga.theoDoiCreateLibrarySaga(),
@@ -22,6 +25,7 @@ export function* rootSaga() {
 
         CommentSaga.theoDoiCommentSaga(),
         CommentSaga.theoDoiGetAllCommentSaga(),
+        CommentSaga.theoDoiDeleteCommentSaga(),
 
         TodoListSaga.theoDoiCreateTodoListSaga(),
         TodoListSaga.theoDoiGetAllTodoList(),

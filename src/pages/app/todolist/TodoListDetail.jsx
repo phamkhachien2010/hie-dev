@@ -1,5 +1,5 @@
 import { Dropdown, Menu, Space, Popconfirm, message } from 'antd';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import EditTodoListModal from '../../../component/editTodoListModal/EditTodoListModal';
 import ModalEditWork from '../../../component/editWorkModal/ModalEditWork';
@@ -11,7 +11,7 @@ const DONE = 'DONE';
 
 export default function TodoListDetail(props) {
   const { userLogin } = useSelector(state => state.UserReducer);
-  const { titleTodoClick, listTodo, showEditFormTodoList } = useSelector(state => state.TodoListReducer);
+  const { titleTodoClick, listTodo } = useSelector(state => state.TodoListReducer);
   const { listWork } = useSelector(state => state.WorkReducer);
   const dispatch = useDispatch()
 
@@ -162,6 +162,7 @@ export default function TodoListDetail(props) {
 
   return (
     <div className='relative'>
+      <h1 className='text-xl md:text-2xl font-bold text-center uppercase'>{titleTodoClick}</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
         <div className='border-2'>
           <h2 className='text-center text-md md:text-xl font-bold my-1'>Danh sách việc chưa làm</h2>

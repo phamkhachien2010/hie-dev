@@ -117,6 +117,7 @@ function* deleteTodolistSaga(action) {
             yield put({
                 type: GET_ALL_TODOLIST_SAGA
             })
+            window.location.reload()
         } else {
             Swal.fire({
                 title: 'Error!',

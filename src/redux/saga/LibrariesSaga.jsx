@@ -1,11 +1,13 @@
-import { takeLatest, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put, delay } from 'redux-saga/effects';
 import Swal from 'sweetalert2';
 import { librariesService } from '../../service/LibrariesService';
 import { STATUS_CODE } from '../../util/setting/config';
-import { CLOSE_LIBRARY_MODAL_CREATE, CLOSE_LIBRARY_MODAL_EDIT, GET_ALL_LIBRARIES } from '../constant/ConstantReducer';
+import { CLOSE_LIBRARY_MODAL_CREATE, CLOSE_LIBRARY_MODAL_EDIT, DISPLAY_LOADING, GET_ALL_LIBRARIES, HIDE_LOADING } from '../constant/ConstantReducer';
 import { CREATE_LIBRARY_API, DELETE_LIBRARY_API, EDIT_LIBRARY_API, GET_ALL_LIBRARIES_API } from '../constant/ConstantSaga';
 
 function* getAllLibrariesSaga(action) {
+    yield put({ type: DISPLAY_LOADING })
+    yield delay(1000)
     try {
         const { data, status } = yield call(() => librariesService.getAllLibraries(action.key))
         if (status === STATUS_CODE.SUCCESS) {
@@ -21,6 +23,7 @@ function* getAllLibrariesSaga(action) {
                 confirmButtonText: 'Cool'
             })
         }
+        yield put({ type: HIDE_LOADING })
     } catch (error) {
         Swal.fire({
             title: 'Error!',
@@ -29,6 +32,7 @@ function* getAllLibrariesSaga(action) {
             confirmButtonText: 'Cool'
         })
     }
+    yield put({ type: HIDE_LOADING })
 }
 
 export function* theoDoiGetAllLibrariesSaga() {
@@ -113,7 +117,7 @@ export function* theoDoiEditLibrarySaga() {
     yield takeLatest(EDIT_LIBRARY_API, editLibrarySaga)
 }
 
-function* deleteLibrarySaga(action){
+function* deleteLibrarySaga(action) {
     try {
         const { data, status } = yield call(() => librariesService.deleteLibrary(action.id))
         if (status === STATUS_CODE.SUCCESS) {
@@ -145,6 +149,6 @@ function* deleteLibrarySaga(action){
     }
 }
 
-export function* theoDoiDeleteLibrarySaga(){
+export function* theoDoiDeleteLibrarySaga() {
     yield takeLatest(DELETE_LIBRARY_API, deleteLibrarySaga)
 }

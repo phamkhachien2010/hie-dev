@@ -1,11 +1,13 @@
-import { call, takeLatest, put } from 'redux-saga/effects';
+import { call, takeLatest, put, delay } from 'redux-saga/effects';
 import Swal from 'sweetalert2';
 import { commandService } from '../../service/CommandService';
 import { STATUS_CODE } from '../../util/setting/config';
-import { CLOSE_MODAL_TEMINAL_EDIT, CLOSE_MODAL_TEMINAL_USE, GET_ALL_COMMAND } from '../constant/ConstantReducer';
+import { CLOSE_MODAL_TEMINAL_EDIT, CLOSE_MODAL_TEMINAL_USE, DISPLAY_LOADING, GET_ALL_COMMAND, HIDE_LOADING } from '../constant/ConstantReducer';
 import { CREATE_COMMAND_API, DELETE_COMMAND_API, EDIT_COMMAND_API, GET_ALL_COMMAND_API } from '../constant/ConstantSaga';
 
 function* getAllCommandSaga(action) {
+    yield put({type:DISPLAY_LOADING})
+    yield delay(1000)
     try {
         const { data, status } = yield call(() => commandService.getAllCommand(action.key))
         if (status === STATUS_CODE.SUCCESS) {
@@ -21,6 +23,7 @@ function* getAllCommandSaga(action) {
                 confirmButtonText: 'Cool'
             })
         }
+        yield put({type:HIDE_LOADING})
     } catch (error) {
         Swal.fire({
             title: 'Error!',
@@ -29,6 +32,7 @@ function* getAllCommandSaga(action) {
             confirmButtonText: 'Cool'
         })
     }
+    yield put({type:HIDE_LOADING})
 }
 
 export function* theoDoiGetAllCommandSaga() {

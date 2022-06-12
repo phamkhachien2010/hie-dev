@@ -13,6 +13,10 @@ export class CommentService extends baseService{
     getAllComment =()=>{
         return this.get('comments/get-all-comment')
     }
+
+    deleteComment=(id)=>{
+        return this.delete(`comments/delete-comment/${id}`)
+    }
 }
 
 export const commentService = new CommentService()

@@ -24,6 +24,18 @@ export class UsersService extends baseService {
     deleteUser=(id)=>{
         return this.delete(`users/delete-user/${id}`)
     }
+
+    editUserClient=(user)=>{
+        return this.put('users/edit-userName', user)
+    }
+
+    uploadAvatar =(avatar)=>{
+        return this.post('users/upload-avatar', avatar)
+    }
+
+    deleteAccount=(id)=>{
+        return this.delete(`users/delete-account/${id}`)
+    }
 }
 
 export const usersService = new UsersService();

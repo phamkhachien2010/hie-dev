@@ -90,7 +90,46 @@ export default function NodejsFolder() {
                     </li>
                 </ul>
 
+                <h3 className='text-xl md:text-2xl mt-3 pl-3 font-bold mb-0'>Những lưu ý khác</h3>
+                <p>Trong chức năng đăng ký tài khoản mà liên quan đến mật khẩu thì cần mã hoá mật khẩu để tránh tình trạng bị hacker xâm nhập. Có thể xem xét dùng thư viện Bcrypt</p>
+                <p>Định nghĩa 1 hàm mã hoá password truyền vào:</p>
+                <img src={require('../../assets/nodeFolder/bcrypt-service.jpg')} className='mb-2' alt="" />
+                <p>Sử dụng hàm trên để mã hoá password người dùng khi đăng ký. Lúc đăng nhập thì cần giải mã là được.</p>
+                <img src={require('../../assets/nodeFolder/register.jpg')} alt="" />
+                <p>Giải mã và tạo token để lưu thông tin người dùng sau khi đăng nhập thành công. Cần tạo token để khi người dùng thoát ra vào lại trình duyệt đó không bắt đăng nhập lại. Tạo token sử dụng thư viện jwt</p>
+                <img src={require('../../assets/nodeFolder/login.jpg')} alt="" />
+                <p>Khi tạo chức năng sửa thông tin user cũng cần sử dụng hàm mã hoá password cùng 1 kiểu để có thể thực hiện lại chức năng đăng nhập.</p>
+                <img src={require('../../assets/nodeFolder/edit-user.jpg')} alt="" />
 
+                <h4 className='text-lg md:text-xl mt-3 pl-3 mb-0'>Chức năng upload file (ảnh)</h4>
+                <p>Sử dụng thư viện multer để tạo chức năng upload file.</p>
+                <img src={require('../../assets/nodeFolder/upload-multer.jpg')} alt="" />
+                <p>Truyền vào router với 1 keyword. (trong ví dụ là <span className='font-bold text-xs md:text-lg'>avatar</span>)</p>
+                <img src={require('../../assets/nodeFolder/router-upload.jpg')} alt="" />
+                <p>Trong controller truyền vào như sau: (trong đó đường dẫn được hoàn tất sau đó)</p>
+                <img src={require('../../assets/nodeFolder/upload-avatar.jpg')} alt="" />
+                <p>Lưu ý trong source code front-end cần truyền vào là 1 form-data.</p>
+                <img src={require('../../assets/nodeFolder/front-form-upload.jpg')} alt="" />
+                <p>Và truyền vào đúng keyword (<span className='font-bold text-xs md:text-lg'>avatar</span>), cũng như entype</p>
+                <img src={require('../../assets/nodeFolder/front-end-notifi.jpg')} alt="" />
+
+                <h4 className='text-lg md:text-xl mt-3 pl-3 mb-0'>Lưu ý với những quan hệ trong bảng</h4>
+                <p>Tạo ra các quan hệ trong file model của bảng 1 và bảng nhiều trong phần associate, truyền vào bảng cần liên kết, định nghĩa foreignKey trong cả 2 bảng giống nhau.</p>
+                <p>Trong bảng 1:</p>
+                <img src={require('../../assets/nodeFolder/model-relation-1.jpg')} alt="" />
+                <p>Trong bảng nhiều:</p>
+                <img src={require('../../assets/nodeFolder/model-relation.jpg')} alt="" />
+                <p>Trong file migrate của bảng nhiều cần định nghĩa foreignKey:</p>
+                <img src={require('../../assets/nodeFolder/migrate-forenkey.jpg')} alt="" />
+                <p>Lưu ý khi xoá đối tượng có quan hệ. Khi xoá đối tượng có quan hệ cần xoá hết các quan hệ của đối tượng đó trước.</p>
+                <img src={require('../../assets/nodeFolder/delete-relation.jpg')} alt="" />
+
+                <h4 className='text-lg md:text-xl mt-3 pl-3 mb-0'>Một số middleware khác cần dùng</h4>
+                <p>Kiểm tra đã đăng nhập hay chưa, nếu đã đăng nhập thì trả về đối tượng đăng nhập đó:</p>
+                <img src={require('../../assets/nodeFolder/authenticate.jpg')} alt="" />
+                <p>Kiểm tra xem người dùng hiện tạo có quyền thực hiện chức năng đó không:</p>
+                <img src={require('../../assets/nodeFolder/authorize.jpg')} alt="" />
+                <p>Khi muốn thực hiện chức năng này thì cần truyền vào mảng những giá trị có quyền thực hiện trong router.</p>
 
             </div>
         </div>

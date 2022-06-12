@@ -297,7 +297,7 @@ export default function AboutMe(props) {
 
       <section className={style.about__id} id="about">
         <div className={style.about} />
-        <ScrollAnimation duration={1.5} animateIn='animate__zoomIn' animateOut='animate__zoomOut'>
+        <ScrollAnimation duration={1.5} animateIn='animate__fadeIn'>
           <div className={style.about__content}>
             <h2 className='text-center text-3xl font-bold'>{t('about me')}</h2>
             <div className="grid lg:grid-cols-2">

@@ -1,6 +1,8 @@
 import { Button, Form, Input } from 'antd'
 import { useFormik } from 'formik';
+import { t } from 'i18next';
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import { REGISTER_API } from '../../redux/constant/ConstantSaga';
@@ -11,6 +13,7 @@ const logoImg = require('../../assets/img/logo-dark.png')
 
 export default function Register() {
     const dispatch = useDispatch();
+    const { t } = useTranslation()
 
     const formik = useFormik({
         initialValues: {
@@ -28,28 +31,28 @@ export default function Register() {
 
     const formItemLayout = {
         labelCol: {
-          xs: {
-            span: 24,
-          },
-          sm: {
-            span: 7,
-          },
-          lg: {
-            span: 4
-          }
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 7,
+            },
+            lg: {
+                span: 4
+            }
         },
         wrapperCol: {
-          xs: {
-            span: 24,
-          },
-          sm: {
-            span: 16,
-          },
-          lg: {
-            span: 18
-          }
+            xs: {
+                span: 24,
+            },
+            sm: {
+                span: 16,
+            },
+            lg: {
+                span: 18
+            }
         },
-      };
+    };
 
 
     return (
@@ -58,8 +61,8 @@ export default function Register() {
                 <img src={logoImg} className={styleLogin.hie_logo} alt="logo" />
             </div>
             <div className={`w-3/4 lg:w-1/2 m-auto ${styleLogin.login}`} style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
-                <h1 className='text-white font-bold text-center text-2xl mb-3'>REGISTER</h1>
-                <h2 className='text-center text-xs md:text-base mb-3'>If you do not already have an account! <i className="fa fa-arrow-down"></i></h2>
+                <h1 className='text-white font-bold text-center text-2xl mb-3'>{t('register')}</h1>
+                <h2 className='text-center text-xs md:text-base mb-3'>{t('do not account')} <i className="fa fa-arrow-down"></i></h2>
                 <Form
                     onSubmitCapture={formik.handleSubmit}
                     name="basic"
@@ -69,40 +72,40 @@ export default function Register() {
                     }}
                 >
                     <Form.Item
-                        label="Username"
+                        label={t('userName')}
                         name='username'
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your username!',
+                                message: t('nameValid'),
                             },
                         ]}
                     >
-                        <Input name='userName' onChange={formik.handleChange} placeholder='Input your userName' />
+                        <Input name='userName' onChange={formik.handleChange} placeholder={t('input userName')} />
                     </Form.Item>
 
                     <Form.Item
-                        label="Password"
+                        label={t('password')}
                         name='passWord'
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your password!',
+                                message: t('password valid'),
                             },
                         ]}
                     >
-                        <Input.Password name="password" onChange={formik.handleChange} placeholder='Input your password' />
+                        <Input.Password name="password" onChange={formik.handleChange} placeholder={t('input password')} />
                     </Form.Item>
 
                     <Form.Item
                         name="confirm"
-                        label="Confirm Password"
+                        label={t('confirm password')}
                         dependencies={['passWord']}
                         hasFeedback
                         rules={[
                             {
                                 required: true,
-                                message: 'Please confirm your password!',
+                                message: t('confirm pass notifi'),
                             },
                             ({ getFieldValue }) => ({
                                 validator(_, value) {
@@ -110,12 +113,12 @@ export default function Register() {
                                         return Promise.resolve();
                                     }
 
-                                    return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                                    return Promise.reject(new Error(t('confirm pass valid')));
                                 },
                             }),
                         ]}
                     >
-                        <Input.Password name="confirmPassword" onChange={formik.handleChange} placeholder='Retype your password' />
+                        <Input.Password name="confirmPassword" onChange={formik.handleChange} placeholder={t('input confirm pass')} />
                     </Form.Item>
 
                     <Form.Item
@@ -124,14 +127,16 @@ export default function Register() {
                             span: 4,
                         }}
                     >
-                        <Button type="primary" htmlType="submit">
-                            Register
+                        <Button className={styleLogin.register_login_here} type="primary" htmlType="submit">
+                            <span className='text-base'>
+                                {t('register')}
+                            </span>
                         </Button>
                     </Form.Item>
                 </Form>
                 <div className='text-center'>
-                    <h2>If you already have an account?</h2>
-                    <NavLink className='inline-block hover:text-white' to='/login'>Login here</NavLink>
+                    <h2>{t('already have account')}</h2>
+                    <NavLink className='inline-block bg-teal-500 hover:text-white px-2 py-2 hover:no-underline' to='/login'>{t('login here')}</NavLink>
                 </div>
             </div>
         </div>

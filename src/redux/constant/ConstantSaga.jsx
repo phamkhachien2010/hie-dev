@@ -3,7 +3,10 @@ export const LOGIN_API = 'LOGIN_API';
 export const REGISTER_API = 'REGISTER_API';
 export const GET_ALL_USER_API = 'GET_ALL_USER_API';
 export const EDIT_TYPE_USER_API = 'EDIT_TYPE_USER_API';
+export const EDIT_USER_CLIENT_API = 'EDIT_USER_CLIENT_API';
 export const DELETE_USER_API = 'DELETE_USER_API';
+export const UPLOAD_AVATAR = 'UPLOAD_AVATAR';
+export const DELETE_ACCOUNT_API = 'DELETE_ACCOUNT_API';
 
 /**********LIBRARIES********/
 export const GET_ALL_LIBRARIES_API = 'GET_ALL_LIBRARIES_API';
@@ -14,6 +17,7 @@ export const DELETE_LIBRARY_API = 'DELETE_LIBRARY_API';
 /**********COMMENT********/
 export const SEND_COMMENT_API = 'SEND_COMMENT_API'
 export const GET_ALL_COMMENT_API = 'GET_ALL_COMMENT_API'
+export const DELETE_COMMENT_API = 'DELETE_COMMENT_API'
 
 /**********TODOLIST********/
 export const CREATE_TODOLIST = 'CREATE_TODOLIST'

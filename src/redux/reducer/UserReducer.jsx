@@ -1,5 +1,5 @@
 import { USER_LOGIN } from "../../util/setting/config"
-import { CLOSE_USER_MODAL_EDIT, GET_ALL_USER, OPEN_USER_MODAL_EDIT } from "../constant/ConstantReducer"
+import { CHANGE_AVATAR, CLOSE_USER_MODAL_EDIT, GET_ALL_USER, OPEN_USER_MODAL_EDIT } from "../constant/ConstantReducer"
 
 let userLoginDefault = {}
 
@@ -27,6 +27,10 @@ export const UserReducer = (state = initialState, action) => {
 
         case CLOSE_USER_MODAL_EDIT: {
             return { ...state, showModalEditUser: false }
+        }
+
+        case CHANGE_AVATAR: {            
+            return { ...state, userLogin: action.user }
         }
 
         default:

@@ -31,7 +31,8 @@ export const OPEN_WORK_MODAL_EDIT = 'OPEN_WORK_MODAL_EDIT';
 export const CLOSE_WORK_MODAL_EDIT = 'CLOSE_WORK_MODAL_EDIT';
 
 /**********USER**********/
-export const GET_ALL_USER = 'GET_ALL_USER'
+export const GET_ALL_USER = 'GET_ALL_USER';
+export const CHANGE_AVATAR = 'CHANGE_AVATAR'
 export const OPEN_USER_MODAL_EDIT = 'OPEN_USER_MODAL_EDIT';
 export const CLOSE_USER_MODAL_EDIT = 'CLOSE_USER_MODAL_EDIT';
 

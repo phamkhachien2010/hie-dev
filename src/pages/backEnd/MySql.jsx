@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styleMysql from './backend.module.css'
 
 export default function MySql() {
+
+    useEffect(() => {
+        window.scrollTo(0,0)
+      
+        return () => {
+          
+        }
+      }, [])
     return (
         <div className={styleMysql.back__end}>
             <div className="w-4/5 m-auto text-xs md:text-base">

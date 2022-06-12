@@ -1,12 +1,11 @@
-import { Table } from 'antd';
+import { Popconfirm, Table } from 'antd';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { GET_ALL_COMMENT_API } from '../../redux/constant/ConstantSaga';
+import { DELETE_COMMENT_API, GET_ALL_COMMENT_API } from '../../redux/constant/ConstantSaga';
 
 export default function InfoTakeBack() {
 
   const { listComment } = useSelector(state => state.CommentReducer);
-  console.log(listComment);
 
   const dispatch = useDispatch()
 
@@ -37,16 +36,30 @@ export default function InfoTakeBack() {
     {
       title: 'Phản hồi',
       dataIndex: 'comment',
-      width: '50%',
+      width: '40%',
     },
-  ];
-
-  const data = [
     {
-      key: '1',
-      name: 'start',
-      email: 'npm start',
-      comment: 'Start ứng dụng',
+      title: 'Phản hồi',
+      dataIndex: '',
+      render: (comment, index) => {
+        return <div key={index}>
+          <Popconfirm
+            title="Are you sure to delete this comment?"
+            onConfirm={() => {
+              dispatch({
+                type: DELETE_COMMENT_API,
+                id: comment.id
+              })
+            }}
+            okText="Yes"
+            cancelText="No"
+          >
+            <button className='text-xl text-red-500 focus:outline-none'><i className="fa fa-trash-alt"></i></button>
+          </Popconfirm>
+        </div>
+      },
+      width: '10%',
+      align: 'center'
     },
   ];
 

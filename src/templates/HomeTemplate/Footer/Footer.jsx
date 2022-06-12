@@ -54,13 +54,13 @@ export default function Footer() {
                     <div className="space-y-3">
                         <div className={`uppercase ${styleFooter.ul_heading} dark:text-gray-50`}>{t('social')}</div>
                         <div className="flex justify-center space-x-3 mt-0">
-                            <NavLink rel="noopener noreferrer" to="/" title="Facebook" style={{ textDecoration: 'none' }} className="flex items-center p-1">
+                            <a rel="noopener noreferrer" href='https://www.facebook.com/hien.phamkhac.1656/' target='_blank' title="Facebook" style={{ textDecoration: 'none' }} className="flex items-center p-1">
                                 <i className="fab fa-facebook text-lg"></i>
-                            </NavLink>
-                            <NavLink rel="noopener noreferrer" to="/" title="Github" style={{ textDecoration: 'none' }} className="flex items-center p-1">
+                            </a>
+                            <a rel="noopener noreferrer" href="https://github.com/phamkhachien2010" target='_blank' title="Github" style={{ textDecoration: 'none' }} className="flex items-center p-1">
                                 <i className="fab fa-github text-lg"></i>
-                            </NavLink>
-                            <NavLink rel="noopener noreferrer" to="/" title="Instagram" style={{ textDecoration: 'none' }} className="flex items-center p-1">
+                            </a>
+                            <NavLink rel="noopener noreferrer" to="/" title="Linkedin" style={{ textDecoration: 'none' }} className="flex items-center p-1">
                                 <i className="fab fa-linkedin-in text-lg"></i>
                             </NavLink>
                             <a className='p-1' rel="noopener noreferrer" href="mailTo:phamkhachien17@gmail.com"><i className="fa fa-envelope text-lg"></i></a>

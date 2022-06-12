@@ -1,19 +1,21 @@
-import { Button, message, Upload, Form, Input } from 'antd'
+import { Button, Form, Input, Popconfirm } from 'antd'
 import { useFormik } from 'formik';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import styleProfile from './profile.module.css'
-import { UploadOutlined } from '@ant-design/icons';
-import { DOMAIN, TOKEN } from '../../util/setting/config';
-import _ from 'lodash';
+import { DELETE_ACCOUNT_API, EDIT_USER_CLIENT_API, UPLOAD_AVATAR } from '../../redux/constant/ConstantSaga';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 
 
 export default function Profile() {
 
     const { userLogin } = useSelector(state => state.UserReducer);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [changeAvatar, setChangeAvatar] = useState('hidden')
+    const [changeBtnAvatar, setChangeBtnAvatar] = useState('block')
+    const { t } = useTranslation()
 
     const formik = useFormik({
         enableReinitialize: true,
@@ -21,38 +23,14 @@ export default function Profile() {
             userName: userLogin.userName,
             oldPassword: '',
             newPassword: '',
-            avatar: ''
         },
         onSubmit: values => {
-            let { avatar } = values;
-            const avatarDrop = _.drop(avatar, 12)
-            avatar = _.join(avatarDrop, '')
-            console.log({ avatar });
+            dispatch({
+                type: EDIT_USER_CLIENT_API,
+                user: values
+            })
         },
     });
-
-    const domainUploadAvatar = `${DOMAIN}/users/upload-avatar`
-
-    const props = {
-        name: 'avatar',
-
-        // action: domainUploadAvatar,
-        // headers: {
-        //     token: TOKEN,
-        // },
-        onChange(info) {
-            console.log(info);
-            // if (info.file.status !== 'uploading') {
-            //     console.log(info.file, info.fileList);
-            // }
-
-            // if (info.file.status === 'done') {
-            //     message.success(`${info.file.name} file uploaded successfully`);
-            // } else if (info.file.status === 'error') {
-            //     message.error(`${info.file.name} file upload failed.`);
-            // }
-        },
-    };
 
     const formItemLayout = {
         labelCol: {
@@ -79,18 +57,47 @@ export default function Profile() {
         },
     };
 
-    
-    const avatarImgUrl = userLogin.avatar;
-    console.log(avatarImgUrl);
+    const formikavatar = useFormik({
+        initialValues: {
+            avatar: {}
+        },
+        onSubmit: values => {
+            const formData = new FormData();
+            formData.append('avatar', values.avatar, values.avatar.name)
+            dispatch({
+                type: UPLOAD_AVATAR,
+                avatar: formData
+            })
+        },
+    });
+
+    const handleChangeFile = (e) => {
+        let file = e.target.files[0]
+        formikavatar.setFieldValue('avatar', file)
+        console.log(file);
+    }
+
+
     return (
         <div className='flex flex-col justify-center py-5'>
             <div className='text-center mb-5'>
-                <div>
-                    {/* <img src={userLogin.avatar} className={`rounded-full ${styleProfile.hie_logo}`} alt="logo" /> */}
+                <div className={styleProfile.avatar_overlay}>
+                    <img src={userLogin.avatar} className={`rounded-full ${styleProfile.hie_logo}`} alt="logo" />
+                    <button className={`bg-rose-200 p-2 block rounded-lg mt-2 w-100 ${changeBtnAvatar}`} onClick={() => {
+                        setChangeAvatar('block');
+                        setChangeBtnAvatar('hidden')
+                    }}>{t('change avatar')}</button>
+                    <form onSubmitCapture={formikavatar.handleSubmit} className={changeAvatar} method="post" encType="multipart/form-data">
+                        <input type="file" onChange={handleChangeFile} name="avatar" />
+                        <div className='w-2/5 ml-auto'>
+                            <button className='bg-rose-200 p-2 block rounded-lg mt-2 w-100' type='submit'>{t('change')}</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
             <div className={`w-3/4 lg:w-1/2 m-auto ${styleProfile.profile}`} style={{ backgroundColor: 'rgba(255,255,255,0.3)' }}>
-                <h1 className='text-white font-bold text-center text-2xl mb-3'>Change profile</h1>
+                <h1 className='text-white font-bold text-center text-2xl mb-3'>{t('change profile')}</h1>
 
                 <Form
                     onSubmitCapture={formik.handleSubmit}
@@ -100,44 +107,36 @@ export default function Profile() {
                     }}
                 >
                     <Form.Item
-                        label="Username"
+                        label={t('userName')}
 
                     >
-                        <Input onChange={formik.handleChange} name='userName' value={formik.values.userName} placeholder='Input your userName' />
+                        <Input onChange={formik.handleChange} name='userName' value={formik.values.userName} placeholder={t('input userName')} />
                     </Form.Item>
 
                     <Form.Item
-                        label="Old Password"
+                        label={t('old password')}
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your old password!',
+                                message: t('old pass valid'),
                             },
                         ]}
                     >
-                        <Input.Password onChange={formik.handleChange} value={formik.values.oldPassword} name='oldPassword' placeholder='Input your old password' />
+                        <Input.Password onChange={formik.handleChange} value={formik.values.oldPassword} name='oldPassword' placeholder={t('input old password')} />
                     </Form.Item>
 
                     <Form.Item
-                        label="New Password"
+                        label={t('new password')}
                         rules={[
                             {
                                 required: true,
-                                message: 'Please input your new password!',
+                                message: t('new pass valid'),
                             },
                         ]}
                     >
-                        <Input.Password onChange={formik.handleChange} value={formik.values.newPassword} name='newPassword' placeholder='Input your new password' />
+                        <Input.Password onChange={formik.handleChange} value={formik.values.newPassword} name='newPassword' placeholder={t('input new password')} />
                     </Form.Item>
 
-                    <Form.Item
-                        label="Upload avatar"
-                    >
-                        <Upload {...props}>
-                            <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                        </Upload>
-                        {/* <input name='avatar' onChange={formik.handleChange} type="file" /> */}
-                    </Form.Item>
 
                     <Form.Item
                         wrapperCol={{
@@ -146,11 +145,23 @@ export default function Profile() {
                         }}
                     >
                         <Button type="primary" htmlType="submit">
-                            Send
+                            {t('send')}
                         </Button>
-                        <Button className='ml-3' type="danger" htmlType="button">
-                            Delete account
-                        </Button>
+                        <Popconfirm
+                            title={t('notifi delete acc')}
+                            onConfirm={() => {
+                                dispatch({
+                                    type: DELETE_ACCOUNT_API,
+                                    id: userLogin.id
+                                })
+                            }}
+                            okText="Yes"
+                            cancelText="No"
+                        >
+                            <Button className='ml-3' type="danger" htmlType="button">
+                                {t('delete acc')}
+                            </Button>
+                        </Popconfirm>
                     </Form.Item>
                 </Form>
             </div>

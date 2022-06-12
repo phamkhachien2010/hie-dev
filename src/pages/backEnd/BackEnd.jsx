@@ -1,8 +1,19 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import styleBackEnd from '../frontEnd/FrontEnd.module.css'
 
 export default function BackEnd(props) {
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  
+    return () => {
+      
+    }
+  }, [])
+  
+
   return (
     <div className={styleBackEnd.frontEnd__content}>
       <div className='w-4/5  m-auto text-md md:text-lg'>

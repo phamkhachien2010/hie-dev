@@ -123,9 +123,9 @@ export default function Header(props) {
                     </NavLink>
                 </div>
                 <div className="items-center flex-shrink-0 hidden sm:flex absolute right-5">
-                    <Select defaultValue="vi" style={{ width: 70 }} onChange={handleChange}>
-                        <Option value="vi">Vie</Option>
+                    <Select defaultValue="en" style={{ width: 70 }} onChange={handleChange}>
                         <Option value="en">Eng</Option>
+                        <Option value="vi">Vie</Option>
                     </Select>
                 </div>
 

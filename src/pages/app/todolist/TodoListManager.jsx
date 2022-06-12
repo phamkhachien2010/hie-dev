@@ -4,12 +4,13 @@ import {
     MenuUnfoldOutlined,
     InfoCircleOutlined
 } from '@ant-design/icons';
-import { Layout, Menu, Popconfirm } from 'antd';
+import { Layout, Menu } from 'antd';
 import TodoListDetail from './TodoListDetail';
 import { useDispatch, useSelector } from 'react-redux';
 import { SET_TITLE_TODO } from '../../../redux/constant/ConstantReducer';
 import { GET_ALL_TODOLIST_SAGA } from '../../../redux/constant/ConstantSaga';
 import styleTodoList from './todoList.module.css'
+import { NavLink } from 'react-router-dom';
 
 
 const { Header, Sider, Content } = Layout;
@@ -99,6 +100,7 @@ export default function TodoListManager(props) {
                             minHeight: 280,
                         }}
                     >
+                        <NavLink to='/app/todolist' className='mt-2 text-blue-400 ml-4'><i className="fa fa-angle-double-left"></i>Quay lại</NavLink>
                         <TodoListDetail />
 
                     </Content>

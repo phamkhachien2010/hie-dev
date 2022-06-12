@@ -8,6 +8,13 @@
     display: inline-block;
 }
 
+.register_login_here {
+    display: inline-block;
+    border-radius: 10px;
+    animation: animateRegisterHere 1s ease-in-out alternate-reverse infinite;
+    transition: all;
+}
+
 @media screen and (max-width: 411px) {
     .login {
         padding: 1.25rem;
@@ -15,4 +22,20 @@
     .hie_logo {
         width: 75px;
     }
+}
+
+@keyframes animateRegisterHere {
+    from {
+        transform: scale(0.8);
+        background-color: blue;
+    }
+    to {
+        transform: scale(1);
+        background-color: cadetblue;
+    }
+}
+
+@keyframes animateLoginRegister {
+    from {}
+    to {}
 }

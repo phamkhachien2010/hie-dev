@@ -27,6 +27,7 @@ export default function Todolist() {
     const listTodoById = getListtoDoById()
 
     useEffect(() => {
+
         dispatch({
             type: GET_ALL_TODOLIST_SAGA
         })
@@ -73,15 +74,23 @@ export default function Todolist() {
                 {
                     key: '1',
                     label: (
+                        <span className='cursor-default bg-stone-500 p-2'>
+                            {userLogin.userName}
+                        </span>
+                    ),
+                },
+                {
+                    key: '2',
+                    label: (
                         <NavLink to='/profile' >
                             Quản lý tài khoản
                         </NavLink>
                     ),
                 },
                 {
-                    key: '2',
+                    key: '3',
                     label: (
-                        <div onClick={() => {
+                        <div className='hover:underline' onClick={() => {
                             localStorage.setItem(TOKEN, '');
                             localStorage.setItem(USER_LOGIN, '')
                             history.push('/')

@@ -8,8 +8,12 @@
     border-radius: 100%;
 }
 
-.avatar_overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+.avatar_content {
+    display: none;
+}
+
+.avatar_overlay:hover .avatar_content {
+    display: block;
 }
 
 .hie_logo {

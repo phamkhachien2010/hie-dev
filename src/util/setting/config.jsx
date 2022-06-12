@@ -1,5 +1,6 @@
 
 export const DOMAIN = 'https://hie-dev.herokuapp.com/api/v1';
+export const DOMAINIMG = 'https://hie-dev.herokuapp.com';
 
 export const TOKEN = 'accessToken';
 export const SUPER_ADMIN = 'SUPER_ADMIN';
