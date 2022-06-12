@@ -7,13 +7,13 @@ export default function ReactFrontend() {
   const reactImgPath = require('../../assets/img/react-img.jpeg')
   const bgSection = require('../../assets/img/bg-section-react.jpg');
 
-  // useEffect(() => {
-  //   window.scroll(0, 0)
+  useEffect(() => {
+    window.scroll(0, 0)
 
-  //   return () => {
+    return () => {
 
-  //   }
-  // }, [])
+    }
+  }, [])
 
   return (
     <div className={styleFrontend.frontEnd__content}>
