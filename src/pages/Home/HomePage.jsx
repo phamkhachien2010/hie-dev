@@ -152,7 +152,7 @@ export default function HomePage(props) {
 
           <h3 className='text-2xl font-bold text-center mt-5 mb-2'>{t('technology')}</h3>
           <div className="grid grid-cols-2 xl:grid-cols-4">
-            <div className='text-center mr-5 mb-5'>
+            <div className='text-center mb-5'>
               <ScrollAnimation duration={1} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
                 <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/reactjs'>
                   <Card
@@ -168,7 +168,7 @@ export default function HomePage(props) {
                 </NavLink>
               </ScrollAnimation>
             </div>
-            <div className='text-center mr-5 mb-5'>
+            <div className='text-center mb-5'>
               <ScrollAnimation duration={1.2} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
                 <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/nodejs'>
                   <Card
@@ -184,7 +184,7 @@ export default function HomePage(props) {
                 </NavLink>
               </ScrollAnimation>
             </div>
-            <div className='text-center mr-5 mb-5'>
+            <div className='text-center mb-5'>
               <ScrollAnimation duration={1.4} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
                 <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/github'>
                   <Card
@@ -200,7 +200,7 @@ export default function HomePage(props) {
                 </NavLink>
               </ScrollAnimation>
             </div>
-            <div className='text-center mr-5 mb-5'>
+            <div className='text-center mb-5'>
               <ScrollAnimation duration={1.6} animateIn='animate__fadeInUp' animateOut='animate__fadeOutDown'>
                 <NavLink className={`inline-block hover:no-underline ${styleHomePage.hoverAnimate}`} to='/tech/mysql'>
                   <Card

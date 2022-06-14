@@ -136,7 +136,29 @@ export default function Stock() {
             </section>
 
             <section>
+                <h2 className='text-xl md:text-3xl font-bold pl-3'>Chú ý hành động giá và khối lượng:</h2>
+                <ul className='list-disc'>
+                    <li>
+                        <p>Giá tăng mà khối lượng giảm, Là những cổ phiếu nên tránh, vì có thể tổ chức đẩy giá lên để phân phối vầ thoát nốt hàng tồn đọng.</p>
+                    </li>
+                    <li>
+                        <p>Giá giảm mà khối lượng tăng, Chuỗi những ngày như vậy chứng tỏ cổ phiếu đang vào đầu giai đoạn down trend</p>
+                    </li>
+                    <li>
+                        <p>Giá tăng mà cổ khối lượng tăng. Chứng tỏ cổ phiếu đã thu hút được nhà đầu tư, bắt đầu quá trình tăng giá</p>
+                    </li>
+                    <li>
+                        <p>Giá giảm mà khối lượng giảm, chứng tỏ nhà đầu tư cá nhân cũng như tổ chức đã thoát gần hết hàng, chán nản không còn muốn bán nữa.</p>
+                    </li>
+                    <li>
+                        <p>Giá thắt chặt với khối lượng nhỏ. Thường là giai đoạn khởi đầu cho 1 cuộc tăng giá, cần một ngày bùng nổ theo đà (Giá tăng mạnh với sự xác nhận của khối lượng cũng tăng mạnh) .</p>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
                 <h2 className='text-xl md:text-3xl font-bold pl-3'>Mua, tìm điểm mua</h2>
+                
                 <Table pagination={false} dataSource={mua} columns={columns} />
                 
             </section>
@@ -149,6 +171,7 @@ export default function Stock() {
 
             <section>
                 <h2 className='text-xl md:text-3xl font-bold pl-3'>Chú ý theo dõi những cổ phiếu:</h2>
+                <p>Chú ý hành động giá và khối lượng.</p>
                 <ul className='list-disc'>
                     <li>
                         <p>Các công ty phục hồi từ khó khăn</p>
