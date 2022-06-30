@@ -140,17 +140,22 @@ const myProject = [
         projectName: 'Booking ticket movie website',
         description: 'Website about Booking ticket movie and manage user',
         technology: 'ReactJs, React functional component, redux, redux thunk ...',
-        linkDemo: 'http://phamkhachien_booking_ticket_movie.surge.s',
+        linkDemo: 'https://booking-ticket-taupe.vercel.app/',
         linkGithub: 'https://github.com/phamkhachien2010/booking-ticket-deploy',
         bgImage: require('../../assets/imgAbout/bookingticket.png')
-      },
+      }
+    ]
+  },
+  {
+    name: "reactJs, NodeJs Projects",
+    listProject: [
       {
-        projectName: 'Jira clone website',
-        description: 'Website about about manage task and user',
+        projectName: 'My website',
+        description: 'My own website about skills i learn and an app',
         technology: 'ReactJs, React functional component, redux, redux saga ...',
-        linkDemo: 'http://phamkhachien-jira-clone.surge.sh',
-        linkGithub: 'https://github.com/phamkhachien2010/jira-clone-deploy',
-        bgImage: require('../../assets/imgAbout/jiraclone.png')
+        linkDemo: 'https://hie-dev.vercel.app/',
+        linkGithub: 'https://github.com/phamkhachien2010/hie-dev',
+        bgImage: require('../../assets/imgAbout/hie-dev.png')
       },
     ]
   }

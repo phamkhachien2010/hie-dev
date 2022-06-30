@@ -67,18 +67,18 @@ const mua = [
 const ban = [
     {
         key: '1',
-        name:  <div>
-        <p>Khi có bất kỳ 3 ngày phân phối trong giai đoạn 4-5 tuần, nên bán 1/2 số lượng cổ phiếu ngắn hạn, khi có 5-6 ngày phân phối bán hết cổ phiếu ngắn hạn, xem xét bán 1/3-1/2 cổ phiếu dài hạn để tối đa hoá lợi nhuận. <span className='font-bold'>Và đặc biệt phải chờ khi xu hướng giảm kết thúc mới quay lại thị trường.</span></p>
-        <p>Ngày phân phối là ngày có lực bán nhiều hơn lực mua với khối lượng tăng so với ngày hôm trước</p>
-    </div>,
+        name: <div>
+            <p>Khi có bất kỳ 3 ngày phân phối trong giai đoạn 4-5 tuần, nên bán 1/2 số lượng cổ phiếu ngắn hạn, khi có 5-6 ngày phân phối bán hết cổ phiếu ngắn hạn, xem xét bán 1/3-1/2 cổ phiếu dài hạn để tối đa hoá lợi nhuận. <span className='font-bold'>Và đặc biệt phải chờ khi xu hướng giảm kết thúc mới quay lại thị trường.</span></p>
+            <p>Ngày phân phối là ngày có lực bán nhiều hơn lực mua với khối lượng tăng so với ngày hôm trước</p>
+        </div>,
         check: <input type='checkbox' />
     },
     {
         key: '2',
-        name:  <div>
-        <p>Cổ phiếu tạo những mẫu hình nến đảo chiều giảm tin cậy, với sự ủng hộ của khối lượng</p>
-        <NavLink className='text-blue-400' to='/stock/nen-nhat'>Đối chiếu những mẫu hình nến tại đây</NavLink>
-    </div>,
+        name: <div>
+            <p>Cổ phiếu tạo những mẫu hình nến đảo chiều giảm tin cậy, với sự ủng hộ của khối lượng</p>
+            <NavLink className='text-blue-400' to='/stock/nen-nhat'>Đối chiếu những mẫu hình nến tại đây</NavLink>
+        </div>,
         check: <input type='checkbox' />
     },
     {
@@ -93,8 +93,8 @@ const ban = [
     },
     {
         key: '5',
-        name: <p><a href="#quy-tac-7-tuan" className='text-black bg-cyan-300'> Vi phạm quy tắc 7 tuần.</a></p>,
-        check: <input type='checkbox' />
+        name: <NavLink to='/stock/ban-nhu-the-nao' className='text-blue-400'>Một số cách bán khác</NavLink>,
+        check: ''
     },
 ];
 
@@ -130,6 +130,9 @@ export default function Stock() {
                     <li>
                         <p>Cổ phiếu dài hạn (là cổ phiếu hội tụ nhiều yếu tố cơ bản, về lâu dài không có bất cứ điều gì ảnh hưởng đến đà tăng trưởng của cổ phiếu) <span className='font-bold bg-green-500'>50% tổng vốn</span> </p>
                     </li>
+                    <li>
+                        <NavLink to='/stock/canslim' className='text-blue-400' >Chọn cổ phiếu theo CANSLIM</NavLink>
+                    </li>
                 </ul>
                 <Table pagination={false} dataSource={chonCoPhieu} columns={columns} />
 
@@ -158,15 +161,15 @@ export default function Stock() {
 
             <section>
                 <h2 className='text-xl md:text-3xl font-bold pl-3'>Mua, tìm điểm mua</h2>
-                
+
                 <Table pagination={false} dataSource={mua} columns={columns} />
-                
+
             </section>
 
             <section>
                 <h2 className='text-xl md:text-3xl font-bold pl-3'>Bán, tìm điểm bán</h2>
                 <Table pagination={false} dataSource={ban} columns={columns} />
-                
+
             </section>
 
             <section>
@@ -207,21 +210,6 @@ export default function Stock() {
                         </li>
                         <li>
                             <p>Khi xác định pocket pivot nên tránh những điểm đã tăng giá kéo dài (Giá đã tăng và cách xa MA10).</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div id='quy-tac-7-tuan'>
-                    <h3 className='font-bold'>Những tiêu chí đáp ứng quy tắc 7 tuần</h3>
-                    <ul className='list-disc'>
-                        <li>
-                            <p>1 cổ phiếu đã bám đường MA10 hoặc MA 50 tròn vòng 7 tuần hoặc hơn thì nên xem xét bán khi giá vi phạm đường MA đó</p>
-                        </li>
-                        <li>
-                            <p>Nếu cổ phiếu giữ giá ở MA10 thì xem xét bán 1/2 khi giá vi phạm MA10, và bán nốt phần còn lại khi vi phạm MA50</p>
-                        </li>
-                        <li>
-                            <p className='bg-indigo-200 inline-block'>Vi phạm MA tức là có 1 ngày giá đóng cửa dưới MA đó và ngày hôm sau giá có điểm thấp nhất dưới điểm thấp nhất của ngày hôm trước</p>
                         </li>
                     </ul>
                 </div>

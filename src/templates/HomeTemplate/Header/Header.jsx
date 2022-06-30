@@ -5,10 +5,13 @@ import { USER_LOGIN } from '../../../util/setting/config';
 import { history } from '../../../App';
 import { useTranslation } from 'react-i18next';
 import styleHeader from './header.module.css'
+import { useSelector } from 'react-redux';
 
 
 const { Option } = Select
 export default function Header(props) {
+
+    const { userLogin } = useSelector(state => state.UserReducer);
 
     const { t, i18n } = useTranslation()
 
@@ -113,6 +116,17 @@ export default function Header(props) {
         i18n.changeLanguage(value)
     }
 
+    const renderStockHead = () => {
+        if (userLogin.type === 'SUPER_ADMIN') {
+            return <li className="flex">
+                <NavLink rel="noopener noreferrer" to="/stock" style={{ textDecoration: 'none' }} className={`flex items-center ${styleHeader.headerLink} -mb-1 hover:text-emerald-300 ${activeHeaderHomepage('/stock')}`}>
+                    Stock
+                </NavLink>
+            </li>
+        }
+        return
+    }
+
     return (
         <header className="lg:p-5 sm:p-3 dark:bg-gray-800 dark:text-gray-100 w-100 fixed z-10">
 
@@ -180,6 +194,7 @@ export default function Header(props) {
                             </NavLink>
                         </Dropdown>
                     </li>
+                    {renderStockHead()}
                 </ul>
 
             </div>

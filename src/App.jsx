@@ -21,6 +21,8 @@ import Library from './pages/others/Library';
 import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
+import BanKhac from './pages/stock/BanKhac';
+import Canslim from './pages/stock/Canslim';
 import NenNhat from './pages/stock/NenNhat';
 import Stock from './pages/stock/Stock';
 import Profile from './pages/user/Profile';
@@ -58,6 +60,8 @@ function App() {
 
         <HomeTemplate path='/stock' exact Component={Stock} />
         <HomeTemplate path='/stock/nen-nhat' exact Component={NenNhat} />
+        <HomeTemplate path='/stock/canslim' exact Component={Canslim} />
+        <HomeTemplate path='/stock/ban-nhu-the-nao' exact Component={BanKhac} />
 
         <UserTemplate path='/login' exact Component={Login} />
         <UserTemplate path='/register' exact Component={Register} />
