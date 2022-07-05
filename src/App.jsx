@@ -17,7 +17,9 @@ import GitBasic from './pages/git/GitBasic';
 import HomePage from './pages/Home/HomePage';
 import Login from './pages/loginSignup/Login';
 import Register from './pages/loginSignup/Register';
+import ArrayMethods from './pages/others/ArrayMethods';
 import Library from './pages/others/Library';
+import LodashArray from './pages/others/LodashArray';
 import NodejsFolder from './pages/others/NodejsFolder';
 import ReactFolder from './pages/others/ReactFolder';
 import TerminalInUse from './pages/others/TerminalInUse';
@@ -57,6 +59,8 @@ function App() {
         <HomeTemplate path='/other/library' exact Component={Library} />
         <HomeTemplate path='/other/lenh-thuong-dung' exact Component={TerminalInUse} />
         <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />
+        <HomeTemplate path='/other/cac-phuong-thuc-mang-hay-dung' exact Component={ArrayMethods} />
+        <HomeTemplate path='/other/lodash' exact Component={LodashArray} />
 
         <HomeTemplate path='/stock' exact Component={Stock} />
         <HomeTemplate path='/stock/nen-nhat' exact Component={NenNhat} />

@@ -9,6 +9,7 @@ import { LoadingReducer } from './reducer/LoadingReducer';
 import { TodoListReducer } from './reducer/TodolistReducer';
 import { WorkReducer } from './reducer/WorkReducer';
 import { CommentReducer } from './reducer/CommentReducer';
+import { LodashReducer } from './reducer/LodashReducer';
 
 
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     LoadingReducer,
     TodoListReducer,
     WorkReducer,
-    CommentReducer
+    CommentReducer,
+    LodashReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(middleWareSaga));

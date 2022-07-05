@@ -1,11 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { Menu, Dropdown, Space, Select } from 'antd';
-import { USER_LOGIN } from '../../../util/setting/config';
+import { TOKEN, USER_LOGIN } from '../../../util/setting/config';
 import { history } from '../../../App';
 import { useTranslation } from 'react-i18next';
 import styleHeader from './header.module.css'
 import { useSelector } from 'react-redux';
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 
 
 const { Option } = Select
@@ -64,19 +65,19 @@ export default function Header(props) {
             items={[
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/reactjs">ReactJs</NavLink>,
-                    key: '0',
+                    key: '1',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/nodejs">NodeJs</NavLink>,
-                    key: '0',
+                    key: '2',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/github">Github</NavLink>,
-                    key: '0',
+                    key: '3',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/tech/mysql">MySQL</NavLink>,
-                    key: '0',
+                    key: '4',
                 },
 
                 {
@@ -90,23 +91,67 @@ export default function Header(props) {
             items={[
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/cau-hinh-folder-react">Folder reactJs</NavLink>,
-                    key: '0',
+                    key: '1',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/cau-hinh-folder-nodejs">Folder nodeJs</NavLink>,
-                    key: '0',
+                    key: '2',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/library">Library</NavLink>,
-                    key: '0',
+                    key: '3',
                 },
                 {
                     label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/lenh-thuong-dung">Lệnh thường dùng</NavLink>,
-                    key: '0',
+                    key: '4',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/cac-phuong-thuc-mang-hay-dung">Array Methods</NavLink>,
+                    key: '5',
+                },
+                {
+                    label: <NavLink className="dropdown-item bg-cyan-50 text-black" to="/other/lodash">Lodash array</NavLink>,
+                    key: '6',
                 },
 
                 {
                     type: 'divider',
+                },
+            ]}
+        />
+    );
+
+    const menuUserLog = (
+        <Menu
+            items={[
+                {
+                    key: '1',
+                    label: (
+                        <span className='cursor-default bg-stone-500 p-2'>
+                            {userLogin.userName}
+                        </span>
+                    ),
+                },
+                {
+                    key: '2',
+                    label: (
+                        <NavLink to='/profile' >
+                            Quản lý tài khoản
+                        </NavLink>
+                    ),
+                },
+                {
+                    key: '3',
+                    label: (
+                        <div className='hover:underline' onClick={() => {
+                            localStorage.setItem(TOKEN, '');
+                            localStorage.setItem(USER_LOGIN, '');
+                            history.push('/');
+                            window.location.reload();
+                        }}>
+                            Đăng xuất
+                        </div>
+                    ),
                 },
             ]}
         />
@@ -127,6 +172,27 @@ export default function Header(props) {
         return
     }
 
+    const renderUserLog = () => {
+        if (!localStorage.getItem(TOKEN)) {
+            return <div>
+                <NavLink rel="noopener noreferrer" to="/login" style={{ textDecoration: 'none' }} className={`${styleHeader.headerLink} px-2 py-1 border-2 rounded-lg mr-2`}>
+                    {t('login')}
+                </NavLink>
+                <NavLink rel="noopener noreferrer" to="/register" style={{ textDecoration: 'none' }} className={`${styleHeader.headerLink} px-2 py-1 border-2 rounded-lg mr-2`}>
+                    {t('register')}
+                </NavLink>
+            </div>
+        }
+        return <div>
+            <Dropdown overlay={menuUserLog} className='cursor-pointer'>
+                <Space className='mr-2'>
+                    <img style={{ width: '50px', borderRadius: '50%' }} src={userLogin.avatar} alt="" />
+                </Space>
+            </Dropdown>
+        </div>
+
+    }
+
     return (
         <header className="lg:p-5 sm:p-3 dark:bg-gray-800 dark:text-gray-100 w-100 fixed z-10">
 
@@ -137,6 +203,8 @@ export default function Header(props) {
                     </NavLink>
                 </div>
                 <div className="items-center flex-shrink-0 hidden sm:flex absolute right-5">
+                    {renderUserLog()}
+
                     <Select defaultValue="en" style={{ width: 70 }} onChange={handleChange}>
                         <Option value="en">Eng</Option>
                         <Option value="vi">Vie</Option>

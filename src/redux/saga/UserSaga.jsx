@@ -2,8 +2,8 @@ import { takeLatest, call, put, delay } from 'redux-saga/effects'
 import Swal from 'sweetalert2'
 import { history } from '../../App';
 import { usersService } from '../../service/UsersService'
-import { DOMAINIMG, STATUS_CODE, TOKEN, USER_LOGIN } from '../../util/setting/config';
-import { CHANGE_AVATAR, CLOSE_USER_MODAL_EDIT, DISPLAY_LOADING, GET_ALL_USER, HIDE_LOADING } from '../constant/ConstantReducer';
+import { STATUS_CODE, TOKEN, USER_LOGIN } from '../../util/setting/config';
+import { CLOSE_USER_MODAL_EDIT, DISPLAY_LOADING, GET_ALL_USER, HIDE_LOADING } from '../constant/ConstantReducer';
 import { DELETE_ACCOUNT_API, DELETE_USER_API, EDIT_TYPE_USER_API, EDIT_USER_CLIENT_API, GET_ALL_USER_API, LOGIN_API, REGISTER_API, UPLOAD_AVATAR } from '../constant/ConstantSaga'
 
 function* loginSaga(action) {

@@ -38,3 +38,6 @@ export const CLOSE_USER_MODAL_EDIT = 'CLOSE_USER_MODAL_EDIT';
 
 /**********COMMENT**********/
 export const GET_ALL_COMMENT = 'GET_ALL_COMMENT'
+
+/**********COMMENT**********/
+export const GET_ALL_LODASH_METHOD = 'GET_ALL_LODASH_METHOD'

@@ -92,8 +92,9 @@ export default function Todolist() {
                     label: (
                         <div className='hover:underline' onClick={() => {
                             localStorage.setItem(TOKEN, '');
-                            localStorage.setItem(USER_LOGIN, '')
-                            history.push('/')
+                            localStorage.setItem(USER_LOGIN, '');
+                            history.push('/');
+                            window.location.reload();
                         }}>
                             Đăng xuất
                         </div>

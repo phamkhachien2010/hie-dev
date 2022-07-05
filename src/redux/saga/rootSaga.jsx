@@ -4,7 +4,8 @@ import * as LibrariesSaga from './LibrariesSaga';
 import * as CommentSaga from './CommentSaga'
 import * as TodoListSaga from './TodoListSaga'
 import * as WorkSaga from './WorkSaga'
-import * as CommandSaga from './CommandSaga'
+import * as CommandSaga from './CommandSaga';
+import * as LodashSaga from './LodashSaga';
 
 
 export function* rootSaga() {
@@ -41,5 +42,7 @@ export function* rootSaga() {
         CommandSaga.theoDoiCreateCommand(),
         CommandSaga.theoDoiEditCommandSaga(),
         CommandSaga.theoDoiDeleteCommandSaga(),
+
+        LodashSaga.theoDoiGetAllLodashMethodsSaga(),
     ])
 }

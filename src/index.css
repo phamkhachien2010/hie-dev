@@ -3,6 +3,7 @@
 @tailwind utilities;
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 110px;
 }
 
 body a {
@@ -88,6 +89,42 @@ section .ant-carousel .slick-dots-bottom {
 
 .border-2 .ant-space {
     display: block;
+}
+
+.prism_content {
+    background-color: #1e1e1e;
+    color: white;
+    padding: 15px 20px;
+}
+
+.prism_content .punctuation,
+.prism_content .operator {
+    color: #678073;
+}
+
+.prism_content .tag,
+.prism_content .keyword {
+    color: #569cd6;
+}
+
+.prism_content .attr-name,
+.prism_content .property,
+.prism_content .punctuation.attr-equals,
+.prism_content .parameter {
+    color: #7bdcf0;
+}
+
+.prism_content .attr-value,
+.prism_content .string {
+    color: #c38349;
+}
+
+.prism_content .function {
+    color: #d0dcaa;
+}
+
+.prism_content .yellow_content {
+    color: yellow;
 }
 
 @media screen and (max-width: 768px) {
