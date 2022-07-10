@@ -1,0 +1,19 @@
+.tutorial {
+    padding-top: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .tutorial {
+        padding-top: 140px;
+    }
+}
+
+@media screen and (max-width: 411px) {
+    .tutorial {
+        padding-top: 65px;
+    }
+    .tutorial th,
+    td {
+        font-size: 10px;
+    }
+}

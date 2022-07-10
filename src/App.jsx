@@ -27,6 +27,9 @@ import BanKhac from './pages/stock/BanKhac';
 import Canslim from './pages/stock/Canslim';
 import NenNhat from './pages/stock/NenNhat';
 import Stock from './pages/stock/Stock';
+import DragDropTutorial from './pages/tutorial/DragDropTutorial';
+import ReduxSagaTutorial from './pages/tutorial/ReduxSagaTutorial';
+import TutorialOther from './pages/tutorial/TutorialOther';
 import Profile from './pages/user/Profile';
 import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import AdminPageDefault from './templates/AdminTemplate/defaultAdminTemplate/AdminPageDefault';
@@ -61,6 +64,10 @@ function App() {
         <HomeTemplate path='/other/cau-hinh-folder-nodejs' exact Component={NodejsFolder} />
         <HomeTemplate path='/other/cac-phuong-thuc-mang-hay-dung' exact Component={ArrayMethods} />
         <HomeTemplate path='/other/lodash' exact Component={LodashArray} />
+
+        <HomeTemplate path='/tutorial/redux-saga' exact Component={ReduxSagaTutorial} />
+        <HomeTemplate path='/tutorial/drag-drop' exact Component={DragDropTutorial} />
+        <HomeTemplate path='/tutorial/other' exact Component={TutorialOther} />
 
         <HomeTemplate path='/stock' exact Component={Stock} />
         <HomeTemplate path='/stock/nen-nhat' exact Component={NenNhat} />

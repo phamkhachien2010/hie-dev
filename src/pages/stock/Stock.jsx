@@ -1,8 +1,12 @@
 import { Table } from 'antd';
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { SUPER_ADMIN } from '../../util/setting/config';
 
 import styleStock from './stock.module.css'
+import Swal from 'sweetalert2';
+import { history } from '../../App';
 
 const chonCoPhieu = [
     {
@@ -113,6 +117,19 @@ const columns = [
 ];
 
 export default function Stock() {
+
+    const { userLogin } = useSelector(state => state.UserReducer);
+
+    if (userLogin.type !== SUPER_ADMIN) {
+        Swal.fire({
+            title: 'Error!',
+            text: 'Bạn không có quyền truy cập trang này!',
+            icon: 'error',
+            confirmButtonText: 'Cool!'
+        })
+        history.push('/login')
+    }
+
     return (
         <div className={styleStock.stock}>
             <h1 className='font-bold text-2xl md:text-4xl text-center py-3'>Bí kíp giao dịch cổ phiếu</h1>

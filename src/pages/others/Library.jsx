@@ -2,7 +2,6 @@ import { Input, Table } from 'antd'
 import { useFormik } from 'formik';
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { GET_ALL_LIBRARIES_API } from '../../redux/constant/ConstantSaga';
 import styleOther from './other.module.css'
 
@@ -73,7 +72,7 @@ export default function Library() {
       dataIndex: 'tutorial',
       render: (text, record, index) => {
         if (record.tutorial) {
-          return <NavLink className='text-blue-400' target='_blank' key={index} to={record.tutorial}>Link tutorial</NavLink>
+          return <a className='text-blue-400' target='_blank' key={index} href={record.tutorial}>Link tutorial</a>
         }
         return
       },
@@ -102,7 +101,7 @@ export default function Library() {
         <h1 className='text-center text-xl md:text-2xl lg:text-4xl font-bold py-3' >Các thư viện thường dùng</h1>
         <Search name='description' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
 
-        <Table columns={columns} dataSource={listLibraries}  />
+        <Table columns={columns} dataSource={listLibraries} />
       </div>
 
     </div>

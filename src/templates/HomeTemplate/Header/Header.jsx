@@ -6,7 +6,6 @@ import { history } from '../../../App';
 import { useTranslation } from 'react-i18next';
 import styleHeader from './header.module.css'
 import { useSelector } from 'react-redux';
-import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 
 
 const { Option } = Select
@@ -199,7 +198,7 @@ export default function Header(props) {
             <div className={styleHeader.header__content}>
                 <div className="sm:flex items-center p-2 hidden justify-center lg:pb-4">
                     <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" >
-                        <img style={{ width: '50px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
+                        <img className='rounded-lg' style={{ width: '50px' }} src={require('../../../assets/img/logo-dark.png')} alt="logo" />
                     </NavLink>
                 </div>
                 <div className="items-center flex-shrink-0 hidden sm:flex absolute right-5">
