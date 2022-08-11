@@ -8,12 +8,10 @@ import TerminalClauseManager from './pages/admin/TerminalClauseManager';
 import UserManagerTodoList from './pages/admin/UserManagerTodoList';
 import Todolist from './pages/app/todolist/Todolist';
 import TodoListManager from './pages/app/todolist/TodoListManager';
-import BackEnd from './pages/backEnd/BackEnd';
-import MySql from './pages/backEnd/MySql';
-import NodeJs from './pages/backEnd/NodeJs';
-import FrontEnd from './pages/frontEnd/FrontEnd';
-import ReactFrontend from './pages/frontEnd/ReactFrontend';
-import GitBasic from './pages/git/GitBasic';
+import BackEnd from './pages/dev/BackEnd';
+import FrontEnd from './pages/dev/FrontEnd';
+import ReactFrontend from './pages/tech/ReactFrontend';
+import GitBasic from './pages/tech/GitBasic';
 import HomePage from './pages/Home/HomePage';
 import Login from './pages/loginSignup/Login';
 import Register from './pages/loginSignup/Register';
@@ -35,6 +33,8 @@ import AdminTemplate from './templates/AdminTemplate/AdminTemplate';
 import AdminPageDefault from './templates/AdminTemplate/defaultAdminTemplate/AdminPageDefault';
 import HomeTemplate from './templates/HomeTemplate/HomeTemplate';
 import UserTemplate from './templates/userTemplate/UserTemplate';
+import NodeJs from './pages/tech/NodeJs'
+import MySql from './pages/tech/MySql'
 
 
 export const history = createBrowserHistory();

@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
-import styleFrontend from './FrontEnd.module.css'
+import styleFrontend from './tech.module.css'
 
 export default function ReactFrontend() {
 
-  const reactImgPath = require('../../assets/img/react-img.jpeg')
-  const bgSection = require('../../assets/img/bg-section-react.jpg');
 
   useEffect(() => {
     window.scroll(0, 0)
@@ -16,7 +14,7 @@ export default function ReactFrontend() {
   }, [])
 
   return (
-    <div className={styleFrontend.frontEnd__content}>
+    <div className={styleFrontend.tech}>
 
       <div className='grid grid-cols-6'>
         <section className='col-span-5'>

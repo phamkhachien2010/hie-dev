@@ -99,7 +99,7 @@ export default function Library() {
     <div className={styleOther.other}>
       <div className="w-4/5 m-auto relative">
         <h1 className='text-center text-xl md:text-2xl lg:text-4xl font-bold py-3' >Các thư viện thường dùng</h1>
-        <Search name='description' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
+        <Search name='description' onChange={formik.handleChange} placeholder="Nhập chức năng của thư viện" onSearch={formik.handleSubmit} enterButton />
 
         <Table columns={columns} dataSource={listLibraries} />
       </div>

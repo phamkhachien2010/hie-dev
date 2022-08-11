@@ -1,7 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import styleBackEnd from '../frontEnd/FrontEnd.module.css'
+import styleBackEnd from './FrontEnd.module.css'
 
 export default function BackEnd(props) {
 

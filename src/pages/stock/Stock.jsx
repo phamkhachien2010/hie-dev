@@ -11,7 +11,7 @@ import { history } from '../../App';
 const chonCoPhieu = [
     {
         key: '1',
-        name: <p>Cổ phiếu có điểm CANSLIM trên 60, điểm 4M trên 60, hoặc các cổ phiếu có quá trình phục hổi</p>,
+        name: <p>Cổ phiếu có điểm CANSLIM trên 50, điểm 4M trên 50, hoặc các cổ phiếu có quá trình phục hổi</p>,
         check: <input type='checkbox' />
     },
     {
@@ -21,17 +21,27 @@ const chonCoPhieu = [
     },
     {
         key: '3',
-        name: <p>Cổ phiếu có lợi nhuận tăng theo quý, năm</p>,
+        name: <p>Cổ phiếu có EPS tăng theo quý (4 quý gần nhất)</p>,
         check: <input type='checkbox' />
     },
     {
         key: '4',
-        name: <p>Cổ phiếu có ROE, ROA, ROIC > 10%</p>,
+        name: <p>Cổ phiếu có EPS tăng theo năm (3 năm gần nhất)</p>,
         check: <input type='checkbox' />
     },
     {
         key: '5',
-        name: <p>Cổ phiếu có sự tăng trưởng EPS so với cùng kỳ các năm trước, tăng trưởng EPS phải bắt nguồn từ tăng trưởng doanh số. Bên cạnh đó, các cổ phiếu cùng ngành cũng phải cho thấy sự tăng trưởng EPS. Có sự tăng trưởng EPS qua các năm.</p>,
+        name: <p>Cổ phiếu có EPS tăng cùng kỳ quý trước</p>,
+        check: <input type='checkbox' />
+    },
+    {
+        key: '6',
+        name: <p>Cổ phiếu có sự tăng tốc trong tăng trưởng EPS so với các tiêu chí</p>,
+        check: <input type='checkbox' />
+    },
+    {
+        key: '7',
+        name: <p>Cổ phiếu có ROE, ROA, ROIC > 10%</p>,
         check: <input type='checkbox' />
     },
 ];
@@ -151,6 +161,21 @@ export default function Stock() {
                         <NavLink to='/stock/canslim' className='text-blue-400' >Chọn cổ phiếu theo CANSLIM</NavLink>
                     </li>
                 </ul>
+                <ul className='list-disc'>
+                    <li>
+                        <p>Sử dụng chức năng lọc điểm trong <a className='text-blue-400' href="https://www.kungfustockspro.live/loc-diem" target='_blank'>kungfu-stock-pro</a> để chọn những cổ phiếu theo tiêu chí: tăng trưởng EPS TTM lớn hơn 25%, EPS trên 2000, và cổ phiếu phải có thanh khoản bình quân (trên 500.000 cp trung bình 50 phiên)</p>
+                    </li>
+                    <li>
+                        <p>Xem qua chỉ tiêu của các cổ phiếu trong danh sách những cổ phiếu vừa tìm được, có thoả mãn mức tăng trưởng EPS, lợi nhuận, doanh số không <a className='text-blue-400' href="https://www.kungfustockspro.live/phan-tich-doanh-nghiep" target='_blank'>-> Chỉ tiêu cổ phiếu</a></p>
+                    </li>
+                    <li>
+                        <p>Lập bảng tính để so sánh những cổ phiếu được chọn, cổ phiếu nào có yếu tố cơ bản mạnh nhất theo bảng tính <a className='text-blue-400' href="https://docs.google.com/spreadsheets/d/1-kaDoBk9VkehV9FmxXyO4gZ0CTg356pI/edit#gid=1772514939" target='_blank'>-> Bảng tính chọn cổ phiếu</a></p>
+                    </li>
+                    <li>
+                        <p>Xem xét xem cổ phiếu có đang tạo nền giá vững chắc không rồi tìm những tín hiệu mua tin cậy</p>
+                    </li>
+                </ul>
+
                 <Table pagination={false} dataSource={chonCoPhieu} columns={columns} />
 
             </section>

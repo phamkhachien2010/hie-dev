@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { NavLink } from 'react-router-dom';
-import styleBackEnd from './backend.module.css'
+import styleBackEnd from './tech.module.css'
 
 export default function NodeJs() {
 
@@ -12,7 +12,7 @@ export default function NodeJs() {
         }
     }, [])
     return (
-        <div className={styleBackEnd.back__end}>
+        <div className={styleBackEnd.tech}>
 
             <div className='grid grid-cols-6'>
                 <div className="w-2/3 m-auto text-xs lg:text-base col-span-5">

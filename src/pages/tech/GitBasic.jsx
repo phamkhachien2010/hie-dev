@@ -1,6 +1,6 @@
 import { Table } from 'antd';
 import React, { useEffect } from 'react';
-import styleTech from './git.module.css'
+import styleTech from './tech.module.css'
 
 const bgGit = require('../../assets/img/bg-git.jpg')
 
@@ -140,13 +140,23 @@ const dataGitSecond = [
     },
     {
         key: '7',
+        name: <p>git push origin branch_name</p>,
+        desc: <p>Đẩy lên server nhánh branch_name</p>,
+    },
+    {
+        key: '8',
+        name: <p>git checkout master</p>,
+        desc: <p>Quay lại nhánh chính</p>,
+    },
+    {
+        key: '9',
         name: <p>git merge <span className='font-thin'>branch_name</span></p>,
         desc: <p>Gộp nhánh cần gộp vào nhánh chính (nếu đã test ổn)</p>,
     },
     {
-        key: '8',
-        name: <p>git push</p>,
-        desc: <p>Đẩy lên server</p>,
+        key: '10',
+        name: <p>git push origin master</p>,
+        desc: <p>Đẩy nhánh chính sau khi merge lên server</p>,
     },
 ]
 
@@ -175,7 +185,7 @@ export default function GitBasic() {
         }
     }, [])
     return (
-        <div className={styleTech.gitBasic}>
+        <div className={styleTech.tech}>
             <div className='text-white' style={{ backgroundImage: `url(${bgGit})`, backgroundAttachment: 'fixed' }}>
                 <div style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
 

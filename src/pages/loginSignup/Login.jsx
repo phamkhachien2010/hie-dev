@@ -7,8 +7,6 @@ import { LOGIN_API } from '../../redux/constant/ConstantSaga';
 import styleLogin from './loginSignup.module.css'
 import { useTranslation } from 'react-i18next';
 
-
-
 const logoImg = require('../../assets/img/logo-dark.png')
 export default function Login() {
 

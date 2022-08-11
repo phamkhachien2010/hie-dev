@@ -52,6 +52,10 @@ export default function Header(props) {
                     }}> <NavLink className="dropdown-item bg-cyan-50 text-black" to="/app/todolist">Todo list</NavLink></div>,
                     key: '0',
                 },
+                {
+                    label: <div> <a className="dropdown-item bg-cyan-50 text-black" href='https://gamepokemon-hie.vercel.app/' target='_blank'>Game Pokemon</a></div>,
+                    key: '1',
+                },
 
                 {
                     type: 'divider',

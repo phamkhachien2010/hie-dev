@@ -350,6 +350,16 @@ export default function ArrayMethods() {
                             </pre>
                         </div>
 
+                        <div id="random">
+                            <h3 className='text-xl lg:text-2xl font-bold mb-0 mt-3'>Math.random()</h3>
+                            <p className='font-bold'>Tạo 1 số ngẫu nhiên trong đoạn từ 0 - n</p>
+                            <p>Math.floor(Math.random() * n+1);</p>
+                            <p>Ví dụ tạo số ngẫu nhiên từ 0 - 9: Math.floor(Math.random() * 10);</p>
+                            <p className='font-bold'>Tạo 1 số ngẫu nhiên trong đoạn từ min - max</p>
+                            <p>Math.floor(Math.random() * (max - min + 1 )) + min;</p>
+                            <p>Ví dụ tạo số ngẫu nhiên từ 1 - 9: Math.floor(Math.random() * 10) + 1;</p>
+                        </div>
+
                     </section>
                 </div>
 
@@ -375,6 +385,7 @@ export default function ArrayMethods() {
                         <h2 className='text-sx sm:text-sm lg:text-base'><a className='text-black' href='#at'>at</a></h2>
                         <h2 className='text-sx sm:text-sm lg:text-base'><a className='text-black' href='#join'>join</a></h2>
                         <h2 className='text-sx sm:text-sm lg:text-base'><a className='text-black' href='#flat'>flat</a></h2>
+                        <h2 className='text-sx sm:text-sm lg:text-base'><a className='text-black' href='#random'>Math.random</a></h2>
                     </div>
                 </div>
             </div>

@@ -40,6 +40,13 @@ const mySkill = [
     ]
   },
   {
+    name: 'VueJs',
+    skills: [
+      { name: 'Vue basic' },
+      { name: 'Vue3' },
+    ]
+  },
+  {
     name: 'Back-end',
     skills: [
       { name: 'NodeJs' },
@@ -75,37 +82,9 @@ const mySkill = [
 ]
 
 const myProject = [
+
   {
-    name: "HTML/CSS Projects",
-    listProject: [
-      {
-        projectName: 'Housing homepage',
-        description: 'Homepage about homestay and travel',
-        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
-        linkDemo: 'https://phamkhachien-housing-deploy.netlify.app',
-        linkGithub: 'https://github.com/phamkhachien2010/housing-deploy',
-        bgImage: require('../../assets/imgAbout/housing.png')
-      },
-      {
-        projectName: 'Bake homepage',
-        description: 'Homepage about cakes',
-        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
-        linkDemo: 'https://phamkhachien-bake-deploy.netlify.app/',
-        linkGithub: 'https://github.com/phamkhachien2010/bake-deploy',
-        bgImage: require('../../assets/imgAbout/bake.png')
-      },
-      {
-        projectName: 'Merged homepage',
-        description: 'Homepage about a busines company',
-        technology: 'HTML5, CSS3, Jquery, Owlcarousel',
-        linkDemo: 'https://phamkhachien-merged.netlify.app',
-        linkGithub: 'https://github.com/phamkhachien2010/mergedDeploy',
-        bgImage: require('../../assets/imgAbout/merged.png')
-      },
-    ]
-  },
-  {
-    name: "SASS/Responsive Projects",
+    name: "HTML, CSS, SCSS",
     listProject: [
       {
         projectName: 'Honda homepage',
@@ -147,7 +126,28 @@ const myProject = [
     ]
   },
   {
-    name: "reactJs, NodeJs Projects",
+    name: "VueJs Projects",
+    listProject: [
+      {
+        projectName: 'App air-bnb',
+        description: 'Website about Booking room jouney',
+        technology: 'VueJs',
+        linkDemo: 'https://air-bnb-hie.vercel.app/',
+        linkGithub: 'https://github.com/phamkhachien2010/air-bnb',
+        bgImage: require('../../assets/imgAbout/bg-air-bnb.png')
+      },
+      {
+        projectName: 'Game pokemon',
+        description: 'Game card',
+        technology: 'VueJs',
+        linkDemo: 'https://gamepokemon-hie.vercel.app/',
+        linkGithub: 'https://github.com/phamkhachien2010/gamepokemon-vue',
+        bgImage: require('../../assets/imgAbout/bg-game-pokemon.png')
+      }
+    ]
+  },
+  {
+    name: "ReactJs, NodeJs Projects",
     listProject: [
       {
         projectName: 'My website',
@@ -155,7 +155,15 @@ const myProject = [
         technology: 'ReactJs, React functional component, redux, redux saga ...',
         linkDemo: 'https://hie-dev.vercel.app/',
         linkGithub: 'https://github.com/phamkhachien2010/hie-dev',
-        bgImage: require('../../assets/imgAbout/hie-dev.png')
+        bgImage: require('../../assets/imgAbout/bg-hie-dev-app.png')
+      },
+      {
+        projectName: 'Booking ticket movie website',
+        description: 'Website about Booking ticket movie and manage user',
+        technology: 'ReactJs, React functional component, redux, redux saga ...',
+        linkDemo: 'https://booking-ticket-react.vercel.app/',
+        linkGithub: 'https://github.com/phamkhachien2010/booking-ticket-react',
+        bgImage: require('../../assets/imgAbout/bg-booking-ticket-full.png')
       },
     ]
   }

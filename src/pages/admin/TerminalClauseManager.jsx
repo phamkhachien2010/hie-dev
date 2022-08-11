@@ -4,7 +4,6 @@ import ModalTerminalUseCreate from '../../component/ModalTerminalUseCreate';
 import ModalEditTerminalUse from '../../component/ModalEditTerminalUse';
 import { OPEN_MODAL_TEMINAL_EDIT, OPEN_MODAL_TEMINAL_USE } from '../../redux/constant/ConstantReducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 import { DELETE_COMMAND_API, GET_ALL_COMMAND_API } from '../../redux/constant/ConstantSaga';
 import { useFormik } from 'formik';
 

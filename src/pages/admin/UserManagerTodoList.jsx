@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Input, message, Popconfirm, Table } from 'antd';
+import { Input, Popconfirm, Table } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { DELETE_USER_API, GET_ALL_USER_API } from '../../redux/constant/ConstantSaga';
 import { OPEN_USER_MODAL_EDIT } from '../../redux/constant/ConstantReducer';

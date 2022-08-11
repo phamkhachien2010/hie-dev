@@ -69,7 +69,7 @@ export default function TerminalInUse() {
         <div className={styleOther.other}>
             <div className="w-4/5 m-auto relative">
                 <h1 className='text-center text-xl md:text-2xl lg:text-4xl font-bold py-3' >Các lệnh terminal thường dùng</h1>
-                <Search name='setup' onChange={formik.handleChange} placeholder="input search text" onSearch={formik.handleSubmit} enterButton />
+                <Search name='setup' onChange={formik.handleChange} placeholder="Nhập từ khoá" onSearch={formik.handleSubmit} enterButton />
                 <Table columns={columns} dataSource={listCommand} />
             </div>
         </div>

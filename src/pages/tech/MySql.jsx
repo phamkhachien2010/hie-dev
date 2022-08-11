@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styleMysql from './backend.module.css'
+import styleMysql from './tech.module.css'
 
 export default function MySql() {
 
@@ -11,7 +11,7 @@ export default function MySql() {
         }
     }, [])
     return (
-        <div className={styleMysql.back__end}>
+        <div className={styleMysql.tech}>
             <div className='grid grid-cols-6'>
                 <div className="w-4/5 m-auto text-xs md:text-base col-span-5">
                     <h1 className='text-xl md:text-2xl lg:text-4xl text-center font-bold pt-3 pb-3'>MySQL, làm việc với MySQL </h1>
